@@ -1,0 +1,9 @@
+{
+  "name": "manager-interview-sandbox",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Monthly planning and daily practice scheduling workspace for minor league manager interviews. Static, single-file app.",
+  "scripts": {
+    "test": "node tests/e2e.js"
+  }
+}
