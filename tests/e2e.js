@@ -61,6 +61,9 @@ const pdfPages=buf=>(buf.toString("latin1").match(/\/Type\s*\/Page[^s]/g)||[]).l
   await shot("01-intro");
   await page.click("#inStart");
   check(await page.isHidden("#intro"),"intro closes on Start planning");
+  check(await page.isVisible("#viewPlayers.on"),"a new candidate starts on Player Evaluations (step 1)");
+  check(await page.locator("nav.seg [role=tab]").count()===4&&(await page.textContent("nav.seg")).includes("Player Evaluations"),"navigation: Player Evaluations | Monthly Planner | Daily Schedules (+ Review & Export)");
+  await page.click('nav.seg [data-view="month"]');
   check((await page.textContent("#calTitle")).includes("June 2027"),"planning month set to June 2027");
   check((await page.textContent("#barDesc")).includes("Jordan Sample"),"candidate name shows in the header");
 
@@ -298,10 +301,70 @@ const pdfPages=buf=>(buf.toString("latin1").match(/\/Type\s*\/Page[^s]/g)||[]).l
   await page.fill('#sidePri','Daily fundamentals; develop catchers as leaders; protect arms.');
   await page.press('#sidePri','Tab');
 
-  step("10. Plan overview");
+  step("10. Player evaluations, prescriptions and links to the schedule");
+  await page.click('nav.seg [data-view="players"]');
+  check(await page.locator("[data-case-open]").count()===4,"four player cases");
+  const names=[];
+  for(const id of ["inf","of","c","br"]){
+    await page.click(`.ev-cases [data-case-open="${id}"]`);
+    const t=await page.textContent(".ev-prof");
+    names.push((await page.textContent(".ev-prof h2")).trim());
+    check(/Background/.test(t)&&/Performance/.test(t)&&/Scouting/.test(t)&&/Development context/.test(t),`${id}: profile shows background, performance, scouting and context`);
+    check(await page.locator(`textarea[data-case="${id}"]`).count()===7,`${id}: seven freeform fields (3 evaluation + 4 prescription)`);
+  }
+  check(new Set(names).size===4,`distinct fictional players: ${names.join(", ")}`);
+  await page.click('.ev-cases [data-case-open="c"]');
+  const answers={strengths:"Game calling and receiving; staff trust.",opportunities:"Blocking to glove side; late-game throwing.",observations:"Workload in June may explain late pop times.",
+    priority:"Blocking footwork to the glove side.",intervention:"Short daily block-and-recover sequences with the catching coordinator.",implementation:"10 minutes pregame, 4 days a week; no extra work after day games.",measurement:"PB/WP per 100 pitches and video of glove-side blocks, reviewed weekly."};
+  for(const [k,v] of Object.entries(answers)) await page.fill(`textarea[data-case="c"][data-evf="${k}"]`,v);
+  await page.press('textarea[data-case="c"][data-evf="measurement"]','Tab');
+  await page.click('.ev-cases [data-case-open="inf"]');
+  await page.fill('textarea[data-case="inf"][data-evf="strengths"]','Hands, first step, works hard.');
+  w=await W();
+  check(JSON.stringify(w.evals.c)===JSON.stringify(answers),"catcher evaluation and prescription saved to the workspace");
+  check((await page.textContent('[data-case-open="c"]')).includes("Started"),"case tab shows the evaluation has been started");
+  await shot("08-players");
+  // link a monthly activity
+  await page.click('nav.seg [data-view="month"]');
+  await page.click('[data-dropday="2027-06-08"] .ac:has-text("Bunt defense")');
+  await page.click('#pop [data-applayer="inf"]');
+  await page.click('#pop [data-popclose] >> nth=-1');
+  w=await W();
+  check(w.activities.find(a=>a.date==="2027-06-08"&&a.title==="Bunt defense").playerId==="inf","activity linked to the infielder from the activity editor");
+  check((await page.textContent('[data-dropday="2027-06-08"] .ac:has-text("Bunt defense")')).includes("RI"),"calendar chip shows the linked player's initials");
+  await page.click('[data-dropday="2027-06-15"] .ac:has-text("Bunt defense")');
+  await page.click('#pop [data-applayer="inf"]'); await page.keyboard.press("Escape");
+  // link a daily row, and carry a link through a planned chip
+  await page.click('[data-schedopen="2027-06-09"]');
+  await page.click('[data-rowmenu] >> nth=0'); await page.click('#menu button:has-text("Link to a player")');
+  await page.click('#menu button:has-text("Sam Kowalczyk")');
+  w=await W();
+  check(w.schedules["2027-06-09"].sections[0].rows[0].playerId==="c","daily-schedule row linked to the catcher from its ⋯ menu");
+  check(await page.locator('.rowpl:has-text("Kowalczyk")').count()===1,"row shows a player badge");
+  await page.click('[data-dtab="2027-06-15"]');
+  await page.click('.planned .pchip:has-text("Bunt defense")');
+  w=await W();
+  check(w.schedules["2027-06-15"].sections.some(s=>s.rows.some(r=>r.activity==="Bunt defense"&&r.playerId==="inf")),"a planned activity added to the day keeps its player link");
+  await page.click('.rowpl >> nth=0'); await page.click('#menu button:has-text("No player")');
+  check(!(await W()).schedules["2027-06-15"].sections.some(s=>s.rows.some(r=>r.playerId)),"clicking the badge lets the link be removed");
+  await page.keyboard.press("Control+z");
+  // profile lists scheduled work
+  await page.click('nav.seg [data-view="players"]');
+  await page.click('.ev-cases [data-case-open="inf"]');
+  const links=await page.locator(".ev-link").allTextContents();
+  check(links.length===3&&links.filter(x=>x.includes("Monthly plan")).length===2&&links.filter(x=>x.includes("Daily schedule")).length===1,"infielder profile lists 2 monthly activities and 1 daily row");
+  await page.click('.ev-link:has-text("Daily schedule")');
+  check(await page.isVisible("#viewDaily.on"),"a linked item opens its schedule");
+  await page.click('nav.seg [data-view="players"]');
+  await page.click('.ev-link >> nth=0');
+  check(await page.isVisible("#viewMonth.on")&&await page.isVisible("#drawer.on"),"a linked monthly item opens that day in the planner");
+  await page.click('[data-drclose]');
+
+  step("10b. Plan overview");
   await page.click('nav.seg [data-view="overview"]');
   const ov=await page.textContent("#overview");
   check(ov.includes("Jordan Sample")&&ov.includes("Pregame Practice")&&ov.includes("Off-day Workout"),"overview lists candidate and both schedules");
+  check(ov.includes("Player evaluations")&&ov.includes("Sam Kowalczyk")&&ov.includes("Blocking footwork"),"overview lists the four players with their primary priority");
   check(ov.includes("Team defense")&&/\d+m|\dh/.test(ov),"overview shows categories with monthly entries and scheduled time");
   check((await page.inputValue('#overview textarea'))==="Daily fundamentals; develop catchers as leaders; protect arms.","priorities shared between planner and overview");
   await shot("06-overview");
@@ -317,7 +380,7 @@ const pdfPages=buf=>(buf.toString("latin1").match(/\/Type\s*\/Page[^s]/g)||[]).l
 
   step("12. Print / PDF");
   const pdfs={};
-  for(const [kind,date] of [["month"],["daily","2027-06-09"],["package"]]){
+  for(const [kind,date] of [["month"],["daily","2027-06-09"],["evals"],["eval","c"],["package"]]){
     await page.evaluate(([k,d])=>window.MIS.buildPrint(k,d),[kind,date]);
     await page.emulateMedia({media:"print"});
     const landscape=kind==="month";
@@ -328,7 +391,11 @@ const pdfPages=buf=>(buf.toString("latin1").match(/\/Type\s*\/Page[^s]/g)||[]).l
   }
   check(pdfs.month>=2,`monthly plan prints (calendar + details): ${pdfs.month} pages`);
   check(pdfs.daily===1,`daily schedule fits on one page: ${pdfs.daily} page`);
-  check(pdfs.package>=5,`review package = cover + calendar + details + 2 daily: ${pdfs.package} pages`);
+  check(pdfs.evals>=4,`player evaluations print one or more pages per player: ${pdfs.evals} pages`);
+  check(pdfs.eval>=1&&pdfs.eval<=2,`a single player evaluation prints on its own: ${pdfs.eval} page(s)`);
+  check(pdfs.package>=5+pdfs.evals,`review package = cover + evaluations + calendar + details + 2 daily: ${pdfs.package} pages`);
+  const etxt=await page.evaluate(()=>window.MIS.buildPrint("evals")&&document.getElementById("printRoot").innerText);
+  check(etxt.includes("Blocking footwork to the glove side.")&&etxt.includes("Left blank")&&etxt.includes("Bunt defense"),"printed evaluations carry the candidate's text, blanks and linked activities");
   const ptxt=await page.evaluate(()=>window.MIS.buildPrint("package")&&document.getElementById("printRoot").innerText);
   check(ptxt.includes("Pregame Practice")&&ptxt.includes("Defensive communication")&&ptxt.includes("Two-strike approach"),"printed package carries titles, weekly focus and notes");
   await page.click('[data-print="month"]'); await page.waitForTimeout(150);
@@ -342,6 +409,7 @@ const pdfPages=buf=>(buf.toString("latin1").match(/\/Type\s*\/Page[^s]/g)||[]).l
   check(/manager-sandbox_jordan-sample_2027-06\.json$/.test(file),"export filename includes candidate and month");
   const exported=JSON.parse(fs.readFileSync(file,"utf8"));
   check(exported.app==="manager-interview-sandbox"&&exported.activities.length===beforeReload.activities.length&&Object.keys(exported.schedules).length===2,"export contains the whole plan");
+  check(exported.schema===2&&JSON.stringify(exported.evals.c)===JSON.stringify(answers)&&exported.activities.some(a=>a.playerId==="inf"),"export contains evaluations, prescriptions and player links");
   await page.click("#btnFile"); await page.click('#menu button:has-text("Start a new exercise")');
   await page.click("#cmOk");
   check(await page.isVisible("#intro"),"new exercise returns to the intro");
@@ -380,7 +448,7 @@ const pdfPages=buf=>(buf.toString("latin1").match(/\/Type\s*\/Page[^s]/g)||[]).l
   await page.reload();
 
   step("15. Click every visible control in each view (crash sweep)");
-  for(const v of ["month","daily","overview"]){
+  for(const v of ["players","month","daily","overview"]){
     await page.click(`nav.seg [data-view="${v}"]`);
     const n=await page.locator("main button:visible").count();
     for(let i=0;i<n;i++){
@@ -397,7 +465,29 @@ const pdfPages=buf=>(buf.toString("latin1").match(/\/Type\s*\/Page[^s]/g)||[]).l
   check(errors.length===0,`no page errors during the whole run${errors.length?": "+errors.slice(0,3).join(" | "):""}`);
   check(external.length===0,`no external network requests${external.length?": "+external.slice(0,3).join(", "):""}`);
 
-  step("16. Tablet width");
+  step("16. A saved V1 exercise opens and keeps working");
+  const ctx1=await browser.newContext({viewport:{width:1440,height:900}});
+  const p1=await ctx1.newPage(); const err1=[]; p1.on("pageerror",e=>err1.push(e.message));
+  await p1.goto(URL);
+  const v1path=path.join(__dirname,"fixtures","v1-exercise.json"), v1=JSON.parse(fs.readFileSync(v1path,"utf8"));
+  check(v1.schema===1&&!v1.evals,"fixture is a real V1 export (schema 1, no evaluations)");
+  await p1.setInputFiles("#filePick",v1path); await p1.waitForTimeout(200);
+  let w1=await p1.evaluate(()=>JSON.parse(JSON.stringify(window.MIS.W)));
+  const strip=o=>JSON.parse(JSON.stringify(o,(k,v)=>k==="playerId"?undefined:v));
+  check(w1.candidate.name===v1.candidate.name&&JSON.stringify(strip(w1.activities))===JSON.stringify(v1.activities)&&JSON.stringify(strip(w1.schedules))===JSON.stringify(v1.schedules)&&JSON.stringify(w1.categories)===JSON.stringify(v1.categories)&&JSON.stringify(w1.weeks)===JSON.stringify(v1.weeks),"V1 activities, schedules, categories and weekly focus import unchanged");
+  check(JSON.stringify(w1.evals)==="{}"&&w1.activities.every(a=>a.playerId===null),"V1 data gets empty evaluations and no player links");
+  await p1.click('nav.seg [data-view="players"]');
+  await p1.click('[data-case-open="of"]'); await p1.fill('textarea[data-case="of"][data-evf="priority"]','Swing decisions early in counts.');
+  await p1.click('nav.seg [data-view="daily"]');
+  check(await p1.locator(".dtab:not(.add)").count()===2,"both V1 daily schedules open");
+  await p1.fill('[data-sf="notes"]','edited after upgrade'); await p1.press('[data-sf="notes"]','Tab');
+  await p1.waitForTimeout(500); await p1.reload();
+  w1=await p1.evaluate(()=>JSON.parse(JSON.stringify(window.MIS.W)));
+  check(w1.evals.of.priority==="Swing decisions early in counts."&&Object.values(w1.schedules).some(S=>S.notes==="edited after upgrade")&&w1.activities.length===v1.activities.length,"upgraded V1 exercise saves new evaluation work alongside its old plan");
+  check(err1.length===0,"no page errors with V1 data");
+  await ctx1.close();
+
+  step("17. Tablet width");
   await page.setViewportSize({width:1024,height:768});
   await page.click('nav.seg [data-view="month"]');
   const overflow=await page.evaluate(()=>document.documentElement.scrollWidth-window.innerWidth);

@@ -1,8 +1,8 @@
 # Manager Interview Sandbox
 
-A planning workspace for minor league manager interviews. Candidates build a monthly plan for a Double-A affiliate, then turn at least two dates from it into detailed daily practice schedules. Reviewers get a one-page overview and a printable review package.
+A workspace for minor league manager interviews. Candidates evaluate four fictional Double-A players and write a development prescription for each. They then build a monthly plan and turn at least two dates from it into detailed daily practice schedules. Reviewers get a one-page overview and a printable review package.
 
-The tool is deliberately open-ended. It has no preset categories, sample schedule, required fields or scoring. Candidates organize the month their own way.
+The tool is deliberately open-ended. It has no preset categories, sample schedule, required fields, rating scales or scoring. Candidates evaluate, prescribe and organize the month their own way.
 
 It is a single static HTML file. It needs no backend, login, build step or external services.
 
@@ -13,6 +13,7 @@ index.html                  The application (HTML, CSS and JS in one file)
 .nojekyll                   Tells GitHub Pages to serve files as-is
 docs/DEVELOPMENT_SUMMARY.md What was reused, changed, added and left out
 tests/e2e.js                End-to-end candidate workflow test (Playwright)
+tests/fixtures/             A saved V1 exercise, used to test that old files still load
 package.json                `npm test` runs the workflow test
 ```
 
@@ -26,22 +27,30 @@ python3 -m http.server 8000     # then visit http://localhost:8000/
 
 ## The candidate workflow
 
+The navigation has three sections — **Player Evaluations | Monthly Planner | Daily Schedules** — plus a **Review & Export** page. Candidates can move between them freely; nothing is locked or sequenced.
+
 1. **Intro.** The candidate enters their name, an optional exercise label and the planning month.
-2. **Monthly Planner.** This is a month view (with a week view) where the candidate can:
+2. **Player Evaluations.** Four fictional cases: an infielder, an outfielder, a catcher and a baserunner. Each has background, performance figures, scouting and staff observations (which don't always agree), development context, and a quote from the player. Beside each case are seven open text areas:
+   - *Evaluation:* strengths, development opportunities, additional observations
+   - *Development prescription:* primary priority, intervention or training approach, implementation and frequency, how progress will be evaluated
+
+   Under the text areas, each case lists any scheduled work linked to that player.
+3. **Monthly Planner.** This is a month view (with a week view) where the candidate can:
    - create their own categories and colours
    - add activities with ＋
    - drag activities to move them (hold Alt/Option to copy)
-   - click an activity to edit its time, notes and category, duplicate it, or repeat it
+   - click an activity to edit its time, notes, category and **linked player** (optional), duplicate it, or repeat it
    - type a weekly focus above each week
    - open any day to add a day label, notes and an ordered list of activities
-3. **Daily Schedules.** From a day, choose *Build daily schedule*. This uses the Schedule Hub builder: time blocks, activities, details, locations, staff, side-by-side sections, stations/rotation grids, a category on each row, and keyboard shortcuts. The activities planned for that date appear at the top for reference.
-4. **Plan Overview.** One page shows priorities, categories, monthly plan entries next to scheduled minutes in the daily schedules, the daily schedules themselves, and the month week by week.
+4. **Daily Schedules.** From a day, choose *Build daily schedule*. This uses the Schedule Hub builder: time blocks, activities, details, locations, staff, side-by-side sections, stations/rotation grids, a category on each row, an optional linked player on each row (from its ⋯ menu), and keyboard shortcuts. The activities planned for that date appear at the top for reference; adding one keeps its player link.
+5. **Review & Export.** One page shows priorities, each player's evaluation status, primary priority and linked work, categories, monthly plan entries next to scheduled minutes in the daily schedules, the daily schedules themselves, and the month week by week.
 
 ## Saving, exporting and printing
 
 - **Autosave.** Every change saves to the browser's `localStorage` automatically. Browser saving does **not** sync between devices or browsers, and the app says so in the intro and in a banner.
 - **Export / Import.** *Save & Export → Export plan (.json)* downloads the whole exercise as one file. *Import* restores it on any machine for further editing.
-- **Print / PDF.** You can print the monthly plan (landscape calendar plus a week-by-week details page), any single daily schedule (fitted to one page), or the full **review package**: cover, calendar, details and every daily schedule. To make a PDF, choose "Save as PDF" in the print dialog.
+- **Print / PDF.** You can print the player evaluations (one player or all four — each with the case, the candidate's writing and the linked work), the monthly plan (landscape calendar plus a week-by-week details page), any single daily schedule (fitted to one page), or the full **review package**: cover, four player evaluations, calendar, details and every daily schedule.
+- **V1 files.** Exercises saved or exported before player evaluations existed load unchanged; they simply start with blank evaluations. To make a PDF, choose "Save as PDF" in the print dialog.
 - **Safeguards:**
   - undo/redo (Ctrl/⌘ Z)
   - a one-step backup when an exercise is replaced (*Restore previous exercise*)
@@ -89,7 +98,8 @@ npm test                     # or: SHOTS=1 node tests/e2e.js  (also saves screen
 
 It serves the repository at a Pages-like subpath (`/manager-sandbox/`) and drives a full candidate exercise:
 
-- intro
+- intro, and starting on Player Evaluations
+- all four player cases, a full evaluation and prescription, linking monthly activities and daily rows to players, and the linked-work list on each case
 - categories
 - quick-add, edit, repeat and duplicate activities
 - drag to move and Alt-drag to copy
@@ -97,14 +107,15 @@ It serves the repository at a Pages-like subpath (`/manager-sandbox/`) and drive
 - two daily schedules, with keyboard entry, time-shift, sections, a rotation grid and row drag
 - the overview
 - reload persistence
-- printing (it checks PDF page counts)
+- printing (it checks PDF page counts for evaluations, the month, a daily schedule and the package)
 - JSON export → new exercise → import
 - rejection of bad or malicious files
 - the two-tab warning
 - a sweep that clicks every visible button
+- importing a real V1 export, checking nothing changed, then adding evaluation work to it
 
 It fails on any page error or any external network request. PDFs and screenshots go to `tests/output/`, which is git-ignored.
 
 ## Confidentiality
 
-This build contains no player names, staff names, internal schedules, organization-specific data or credentials. It makes no network requests. Everything a candidate enters stays in their own browser until they export it.
+This build contains no real player names, staff names, internal schedules, organization-specific data or credentials. The four player cases, their names and their figures are fictional and written for this exercise. It makes no network requests. Everything a candidate enters stays in their own browser until they export it.

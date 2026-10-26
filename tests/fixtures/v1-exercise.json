@@ -1,0 +1,471 @@
+{
+  "app": "manager-interview-sandbox",
+  "schema": 1,
+  "id": "ei2pfdzx",
+  "createdAt": "2026-10-26T21:15:23.778Z",
+  "updatedAt": "2026-10-26T21:15:30.996Z",
+  "lastExport": "2026-10-26T21:15:32.575Z",
+  "started": true,
+  "candidate": {
+    "name": "Jordan Sample",
+    "label": "Double-A Manager Interview"
+  },
+  "plan": {
+    "year": 2027,
+    "month": 5,
+    "weekStart": 1
+  },
+  "priorities": "Daily fundamentals; develop catchers as leaders; protect arms.",
+  "categories": [
+    {
+      "id": "ogs9e5a3",
+      "name": "Team defense",
+      "color": "#002D62"
+    },
+    {
+      "id": "s8iifq13",
+      "name": "Offense",
+      "color": "#7A4BC4"
+    },
+    {
+      "id": "qbfejo99",
+      "name": "Pitching & catching",
+      "color": "#1D6FD0"
+    },
+    {
+      "id": "0zbvc1ju",
+      "name": "Staff",
+      "color": "#1E8A5A"
+    },
+    {
+      "id": "f79q0z09",
+      "name": "Player development",
+      "color": "#EB6E1F"
+    }
+  ],
+  "activities": [
+    {
+      "id": "ulqqgkye",
+      "date": "2027-06-08",
+      "title": "Bunt defense",
+      "catId": "ogs9e5a3",
+      "time": "",
+      "notes": "",
+      "seriesId": null,
+      "order": 0
+    },
+    {
+      "id": "ebbmt53m",
+      "date": "2027-06-09",
+      "title": "Cuts & relays",
+      "catId": "ogs9e5a3",
+      "time": "",
+      "notes": "",
+      "seriesId": null,
+      "order": 1
+    },
+    {
+      "id": "pyz09nim",
+      "date": "2027-06-10",
+      "title": "Early work (hitters)",
+      "catId": "f79q0z09",
+      "time": "2:30",
+      "notes": "Two-strike approach; staff: hitting coach",
+      "seriesId": "jzesraxb",
+      "order": 0
+    },
+    {
+      "id": "vgfnh7qk",
+      "date": "2027-06-17",
+      "title": "Early work (hitters)",
+      "catId": "s8iifq13",
+      "time": "2:30",
+      "notes": "Two-strike approach; staff: hitting coach",
+      "seriesId": "jzesraxb",
+      "order": 0
+    },
+    {
+      "id": "owyiejqj",
+      "date": "2027-06-24",
+      "title": "Early work (hitters)",
+      "catId": "s8iifq13",
+      "time": "2:30",
+      "notes": "Two-strike approach; staff: hitting coach",
+      "seriesId": "jzesraxb",
+      "order": 0
+    },
+    {
+      "id": "kyr57q8j",
+      "date": "2027-06-15",
+      "title": "Bunt defense",
+      "catId": "ogs9e5a3",
+      "time": "",
+      "notes": "",
+      "seriesId": null,
+      "order": 0
+    },
+    {
+      "id": "xyhmo6ql",
+      "date": "2027-06-09",
+      "title": "PFP",
+      "catId": "qbfejo99",
+      "time": "",
+      "notes": "",
+      "seriesId": null,
+      "order": 0
+    },
+    {
+      "id": "qxybc390",
+      "date": "2027-06-09",
+      "title": "Pregame meeting",
+      "catId": null,
+      "time": "",
+      "notes": "",
+      "seriesId": null,
+      "order": 2
+    }
+  ],
+  "weeks": {
+    "2027-06-07": {
+      "focus": "Defensive communication",
+      "notes": "Series vs. a strong running team."
+    }
+  },
+  "days": {
+    "2027-06-09": {
+      "tag": "Home vs. Opponent",
+      "notes": "Getaway day tomorrow — keep it crisp."
+    }
+  },
+  "schedules": {
+    "2027-06-09": {
+      "id": "6nezkmvj",
+      "date": "2027-06-09",
+      "title": "Pregame Practice",
+      "context": "Home vs. Opponent",
+      "location": "Home ballpark",
+      "notes": "Priority: clean fundamentals before the series.",
+      "sections": [
+        {
+          "id": "sfoj3vpp",
+          "kind": "table",
+          "name": "Full team",
+          "who": "",
+          "color": "#002D62",
+          "width": 1,
+          "collapsed": false,
+          "hideLoc": false,
+          "hideStaff": false,
+          "headers": {},
+          "rows": [
+            {
+              "id": "nqceyw3l",
+              "time": "12:40",
+              "timeEnd": "1:00",
+              "activity": "Stretch & throw",
+              "detail": "",
+              "location": "Field",
+              "staff": "S&C coach",
+              "catId": "ogs9e5a3",
+              "src": null,
+              "showDetail": false
+            },
+            {
+              "id": "frmqrhfm",
+              "time": "1:00",
+              "timeEnd": "1:30",
+              "activity": "Cuts & relays",
+              "detail": "IF/OF communication; catchers with pitchers",
+              "location": "Field",
+              "staff": "S&C coach",
+              "catId": null,
+              "src": null,
+              "showDetail": true
+            },
+            {
+              "id": "17ir32p9",
+              "time": "1:30",
+              "timeEnd": "1:50",
+              "activity": "PFP",
+              "detail": "",
+              "location": "Field",
+              "staff": "S&C coach",
+              "catId": null,
+              "src": null,
+              "showDetail": false
+            },
+            {
+              "id": "e9zvwer9",
+              "time": "",
+              "timeEnd": "",
+              "activity": "Pregame meeting",
+              "detail": "",
+              "location": "",
+              "staff": "",
+              "catId": null,
+              "src": "qxybc390",
+              "showDetail": false
+            }
+          ]
+        },
+        {
+          "id": "jjeulmw4",
+          "kind": "table",
+          "name": "Pitchers",
+          "who": "Starters + relievers on schedule",
+          "color": "#EB6E1F",
+          "width": 0.5,
+          "collapsed": false,
+          "hideLoc": false,
+          "hideStaff": true,
+          "headers": {},
+          "rows": [
+            {
+              "id": "7iikmsug",
+              "time": "3:00",
+              "timeEnd": "3:20",
+              "activity": "Bullpens",
+              "detail": "",
+              "location": "Bullpen",
+              "staff": "",
+              "catId": null,
+              "src": null,
+              "showDetail": false
+            },
+            {
+              "id": "3y67vbkf",
+              "time": "3:20",
+              "timeEnd": "",
+              "activity": "Bu",
+              "detail": "",
+              "location": "Bullpen",
+              "staff": "",
+              "catId": null,
+              "src": null,
+              "showDetail": false
+            }
+          ]
+        },
+        {
+          "id": "nt1d3t12",
+          "kind": "table",
+          "name": "Position players",
+          "who": "",
+          "color": "#002D62",
+          "width": 0.3333333333333333,
+          "collapsed": false,
+          "hideLoc": false,
+          "hideStaff": false,
+          "headers": {},
+          "rows": [
+            {
+              "id": "ile1068y",
+              "time": "",
+              "timeEnd": "",
+              "activity": "",
+              "detail": "",
+              "location": "",
+              "staff": "",
+              "catId": null,
+              "src": null,
+              "showDetail": false
+            }
+          ]
+        },
+        {
+          "id": "s40yv1dv",
+          "kind": "grid",
+          "name": "Defensive stations",
+          "who": "",
+          "color": "#EB6E1F",
+          "width": 1,
+          "collapsed": false,
+          "hideLoc": false,
+          "hideStaff": false,
+          "headers": {},
+          "rows": [
+            {
+              "id": "82tiz20r",
+              "time": "2:00",
+              "timeEnd": "2:12",
+              "cells": {
+                "rv33ujsn": "Infielders",
+                "x4xbn1zn": "Outfielders",
+                "8hv31wvw": "Catchers"
+              }
+            },
+            {
+              "id": "kk6w8m8d",
+              "time": "2:15",
+              "timeEnd": "2:27",
+              "cells": {
+                "rv33ujsn": "Catchers",
+                "x4xbn1zn": "Infielders",
+                "8hv31wvw": "Outfielders"
+              }
+            },
+            {
+              "id": "ys6hv8av",
+              "time": "2:30",
+              "timeEnd": "2:42",
+              "cells": {
+                "rv33ujsn": "Outfielders",
+                "x4xbn1zn": "Catchers",
+                "8hv31wvw": "Infielders"
+              }
+            }
+          ],
+          "columns": [
+            {
+              "id": "rv33ujsn",
+              "label": "Double plays"
+            },
+            {
+              "id": "x4xbn1zn",
+              "label": "Fly balls"
+            },
+            {
+              "id": "8hv31wvw",
+              "label": "Blocking"
+            },
+            {
+              "id": "29a9eq39",
+              "label": "Station 4"
+            }
+          ]
+        }
+      ]
+    },
+    "2027-06-15": {
+      "id": "mg6mbq1s",
+      "date": "2027-06-15",
+      "title": "Off-day Workout",
+      "context": "",
+      "location": "",
+      "notes": "",
+      "sections": [
+        {
+          "id": "ud438yxi",
+          "kind": "table",
+          "name": "Full team",
+          "who": "",
+          "color": "#002D62",
+          "width": 1,
+          "collapsed": false,
+          "hideLoc": false,
+          "hideStaff": false,
+          "headers": {},
+          "rows": [
+            {
+              "id": "wc6xdzwn",
+              "time": "10:00",
+              "timeEnd": "11:00",
+              "activity": "Bunt defense",
+              "detail": "",
+              "location": "",
+              "staff": "",
+              "catId": null,
+              "src": null,
+              "showDetail": false
+            }
+          ]
+        },
+        {
+          "id": "8zk2oyxl",
+          "kind": "table",
+          "name": "Pitchers",
+          "who": "Starters + relievers on schedule",
+          "color": "#EB6E1F",
+          "width": 0.5,
+          "collapsed": false,
+          "hideLoc": false,
+          "hideStaff": true,
+          "headers": {},
+          "rows": [
+            {
+              "id": "2kb9893t",
+              "time": "",
+              "timeEnd": "",
+              "activity": "",
+              "detail": "",
+              "location": "",
+              "staff": "",
+              "catId": null,
+              "src": null,
+              "showDetail": false
+            }
+          ]
+        },
+        {
+          "id": "09cb9c1h",
+          "kind": "table",
+          "name": "Position players",
+          "who": "",
+          "color": "#002D62",
+          "width": 0.3333333333333333,
+          "collapsed": false,
+          "hideLoc": false,
+          "hideStaff": false,
+          "headers": {},
+          "rows": [
+            {
+              "id": "im8toa4m",
+              "time": "",
+              "timeEnd": "",
+              "activity": "",
+              "detail": "",
+              "location": "",
+              "staff": "",
+              "catId": null,
+              "src": null,
+              "showDetail": false
+            }
+          ]
+        },
+        {
+          "id": "ireni9ic",
+          "kind": "grid",
+          "name": "Defensive stations",
+          "who": "",
+          "color": "#EB6E1F",
+          "width": 1,
+          "collapsed": false,
+          "hideLoc": false,
+          "hideStaff": false,
+          "headers": {},
+          "rows": [
+            {
+              "id": "sdpqw75d",
+              "time": "",
+              "timeEnd": "",
+              "cells": {
+                "8d9qxhi6": "",
+                "2w6mdxn3": "",
+                "41spuez7": ""
+              }
+            }
+          ],
+          "columns": [
+            {
+              "id": "8d9qxhi6",
+              "label": "Double plays"
+            },
+            {
+              "id": "2w6mdxn3",
+              "label": "Fly balls"
+            },
+            {
+              "id": "41spuez7",
+              "label": "Blocking"
+            },
+            {
+              "id": "ibd3vn1z",
+              "label": "Station 4"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "exportedAt": "2026-10-26T21:15:32.575Z"
+}

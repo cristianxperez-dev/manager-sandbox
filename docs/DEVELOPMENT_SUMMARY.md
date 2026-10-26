@@ -1,5 +1,28 @@
 # Development Summary — Manager Interview Sandbox
 
+## V2 — player evaluations and prescriptions
+
+V2 builds on V1 with targeted additions; no V1 feature was removed or redesigned.
+
+**Added**
+- **Player Evaluations** section with four fictional Double-A cases (infielder, outfielder, catcher, baserunner). Each case has background, performance figures, scouting and staff observations from several sources (some of which disagree), development context and a player quote. No diagnosis or suggested answer is given.
+- **Freeform workspace** for each case: seven open text areas (three for the evaluation, four for the development prescription). There are no dropdowns, rating scales, required fields or preset options.
+- **A light player link.** Any monthly activity (activity editor → *Player*) or daily-schedule row (⋯ menu, or the badge on the row) can optionally be linked to one of the four players. Calendar chips show the player's initials; rows show a name badge. Adding a planned activity to a daily schedule keeps its link, and repeating or duplicating an activity copies it.
+- **Linked work on each case.** Each case lists the monthly activities and daily rows linked to that player, and each item opens where it lives. There is no tracking, status or progress view.
+- **Navigation:** Player Evaluations | Monthly Planner | Daily Schedules. V1's Plan Overview stays as a smaller **Review & Export** link at the right of the tab bar, because it holds the review package and export buttons. New candidates start on Player Evaluations.
+- **Intro** rewritten for the four-step exercise (evaluate, prescribe, plan the month, build two days).
+- **Printing:** a page per player (case, candidate's writing — blanks shown as "Left blank" — and linked work), available for one player or all four. The review package now runs: cover, four evaluations, calendar, details, daily schedules. The overview and cover page show each player's status and primary priority.
+
+**Preserved:** everything in the V1 sections below — the monthly planner, daily builder, autosave, undo, JSON export/import, prints and safeguards.
+
+**Compatibility:** the data format is now schema 2. It adds an `evals` record keyed by case id (`inf`, `of`, `c`, `br`) and a `playerId` on activities and rows. Schema-1 (V1) files and browser saves load unchanged with blank evaluations. The test suite imports a real V1 export and checks this. Because the cases live in the code rather than in each saved file, editing a case's text later would change how older exports display; give revised cases new ids if that matters.
+
+**Limitations:** an activity or row links to at most one player. A player evaluation prints over one or two pages, depending on how much the candidate writes.
+
+---
+
+## V1
+
 ## Starting point
 
 The Astros Manager Hub is a 14,500-line single-file app. Its parts:
@@ -83,7 +106,7 @@ These are excluded per the brief:
 
 ## Technical notes and limitations
 
-- **Single file.** `index.html` holds all HTML, CSS and JS (about 3,200 lines, around 200 KB). There are no dependencies, fonts or network requests. Display type uses the same condensed system font stack as the Hub, with no web-font download.
+- **Single file.** `index.html` holds all HTML, CSS and JS (about 3,500 lines, around 230 KB in V2). There are no dependencies, fonts or network requests. Display type uses the same condensed system font stack as the Hub, with no web-font download.
 - **Browser-local storage.** Work lives in one browser on one device. Clearing site data erases it. A candidate who switches machines must export and import. The app says this in three places.
 - **Time-of-day inference.** Without an AM/PM marker, hours 1–5 are read as afternoon and 6–11 as morning, the same baseball-day rule as the Hub. Evening times should be typed with `p` (`7:05p`). This only affects calculated durations and sorting. The text always displays as typed.
 - **Scheduled time** on the overview counts only rows that have both a start and an end time, grouped by each row's category dot. Untimed rows are listed as not counted.

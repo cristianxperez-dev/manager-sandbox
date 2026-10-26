@@ -647,6 +647,72 @@ body.drawer-open .wrap{padding-right:calc(var(--drawer) + 18px)}
 .ovw-dn .s{margin-left:auto;font-size:9px;font-weight:800;color:var(--navy);background:var(--navy-100);border-radius:3px;padding:0 4px}
 .ovw-a{font-size:10.5px;line-height:1.3;border-left:3px solid var(--c);padding-left:4px;color:var(--ink);overflow-wrap:anywhere}
 
+/* ============================================================ PLAYER EVALUATIONS */
+.ev{max-width:1320px;margin:0 auto}
+.ev-cases{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-bottom:14px}
+.ev-case{
+  border:1px solid var(--line-2);background:#fff;border-radius:12px;padding:10px 12px;text-align:left;display:flex;gap:10px;align-items:center;
+  box-shadow:var(--shadow-1);min-width:0;
+}
+.ev-case:hover{border-color:var(--navy-600)}
+.ev-case.on{background:var(--navy);border-color:var(--navy);color:#fff}
+.ev-num{width:34px;height:34px;border-radius:8px;background:var(--navy-100);color:var(--navy);display:grid;place-items:center;font-family:var(--f-display);font-weight:700;font-size:15px;flex:none}
+.ev-case.on .ev-num{background:var(--orange);color:#fff}
+.ev-cn{min-width:0}
+.ev-cn span{display:block;font-size:10.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.ev-cn b{display:block;font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ev-case.on .ev-cn span{color:#B9CCE6}
+.ev-st{margin-left:auto;font-style:normal;font-size:10.5px;color:var(--faint);white-space:nowrap;text-align:right;line-height:1.35}
+.ev-case.on .ev-st{color:#C9D7EA}
+.ev-body{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:14px;align-items:start}
+.ev-prof{position:sticky;top:110px;max-height:calc(100vh - 124px);overflow:auto}
+.ev-ph{
+  padding:14px 18px 13px;color:#fff;border-bottom:3px solid var(--orange);
+  background:radial-gradient(120% 180% at 100% 0%, rgba(235,110,31,.20) 0%, rgba(235,110,31,0) 55%),linear-gradient(180deg,var(--navy) 0%,var(--navy-800) 100%);
+}
+.ev-ph .k{font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#9FB6D4}
+.ev-ph h2{margin:3px 0 1px;font-family:var(--f-display);font-size:24px;font-weight:600;letter-spacing:.04em;text-transform:uppercase}
+.ev-ph .m{font-size:12.5px;color:#C9D7EA}
+.ev-sec{padding:12px 18px;border-top:1px solid var(--line)}
+.ev-sec:first-of-type{border-top:0}
+.ev-sec h3,.ev-card h3{margin:0 0 8px;font-size:10.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--navy);display:flex;align-items:baseline;gap:8px}
+.ev-sec h3 span,.ev-card h3 span{font-weight:600;letter-spacing:0;text-transform:none;color:var(--faint);font-size:11.5px}
+.ev-kv{width:100%;border-collapse:collapse;font-size:13px}
+.ev-kv td{padding:4px 0;border-bottom:1px solid #F1F3F7;vertical-align:top}
+.ev-kv td:first-child{color:var(--muted);width:44%;padding-right:10px}
+.ev-kv td:last-child{color:var(--ink);font-weight:600}
+.ev-sec ul{margin:0;padding-left:17px;font-size:13px;line-height:1.5;color:var(--body)}
+.ev-sec li + li{margin-top:5px}
+.ev-sec li b{color:var(--ink)}
+.ev-sec p{margin:0;font-size:13px;line-height:1.55;color:var(--body)}
+.ev-quote{margin-top:8px !important;font-style:italic;color:var(--navy) !important;border-left:3px solid var(--orange);padding-left:10px}
+.ev-fict{font-size:11px;color:var(--faint);padding:9px 18px 12px;border-top:1px solid var(--line)}
+.ev-work{display:flex;flex-direction:column;gap:14px;min-width:0}
+.ev-card{padding:14px 18px 6px}
+.ev-f{display:flex;flex-direction:column;gap:5px;margin-bottom:12px}
+.ev-f > span{font-size:12.5px;font-weight:700;color:var(--ink)}
+.ev-f textarea{
+  width:100%;min-height:104px;resize:vertical;border:1px solid var(--line-2);border-radius:9px;padding:9px 11px;font-size:13.5px;line-height:1.5;color:var(--ink);
+}
+.ev-f textarea:focus{outline:none;border-color:var(--orange);box-shadow:0 0 0 3px var(--orange-100)}
+.ev-links{display:flex;flex-direction:column;gap:5px;margin-bottom:12px}
+.ev-link{display:flex;align-items:center;gap:9px;border:1px solid var(--line);border-left:4px solid var(--c);border-radius:8px;padding:6px 10px;background:#fff;text-align:left;font-size:13px}
+.ev-link:hover{border-color:var(--navy-600);border-left-color:var(--c)}
+.ev-link .d{font-size:11px;font-weight:700;color:var(--muted);white-space:nowrap;min-width:92px}
+.ev-link b{color:var(--ink);font-weight:700;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ev-link i{margin-left:auto;font-style:normal;font-size:10.5px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:var(--faint);white-space:nowrap}
+.ev-tools{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end;margin-top:-4px}
+/* player link markers on activities and rows */
+.ac-p{font-size:9px;font-weight:800;letter-spacing:.02em;background:var(--navy);color:#fff;border-radius:3px;padding:0 3px;flex:none;line-height:1.5}
+.wc-p{display:inline-block;font-size:10px;font-weight:800;background:var(--navy-100);color:var(--navy);border-radius:3px;padding:0 5px;margin-top:3px}
+.rowpl{
+  position:absolute;right:4px;top:50%;transform:translateY(-50%);border:0;background:var(--navy-100);color:var(--navy);border-radius:10px;
+  font-size:10.5px;font-weight:800;padding:2px 8px;max-width:45%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.rowpl:hover{background:var(--navy);color:#fff}
+.inp.has-pl{padding-right:84px}
+.seg button.seg-review{border-left:1px solid rgba(255,255,255,.14);margin-left:4px}
+
 /* ============================================================ INTRO */
 .intro{
   position:fixed;inset:0;z-index:500;overflow:auto;display:flex;align-items:flex-start;justify-content:center;padding:40px 16px;
@@ -660,7 +726,7 @@ body.drawer-open .wrap{padding-right:calc(var(--drawer) + 18px)}
 .intro-brand b em{font-style:normal;color:var(--orange)}
 .intro h1{font-family:var(--f-display);font-size:32px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--navy);margin:0 0 12px;line-height:1.1}
 .intro p{font-size:15px;line-height:1.6;color:var(--body);margin:0 0 10px}
-.intro-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border-bottom:1px solid var(--line)}
+.intro-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border-bottom:1px solid var(--line)}
 .intro-steps div{background:#FAFBFD;padding:12px 16px}
 .intro-steps b{display:flex;align-items:center;gap:7px;font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--navy)}
 .intro-steps b i{font-style:normal;width:20px;height:20px;border-radius:50%;background:var(--orange);color:#fff;display:grid;place-items:center;font-size:11px}
@@ -763,6 +829,9 @@ body.drawer-open .wrap{padding-right:calc(var(--drawer) + 18px)}
   .side-help{display:none}
   .wv-cols{grid-template-columns:repeat(4,minmax(0,1fr))}
   .ov-grid{grid-template-columns:1fr}
+  .ev-body{grid-template-columns:1fr}
+  .ev-prof{position:static;max-height:none}
+  .ev-cases{grid-template-columns:repeat(2,minmax(0,1fr))}
   .dempty{grid-template-columns:1fr}
 }
 @media (max-width:1000px){
@@ -881,6 +950,27 @@ body.drawer-open .wrap{padding-right:calc(var(--drawer) + 18px)}
 .pc-tbl .bar i{height:.6em;margin:0}
 .pc-foot{font-size:.85em;color:#6B7280;margin-top:1.4em}
 
+/* player evaluation pages */
+.pe-top{display:grid;grid-template-columns:1fr 1fr;gap:1em;margin-top:.8em}
+.pe-kv{width:100%;border-collapse:collapse;font-size:.95em}
+.pe-kv td{border:.07em solid #C4CCD8;padding:.28em .45em;vertical-align:top}
+.pe-kv td:first-child{background:#F4F6FA;color:#4B5563;width:44%}
+.pe-kv td:last-child{font-weight:700}
+.pe-cap{font-size:.78em;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#002D62;margin:0 0 .3em}
+.pe-box{margin-top:.9em}
+.pe-box ul{margin:0;padding-left:1.3em;font-size:.95em;line-height:1.45}
+.pe-box p{margin:0;font-size:.95em;line-height:1.5}
+.pe-quote{margin-top:.4em !important;font-style:italic;border-left:.3em solid #EB6E1F;padding-left:.6em;color:#002D62}
+.pe-sec{margin-top:1.1em;break-inside:auto}
+.pe-sec h2{font-family:var(--f-display);font-size:1.35em;letter-spacing:.05em;text-transform:uppercase;color:#002D62;border-bottom:.15em solid #EB6E1F;margin:0 0 .4em;padding-bottom:.1em}
+.pe-a{border:.07em solid #C4CCD8;margin-bottom:.5em;break-inside:avoid}
+.pe-a h3{margin:0;background:#EDF1F7;color:#002D62;font-size:.8em;letter-spacing:.08em;text-transform:uppercase;padding:.3em .55em}
+.pe-a div{padding:.4em .6em;white-space:pre-wrap;line-height:1.5;font-size:1em;min-height:2.2em}
+.pe-a div.blank{color:#9CA3AF;font-style:italic}
+.pe-l{border-left:.32em solid var(--c);padding:.1em .5em;margin:.2em 0;font-size:.95em}
+.pe-l small{color:#6B7280;margin-right:.5em;font-weight:700}
+.pe-fict{margin-top:1em;font-size:.78em;color:#6B7280}
+
 @page{size:letter portrait;margin:.4in}
 @media print{
   html,body{background:#fff !important}
@@ -904,14 +994,15 @@ body.drawer-open .wrap{padding-right:calc(var(--drawer) + 18px)}
         <span><span class="kick" data-org></span><b>Manager <em>Interview Sandbox</em></b></span>
       </div>
       <h1 id="introTitle">Manager Interview Sandbox</h1>
-      <p>Use this workspace to demonstrate how you would organize a month of baseball activities and translate those priorities into daily practice schedules.</p>
-      <p>Begin by building a monthly plan reflecting your approach to player development and team operations. Then select two dates and construct more detailed daily practice schedules.</p>
-      <p>There is no prescribed planning methodology. We are interested in understanding your priorities, organizational approach, and how you translate your philosophy into practical execution.</p>
+      <p>Use this workspace to show how you would evaluate players, plan their development, and organize the baseball activities of a Double-A club.</p>
+      <p>Review four player cases and write an evaluation and a development prescription for each. Then build a monthly plan that reflects your priorities, and select two dates to construct detailed daily practice schedules.</p>
+      <p>There is no prescribed method or format, and you can move between sections and revise at any time. We are interested in your priorities, your organizational approach, and how you translate your philosophy into practical work.</p>
     </div>
     <div class="intro-steps">
-      <div><b><i>1</i>Monthly plan</b><span>Organize the month however you think about it — themes, activities, categories, notes.</span></div>
-      <div><b><i>2</i>Daily schedules</b><span>Pick at least two dates and build the actual practice schedule for each.</span></div>
-      <div><b><i>3</i>Review &amp; export</b><span>See it all on one page, then print or export it for the interview.</span></div>
+      <div><b><i>1</i>Evaluate</b><span>Four fictional Double-A player cases.</span></div>
+      <div><b><i>2</i>Prescribe</b><span>An individualized development plan for each player.</span></div>
+      <div><b><i>3</i>Plan the month</b><span>Organize a month of activities however you think about it.</span></div>
+      <div><b><i>4</i>Build two days</b><span>Detailed practice schedules for two dates.</span></div>
     </div>
     <div class="intro-form">
       <div class="intro-resume" id="inResume" hidden></div>
@@ -947,14 +1038,16 @@ body.drawer-open .wrap{padding-right:calc(var(--drawer) + 18px)}
     </div>
   </div>
   <nav class="seg" role="tablist" aria-label="Views">
-    <button role="tab" data-view="month" aria-selected="true"><span class="step">1</span>
+    <button role="tab" data-view="players" aria-selected="false"><span class="step">1</span>
+      <svg class="t-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9.5" cy="8.5" r="3.1"/><path d="M4 20c.6-3.3 2.9-5.1 5.5-5.1S14.4 16.7 15 20"/><path d="M15.5 6.5h5M15.5 10h5M17 13.5h3.5"/></svg>Player Evaluations</button>
+    <button role="tab" data-view="month" aria-selected="true"><span class="step">2</span>
       <svg class="t-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15.5" rx="2"/><path d="M3.5 9.5h17M8 3v4M16 3v4M7.5 13h3M13.5 13h3M7.5 16.8h3M13.5 16.8h3"/></svg>Monthly Planner</button>
-    <button role="tab" data-view="daily" aria-selected="false"><span class="step">2</span>
+    <button role="tab" data-view="daily" aria-selected="false"><span class="step">3</span>
       <svg class="t-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15.5" rx="2"/><path d="M3.5 9.5h17M8 3v4M16 3v4"/><path d="M7.5 13.5h9M7.5 17h6"/></svg>Daily Schedules <span class="n" id="navN">0</span></button>
-    <button role="tab" data-view="overview" aria-selected="false"><span class="step">3</span>
-      <svg class="t-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 3h7l4.5 4.5V21h-11.5z"/><path d="M13.5 3v4.5H18M9.5 12h5M9.5 16h5"/></svg>Plan Overview</button>
     <span class="seg-sp"></span>
     <span class="seg-note" id="segNote"></span>
+    <button role="tab" class="seg-review" data-view="overview" aria-selected="false" title="Everything on one page, plus print and export">
+      <svg class="t-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 3h7l4.5 4.5V21h-11.5z"/><path d="M13.5 3v4.5H18M9.5 12h5M9.5 16h5"/></svg>Review &amp; Export</button>
   </nav>
 </header>
 <div class="banner" id="banner" hidden></div>
@@ -964,6 +1057,8 @@ body.drawer-open .wrap{padding-right:calc(var(--drawer) + 18px)}
 </div>
 
 <main class="wrap" id="wrap">
+  <section class="view" id="viewPlayers"><div class="ev" id="players"></div></section>
+
   <section class="view on" id="viewMonth">
     <div class="planner">
       <aside class="side" id="side"></aside>
@@ -1014,7 +1109,7 @@ body.drawer-open .wrap{padding-right:calc(var(--drawer) + 18px)}
 "use strict";
 
 const APP_ID="manager-interview-sandbox";
-const SCHEMA=1;
+const SCHEMA=2;          // 2 adds player evaluations and player links; schema-1 files load unchanged
 /* Every GitHub Pages project site on an account shares one origin, so every
    key is namespaced to this tool. */
 const KEY="mis:v1:workspace", RECOVERY_KEY="mis:v1:recovery", UI_KEY="mis:v1:ui";
@@ -1136,6 +1231,78 @@ function ink(hex){
 }
 const NOCAT="#9CA3AF";
 
+
+/* ==========================================================================
+   PLAYER CASES — fictional Double-A players for the evaluation exercise.
+   Deliberately mixed signals: strengths, concerns, and sources that do not
+   agree. Nothing here states a diagnosis or a recommended plan.
+   ========================================================================== */
+const CASES=[
+  { id:"inf", role:"Infielder", name:"Rafael Ibarra", pos:"Shortstop / second base",
+    facts:[["Age","22"],["Bats / Throws","R / R"],["Acquired","International signing, age 17"],["Pro experience","5th season · first full season in Double-A"],["Position history","2B through High-A; moved to SS full-time this spring"]],
+    statsLabel:"Double-A, season to date (81 games)",
+    stats:[["AVG / OBP / SLG",".262 / .318 / .371"],["HR · 2B","6 · 17"],["K% · BB%","21.4% · 6.9%"],["Chase rate","34% (league ~29%)"],["Errors at SS","18 — 13 throwing, 5 fielding"],["Errors, last 30 games","3 (2 throwing)"],["Range / first step (internal)","Above average"],["Throw velocity across the diamond","88–91 mph"]],
+    scouting:[
+      ["Pro scout","Soft hands, quick first step, real feel for the position. Throws are erratic on balls he has time on and accurate on the run."],
+      ["Infield coordinator","His feet stop on routine plays. He catches it flat-footed and has to make the throw with his arm alone."],
+      ["Hitting coach","Handles velocity well. Expands against breaking balls down and away, mostly when he falls behind in the count."],
+      ["Video review","Arm slot varies noticeably from throw to throw. Several of his errors came in the first two innings."],
+      ["Strength staff","One of the hardest workers on the club; has added nine pounds since spring training."]],
+    context:"Ten of his throwing errors came in April and May. They have dropped since, but over the same stretch his time at shortstop was cut back to share starts with two other infielders. Spanish is his first language; he is conversational in English and has told staff he learns best by watching. The front office sees him as a potential everyday middle infielder and wants him to stay at shortstop.",
+    quote:"When I have a lot of time, I think too much. On the hard plays I just play." },
+  { id:"of", role:"Outfielder", name:"Cole Whitaker", pos:"Center field",
+    facts:[["Age","24"],["Bats / Throws","L / L"],["Acquired","Third round, college draft"],["Pro experience","3rd season · promoted to Double-A last June"],["Lineup role","Leadoff against right-handers; sits against some lefties"]],
+    statsLabel:"Double-A, season to date (74 games)",
+    stats:[["AVG / OBP / SLG",".241 / .352 / .398"],["HR · SB-CS","11 · 9-3"],["K% · BB%","31.2% · 14.0%"],["vs. LHP (96 PA)",".188 / .290 / .270"],["Avg. / 90th pct. exit velocity","90.8 / 107.1 mph"],["Ground-ball rate","51%"],["First-pitch fastballs in the zone taken","44%"],["Route efficiency (internal)","Average"],["Arm (outfield assists)","Below average (1)"]],
+    scouting:[
+      ["Pro scout","Strength and bat speed that project for 20-plus homers. The swing gets long, and he lets hittable strikes go early in counts."],
+      ["Hitting coordinator","We lowered his hands at mid-season. His first two weeks after the change were his best of the year; then the strikeouts climbed and he drifted back."],
+      ["Outfield coach","Good first step on balls in front of him. He has been tentative going back toward the wall since a collision in May."],
+      ["Analytics report","Chase rate is among the lowest in the league. Swing decisions grade well; contact on pitches in the zone grades below average."],
+      ["Athletic trainer","Managed hamstring tightness in May. Full go now; staff has limited his back-to-back day starts."]],
+    context:"The organization is split on his future: the analytics group values his on-base skills and patience, while the scouting department doubts the strikeout rate will hold up at higher levels. There is also an open question about whether he stays in center field or moves to a corner. He is quiet and analytical, keeps his own at-bat notes, and regularly asks staff for data.",
+    quote:"I know what pitches I want. I just don't want to give away at-bats chasing." },
+  { id:"c", role:"Catcher", name:"Sam Kowalczyk", pos:"Catcher",
+    facts:[["Age","25"],["Bats / Throws","R / R"],["Acquired","Seventh round, college draft"],["Pro experience","4th season · second year in Double-A"],["Workload","52 starts behind the plate in 69 games"]],
+    statsLabel:"Double-A, season to date (69 games)",
+    stats:[["AVG / OBP / SLG",".228 / .301 / .402"],["HR · K% · BB%","14 · 27.0% · 8.1%"],["Caught stealing","19% (11 of 58)"],["Pop time, avg. (range)","2.04 s (1.94–2.21)"],["Passed balls","9"],["Wild pitches while catching","41 (most on the staff)"],["Framing, strike gain (internal)","Above average"],["Staff ERA: with him / others","3.71 / 4.40"]],
+    scouting:[
+      ["Pitching coordinator","The best game-caller we have at this level. Our pitchers trust him."],
+      ["Catching coordinator","Receiving is advanced. Blocking breaks down to his glove side; he reaches for the ball instead of moving to it."],
+      ["Opposing manager","We run on him late in games."],
+      ["Video review","Pop times rise above 2.10 from the seventh inning on, and in day games after night games."],
+      ["Strength staff","Lower-half mobility is limited; tight hips noted in his spring screen."]],
+    context:"He caught four or more straight games several times in June after the backup catcher was injured. The bullpen includes two hard-throwing relievers whose splitters account for a large share of the wild pitches. The organization considers him a potential major league backup within two years and puts a premium on catcher defense. He is a vocal clubhouse leader and sometimes skips his own work to help pitchers prepare.",
+    quote:"If our guys trust what I'm putting down, I'll take a few balls off the shin guard." },
+  { id:"br", role:"Baserunner", name:"Darnell Pryor", pos:"Center field / second base (utility)",
+    facts:[["Age","23"],["Bats / Throws","S / R"],["Acquired","Undrafted free agent"],["Pro experience","4th season · Double-A since Opening Day"],["Playing time","About four starts a week; frequent pinch-runner"]],
+    statsLabel:"Double-A, season to date (77 games)",
+    stats:[["AVG / OBP / SLG",".255 / .330 / .320"],["Stolen bases · caught","21 · 12 (64%)"],["Picked off","5"],["Other outs on the bases","7 (3 at third base)"],["First to third on a single","38% (21 chances)"],["Scored from second on a single","61% (18 chances)"],["Sprint speed","Top 5% of the league"],["Steal attempts vs. LHP","4 of 9 successful"]],
+    scouting:[
+      ["Pro scout","A top-of-the-scale runner; speed is his carrying tool. His stolen-base results don't match it."],
+      ["Baserunning coordinator","His lead changes from pitch to pitch. He isn't sure how far he can get."],
+      ["First-base coach","He goes on first movement a lot. He's guessing."],
+      ["Video review","Average time to second base on attempts is 3.25 s, which is elite. His jumps vary by about three-tenths of a second."],
+      ["Previous manager","We told him to be aggressive and run whenever he wanted."]],
+    context:"The organization has a club-wide stolen-base emphasis. His most likely path to the major leagues is as a pinch runner, defensive replacement and utility player. Teammates say he spends less time studying pitchers than most of the club. He is energetic and very coachable, and he sometimes plays faster than the situation calls for.",
+    quote:"I'd rather get thrown out being aggressive than get yelled at for being passive." }
+];
+const EVAL_FIELDS=[["strengths","Strengths"],["opportunities","Development opportunities"],["observations","Additional observations"]];
+const RX_FIELDS=[["priority","Primary development priority"],["intervention","Proposed intervention or training approach"],["implementation","Implementation and frequency"],["measurement","How progress will be evaluated"]];
+const caseById = id => CASES.find(c=>c.id===id)||null;
+const playerLast = id => { const c=caseById(id); return c?c.name.split(" ").slice(-1)[0]:""; };
+const playerInit = id => { const c=caseById(id); return c?c.name.split(" ").map(x=>x[0]).join(""):""; };
+const blankEval = () => Object.fromEntries(EVAL_FIELDS.concat(RX_FIELDS).map(([k])=>[k,""]));
+const evalRec = id => W.evals[id]||(W.evals[id]=blankEval());
+const evalStarted = id => { const e=W.evals[id]; return !!e&&Object.values(e).some(v=>String(v||"").trim()); };
+/** every scheduled item linked to a player — monthly entries and daily-schedule rows */
+function playerLinks(id){
+  const monthly=W.activities.filter(a=>a.playerId===id).sort((a,b)=>a.date.localeCompare(b.date)||a.order-b.order);
+  const daily=[];
+  Object.keys(W.schedules).sort().forEach(d=>W.schedules[d].sections.forEach(s=>s.kind==="table"&&s.rows.forEach(r=>{ if(r.playerId===id) daily.push({date:d,row:r,sec:s}); })));
+  return {monthly,daily};
+}
+
 /* ==========================================================================
    WORKSPACE — one candidate's whole exercise; exactly what export writes
    ========================================================================== */
@@ -1151,11 +1318,12 @@ function blankWorkspace(){
     activities:[],          // {id,date,title,catId,time,notes,seriesId,order}
     weeks:{},               // weekStartIso -> {focus,notes}
     days:{},                // iso -> {tag,notes}
-    schedules:{}            // iso -> {id,date,title,context,location,notes,sections[]}
+    schedules:{},           // iso -> {id,date,title,context,location,notes,sections[]}
+    evals:{}                // caseId -> {strengths,opportunities,observations,priority,intervention,implementation,measurement}
   };
 }
 const str=(v,max=4000)=>v==null?"":String(v).slice(0,max);
-function R(seed){ return Object.assign({id:uid(),time:"",timeEnd:"",activity:"",detail:"",location:"",staff:"",catId:null,src:null,showDetail:false},seed||{}); }
+function R(seed){ return Object.assign({id:uid(),time:"",timeEnd:"",activity:"",detail:"",location:"",staff:"",catId:null,playerId:null,src:null,showDetail:false},seed||{}); }
 function blankSection(width){ return {id:uid(),kind:"table",name:"",who:"",color:"#002D62",width:width||1,collapsed:false,hideLoc:false,hideStaff:false,headers:{},rows:[R()]}; }
 
 /** defensive load: anything imported is coerced into the expected shape */
@@ -1182,9 +1350,12 @@ function normalize(raw){
   });
   const cat=v=>catIds.has(v)?v:null;
   w.activities=(Array.isArray(raw.activities)?raw.activities:[]).filter(a=>a&&ISO_RE.test(a.date)).map((a,i)=>({
-    id:str(a.id,40)||uid(), date:a.date, title:str(a.title,200), catId:cat(a.catId), time:str(a.time,40),
-    notes:str(a.notes,8000), seriesId:a.seriesId?str(a.seriesId,40):null, order:Number.isFinite(+a.order)?+a.order:i
+    id:str(a.id,40)||uid(), date:a.date, title:str(a.title,200), catId:cat(a.catId), playerId:caseById(a.playerId)?a.playerId:null,
+    time:str(a.time,40), notes:str(a.notes,8000), seriesId:a.seriesId?str(a.seriesId,40):null, order:Number.isFinite(+a.order)?+a.order:i
   }));
+  for(const [id,e] of Object.entries(raw.evals&&typeof raw.evals==="object"?raw.evals:{})){
+    if(caseById(id)&&e&&typeof e==="object"){ const o=blankEval(); for(const k in o) o[k]=str(e[k],20000); w.evals[id]=o; }
+  }
   for(const [k,v] of Object.entries(raw.weeks||{})) if(ISO_RE.test(k)&&v) w.weeks[k]={focus:str(v.focus,300),notes:str(v.notes,8000)};
   for(const [k,v] of Object.entries(raw.days||{})) if(ISO_RE.test(k)&&v) w.days[k]={tag:str(v.tag,120),notes:str(v.notes,8000)};
   for(const [k,s] of Object.entries(raw.schedules||{})){
@@ -1209,7 +1380,7 @@ function normalize(raw){
         }else{
           out.rows=(Array.isArray(sec.rows)?sec.rows:[]).filter(r=>r&&typeof r==="object").map(r=>R({
             id:str(r.id,40)||uid(),time:str(r.time,40),timeEnd:str(r.timeEnd,40),activity:str(r.activity,300),
-            detail:str(r.detail,2000),location:str(r.location,160),staff:str(r.staff,160),catId:cat(r.catId),
+            detail:str(r.detail,2000),location:str(r.location,160),staff:str(r.staff,160),catId:cat(r.catId),playerId:caseById(r.playerId)?r.playerId:null,
             src:r.src?str(r.src,40):null,showDetail:!!r.showDetail
           }));
         }
@@ -1250,14 +1421,14 @@ const Store={
   recovery(){ try{ const r=this.read(RECOVERY_KEY); return r?JSON.parse(r):null; }catch(e){ return null; } },
   setRecovery(w){ try{ this.write(RECOVERY_KEY,JSON.stringify({savedAt:new Date().toISOString(),workspace:w})); }catch(e){} },
   ui(){ try{ return JSON.parse(this.read(UI_KEY)||"{}")||{}; }catch(e){ return {}; } },
-  saveUI(){ try{ this.write(UI_KEY,JSON.stringify({view:UI.view,mmode:UI.mmode,sched:UI.sched,note:UI.noteDismissed})); }catch(e){} }
+  saveUI(){ try{ this.write(UI_KEY,JSON.stringify({view:UI.view,player:UI.player,mmode:UI.mmode,sched:UI.sched,note:UI.noteDismissed})); }catch(e){} }
 };
 
 /* ==========================================================================
    STATE, UNDO
    ========================================================================== */
 let W=blankWorkspace();
-const UI={view:"month",mmode:"month",weekOf:null,activeCat:null,sched:null,drawer:null,quickAdd:null,noteDismissed:false,targetSec:null};
+const UI={view:"month",player:"inf",mmode:"month",weekOf:null,activeCat:null,sched:null,drawer:null,quickAdd:null,noteDismissed:false,targetSec:null};
 let undoStack=[], redoStack=[], editSnap=null;
 
 function snap(){ undoStack.push(JSON.stringify(W)); if(undoStack.length>100) undoStack.shift(); redoStack=[]; }
@@ -1266,6 +1437,7 @@ function mutate(fn,{render:doRender=true}={}){ snap(); fn(); touch(); if(doRende
 function restoreState(raw){
   W=JSON.parse(raw); touch();
   if(UI.drawer&&!ISO_RE.test(UI.drawer)) UI.drawer=null;
+  W.evals=W.evals||{};
   if(POP&&!findAct(POP.id)) closePop();
   render(); if(POP) drawActPop();
 }
@@ -1407,6 +1579,7 @@ function render(){
   captureFocus();
   renderChrome();
   if(UI.view==="month") renderPlanner();
+  else if(UI.view==="players") renderPlayers();
   else if(UI.view==="daily") renderDaily();
   else renderOverview();
   renderDrawer();
@@ -1420,7 +1593,7 @@ function go(view){
 
 function renderChrome(){
   $$(".view").forEach(v=>v.classList.remove("on"));
-  $({month:"#viewMonth",daily:"#viewDaily",overview:"#viewOverview"}[UI.view]).classList.add("on");
+  $({players:"#viewPlayers",month:"#viewMonth",daily:"#viewDaily",overview:"#viewOverview"}[UI.view]).classList.add("on");
   $$("nav.seg [data-view]").forEach(b=>b.setAttribute("aria-selected",String(b.dataset.view===UI.view)));
   const n=Object.keys(W.schedules).length;
   $("#navN").textContent=n;
@@ -1450,6 +1623,55 @@ function renderStatus(){
     else lbl.textContent=Store.lastSaved?`Saved ${Store.lastSaved.toLocaleTimeString(LOCALE,{hour:"numeric",minute:"2-digit"})}`:"Saved in this browser";
   }
   const b=$("#btnUndo"); if(b) b.disabled=!undoStack.length;
+}
+
+
+/* ==========================================================================
+   PLAYER EVALUATIONS — read the case, write freely, see what's scheduled
+   ========================================================================== */
+function caseProfileHTML(c){
+  return `<div class="ev-ph"><div class="k">${esc(c.role)} · Double-A</div><h2>${esc(c.name)}</h2><div class="m">${esc(c.pos)}</div></div>
+    <div class="ev-sec"><h3>Background</h3><table class="ev-kv">${c.facts.map(([k,v])=>`<tr><td>${esc(k)}</td><td>${esc(v)}</td></tr>`).join("")}</table></div>
+    <div class="ev-sec"><h3>Performance <span>${esc(c.statsLabel)}</span></h3><table class="ev-kv">${c.stats.map(([k,v])=>`<tr><td>${esc(k)}</td><td>${esc(v)}</td></tr>`).join("")}</table></div>
+    <div class="ev-sec"><h3>Scouting &amp; staff observations</h3><ul>${c.scouting.map(([who,t])=>`<li><b>${esc(who)}:</b> “${esc(t)}”</li>`).join("")}</ul></div>
+    <div class="ev-sec"><h3>Development context</h3><p>${esc(c.context)}</p><p class="ev-quote">“${esc(c.quote)}” — ${esc(c.name.split(" ")[0])}</p></div>
+    <div class="ev-fict">Fictional player and data, created for this exercise.</div>`;
+}
+function playerLinksHTML(c){
+  const {monthly,daily}=playerLinks(c.id);
+  if(!monthly.length&&!daily.length)
+    return `<p class="note" style="margin:0 0 12px">Nothing is linked to ${esc(c.name.split(" ")[0])} yet. Any monthly activity or daily-schedule row can optionally be linked to a player — open the activity (or a row's ⋯ menu) and choose a player.</p>`;
+  return `<div class="ev-links">
+    ${monthly.map(a=>`<button class="ev-link" data-tomonth="${a.date}" style="--c:${catColor(a.catId)}"><span class="d">${esc(shortDate(a.date))}</span><b>${esc(a.title||"Untitled")}</b>${a.time?`<span class="note">${esc(a.time)}</span>`:""}<i>Monthly plan</i></button>`).join("")}
+    ${daily.map(x=>`<button class="ev-link" data-schedopen="${x.date}" style="--c:${catColor(x.row.catId)}"><span class="d">${esc(shortDate(x.date))}</span><b>${esc(x.row.activity||"Untitled")}</b>${x.row.time?`<span class="note">${esc(timeText(x.row))}</span>`:""}<i>Daily schedule</i></button>`).join("")}
+  </div>`;
+}
+function renderPlayers(){
+  const c=caseById(UI.player)||CASES[0]; UI.player=c.id;
+  const e=W.evals[c.id]||{};
+  const field=([k,label])=>`<label class="ev-f"><span>${esc(label)}</span><textarea data-evf="${k}" data-case="${c.id}" data-nav="ev|${c.id}|${k}" aria-label="${esc(label)}">${esc(e[k]||"")}</textarea></label>`;
+  $("#players").innerHTML=`
+    <div class="ev-cases" role="tablist" aria-label="Player cases">${CASES.map((x,i)=>{
+      const l=playerLinks(x.id), n=l.monthly.length+l.daily.length;
+      return `<button class="ev-case${x.id===c.id?" on":""}" role="tab" aria-selected="${x.id===c.id}" data-case-open="${x.id}">
+        <span class="ev-num">${i+1}</span><span class="ev-cn"><span>${esc(x.role)}</span><b>${esc(x.name)}</b></span>
+        <i class="ev-st">${evalStarted(x.id)?"✎ Started":""}${n?`<br>${n} scheduled`:""}</i></button>`; }).join("")}</div>
+    <div class="ev-body">
+      <div class="card ev-prof">${caseProfileHTML(c)}</div>
+      <div class="ev-work">
+        <div class="card ev-card"><h3>Evaluation <span>freeform — write as much or as little as you find useful</span></h3>${EVAL_FIELDS.map(field).join("")}</div>
+        <div class="card ev-card"><h3>Development prescription</h3>${RX_FIELDS.map(field).join("")}</div>
+        <div class="card ev-card"><h3>Scheduled work for ${esc(c.name)}</h3>${playerLinksHTML(c)}</div>
+        <div class="ev-tools"><button class="btn sm" data-print="eval" data-date="${c.id}">Print / PDF this player</button><button class="btn sm" data-print="evals">Print all four evaluations</button></div>
+      </div>
+    </div>`;
+}
+function playerMenu(anchor,current,apply){
+  showMenu(anchor,[
+    {head:"Linked player (optional)"},
+    {label:"No player",on:!current,fn:()=>apply(null)},
+    ...CASES.map(c=>({label:`${c.name} — ${c.role}`,on:current===c.id,fn:()=>apply(c.id)}))
+  ]);
 }
 
 /* ==========================================================================
@@ -1525,9 +1747,9 @@ function renderSide(){
 
 function chipHTML(a){
   const dim=UI.activeCat&&a.catId!==UI.activeCat?" dim":"";
-  const tip=[a.title||"Untitled",a.time,catName(a.catId),a.notes].filter(Boolean).join(" · ");
+  const tip=[a.title||"Untitled",a.time,catName(a.catId),a.playerId?"Player: "+caseById(a.playerId).name:"",a.notes].filter(Boolean).join(" · ");
   return `<div class="ac${dim}" draggable="true" tabindex="0" role="button" data-act="${a.id}" style="--c:${catColor(a.catId)}" title="${esc(tip)}">
-    ${a.time?`<span class="ac-t">${esc(a.time)}</span>`:""}<span class="ac-l">${esc(a.title||"Untitled")}</span>${a.notes||a.seriesId?`<span class="ac-i">${a.notes?"✎":""}${a.seriesId?"↻":""}</span>`:""}
+    ${a.time?`<span class="ac-t">${esc(a.time)}</span>`:""}<span class="ac-l">${esc(a.title||"Untitled")}</span>${a.playerId?`<span class="ac-p">${esc(playerInit(a.playerId))}</span>`:""}${a.notes||a.seriesId?`<span class="ac-i">${a.notes?"✎":""}${a.seriesId?"↻":""}</span>`:""}
   </div>`;
 }
 const qaHTML = iso => `<input class="qa" data-qa-input="${iso}" data-nav="qa|${iso}" placeholder="Activity — Enter to add" aria-label="New activity">`;
@@ -1582,6 +1804,7 @@ function weekViewHTML(){
             ${a.time?`<div class="wc-t">${esc(a.time)}</div>`:""}
             <div class="wc-l">${esc(a.title||"Untitled")}${a.seriesId?` <span title="Repeats">↻</span>`:""}</div>
             ${a.catId?`<div class="wc-c">${esc(catName(a.catId))}</div>`:""}
+            ${a.playerId?`<div class="wc-p">${esc(caseById(a.playerId).name)}</div>`:""}
             ${a.notes?`<div class="wc-n">${esc(a.notes)}</div>`:""}
           </div>`).join("")}${UI.quickAdd===iso?qaHTML(iso):""}</div>
         <div class="wv-foot">${sch
@@ -1594,7 +1817,7 @@ function weekViewHTML(){
 /* ---------- planner actions ---------- */
 function addActivity(iso,title,extra){
   const a=Object.assign({id:uid(),date:iso,title:String(title||"").trim().slice(0,200),catId:UI.activeCat&&findCat(UI.activeCat)?UI.activeCat:null,
-    time:"",notes:"",seriesId:null,order:nextOrder(iso)},extra||{});
+    playerId:null,time:"",notes:"",seriesId:null,order:nextOrder(iso)},extra||{});
   W.activities.push(a); return a;
 }
 function moveActivity(id,to,beforeId,copy){
@@ -1674,7 +1897,7 @@ function renderDrawer(){
             <button class="dr-ib" data-actedit="${a.id}" aria-label="More options" title="Category, repeat, duplicate, delete…">⋯</button>
           </div>
           <textarea class="dr-notes" rows="1" data-actf="notes" data-actid="${a.id}" data-nav="da|${a.id}|notes" placeholder="Notes (optional)" aria-label="Notes">${esc(a.notes)}</textarea>
-          ${a.catId||a.seriesId?`<div class="dr-meta">${esc(catName(a.catId))}${a.catId&&a.seriesId?" · ":""}${a.seriesId?"repeating":""}</div>`:""}
+          ${a.catId||a.seriesId||a.playerId?`<div class="dr-meta">${esc([catName(a.catId),a.playerId?"Player: "+caseById(a.playerId).name:"",a.seriesId?"repeating":""].filter(Boolean).join(" · "))}</div>`:""}
         </div>`).join("")}</div>
       <div class="dr-add"><input id="drAdd" data-nav="dd|add" placeholder="Add an activity and press Enter" aria-label="Add an activity"></div>
       <label class="dr-f" style="margin-top:14px"><span>Notes for the day</span>
@@ -1751,12 +1974,17 @@ function drawActPop(){
           ?`<span class="pc-new"><input data-apnewcatname data-nav="ap|newcat" placeholder="Category name — Enter" aria-label="New category name"><button class="btn sm" data-apnewcatgo>Add</button></span>`
           :`<button class="pc add" data-apnewcat>＋ New category</button>`}
       </div></div>
+    <div class="pop-f"><span>Player <i>optional</i></span>
+      <div class="pop-cats">
+        <button class="pc${!a.playerId?" on":""}" data-applayer="" style="--c:${NOCAT}">None</button>
+        ${CASES.map(c=>`<button class="pc${a.playerId===c.id?" on":""}" data-applayer="${c.id}" title="${esc(c.role)}">${esc(c.name)}</button>`).join("")}
+      </div></div>
     <div class="pop-row">
       <label class="pop-f"><span>Date</span><input type="date" data-ap="date" value="${a.date}"></label>
       <label class="pop-f"><span>Time <i>optional</i></span><input data-ap="time" data-nav="ap|time" value="${esc(a.time)}" placeholder="e.g. 3:30 or Pregame"></label>
     </div>
     <label class="pop-f"><span>Notes <i>optional</i></span><textarea data-ap="notes" data-nav="ap|notes" rows="3" placeholder="Purpose, details, who's involved…">${esc(a.notes)}</textarea></label>
-    ${series.length>1?`<label class="pop-chk"><input type="checkbox" data-apall ${POP.all?"checked":""}> Apply name, category, time &amp; notes changes to all ${series.length} in this repeating series</label>`:""}
+    ${series.length>1?`<label class="pop-chk"><input type="checkbox" data-apall ${POP.all?"checked":""}> Apply name, category, player, time &amp; notes changes to all ${series.length} in this repeating series</label>`:""}
     ${rep?repeatPanelHTML(a,rep):""}
     <div class="pop-foot">
       ${rep?"":`<button class="btn sm" data-aprepeat>↻ Repeat…</button>`}
@@ -1902,7 +2130,7 @@ function dayCardHTML(S){
     <div class="planned">
       <span class="tag">From your monthly plan</span>
       ${acts.length
-        ? acts.map(a=>`<button class="pchip${covered(a)?" done":""}" data-plannedadd="${a.id}" style="--c:${catColor(a.catId)}" title="${covered(a)?"Already on this schedule — click to add another row":"Add as a row"}${a.notes?" · "+esc(a.notes):""}"><span class="box">✓</span>${esc(a.title||"Untitled")}${a.time?` <small style="color:var(--muted)">${esc(a.time)}</small>`:""}</button>`).join("")
+        ? acts.map(a=>`<button class="pchip${covered(a)?" done":""}" data-plannedadd="${a.id}" style="--c:${catColor(a.catId)}" title="${covered(a)?"Already on this schedule — click to add another row":"Add as a row"}${a.playerId?" · Player: "+esc(caseById(a.playerId).name):""}${a.notes?" · "+esc(a.notes):""}"><span class="box">✓</span>${esc(a.title||"Untitled")}${a.playerId?` <small style="color:var(--navy);font-weight:800">${esc(playerInit(a.playerId))}</small>`:""}${a.time?` <small style="color:var(--muted)">${esc(a.time)}</small>`:""}</button>`).join("")
           +`<span class="more">${done}/${acts.length} on this schedule · click to add as a row</span>`
         : `<span class="empty">Nothing planned on this date in your monthly plan. Build freely here, or <button class="linkish" data-tomonth="${S.date}">add to the month</button>.</span>`}
     </div>
@@ -1983,7 +2211,8 @@ function rowHTML(s,r,i,showLoc,showStaff){
   const tied=prev&&r.time&&prev.time===r.time&&(prev.timeEnd||"")===(r.timeEnd||"");
   const dur=rowMinutes(r);
   const cat=r.catId&&findCat(r.catId);
-  const cell=(f,cls,ph,sugg)=>`<div class="cell c-${f}"><input class="inp ${cls}" value="${esc(f==="time"?timeText(r):r[f])}" data-rf="${f}" data-sec="${s.id}" data-row="${r.id}" data-nav="${s.id}|${r.id}|${f}" ${sugg?`data-sugg="${sugg}"`:""} placeholder="${ph}" aria-label="${f}">${f==="time"&&dur?`<span class="dur">${fmtDur(dur)}</span>`:""}</div>`;
+  const pl=r.playerId&&caseById(r.playerId);
+  const cell=(f,cls,ph,sugg)=>`<div class="cell c-${f}"><input class="inp ${cls}${f==="activity"&&pl?" has-pl":""}" value="${esc(f==="time"?timeText(r):r[f])}" data-rf="${f}" data-sec="${s.id}" data-row="${r.id}" data-nav="${s.id}|${r.id}|${f}" ${sugg?`data-sugg="${sugg}"`:""} placeholder="${ph}" aria-label="${f}">${f==="time"&&dur?`<span class="dur">${fmtDur(dur)}</span>`:""}${f==="activity"&&pl?`<button class="rowpl" data-rowpl="${r.id}" data-sec="${s.id}" title="Linked to ${esc(pl.name)} (${esc(pl.role)}) — click to change">${esc(playerLast(pl.id))}</button>`:""}</div>`;
   const detail=(r.detail||r.showDetail)?`<div class="sub"><input class="inp" value="${esc(r.detail)}" data-rf="detail" data-sec="${s.id}" data-row="${r.id}" data-nav="${s.id}|${r.id}|detail" placeholder="Details — players, groups, coaching points, notes" aria-label="Details"></div>`:"";
   return `<div class="row${tied?" tied":""}${cat?" has-cat":""}" data-sec="${s.id}" data-row="${r.id}" ${cat?`style="--rc:${cat.color}"`:""}>
     <button class="rgrip" draggable="true" data-rowgrip="${r.id}" data-sec="${s.id}" aria-label="Drag row">⠿</button>
@@ -2155,7 +2384,8 @@ function sectionMenu(anchor,secId){
 function rowMenu(anchor,secId,rowId){
   const s=findSec(secId), r=findRow(secId,rowId), i=rowIndex(secId,rowId);
   const items=[];
-  if(s.kind==="table") items.push({label:r.detail||r.showDetail?"Remove details line":"Add details line",k:"⌥D",fn:()=>toggleDetail(secId,rowId)});
+  if(s.kind==="table") items.push({label:r.detail||r.showDetail?"Remove details line":"Add details line",k:"⌥D",fn:()=>toggleDetail(secId,rowId)},
+    {label:r.playerId?`Linked player: ${playerLast(r.playerId)}…`:"Link to a player…",fn:()=>playerMenu(anchor,r.playerId,id=>mutate(()=>{ r.playerId=id; }))});
   items.push(
     {label:"Insert row below",k:"↵",fn:()=>addRow(secId,rowId)},
     {label:"Duplicate row",k:"⌘D",fn:()=>dupRow(secId,rowId)},
@@ -2344,6 +2574,7 @@ function renderOverview(){
       </div>
       <div class="ov-acts">
         <button class="btn primary" data-print="package">Print / PDF review package</button>
+        <button class="btn" data-print="evals">Print evaluations</button>
         <button class="btn" data-print="month">Print monthly plan</button>
         <button class="btn" id="ovExport">Export plan (.json)</button>
         <button class="btn" id="ovEditName">Edit name &amp; label</button>
@@ -2372,6 +2603,17 @@ function renderOverview(){
           <p class="note" style="margin:8px 0 0">Daily-schedule time counts rows with both a start and end time, grouped by the category dot on each row. ${al.untimed?`${al.untimed} row${al.untimed===1?" has":"s have"} no end time and ${al.untimed===1?"isn't":"aren't"} counted.`:""}</p>`
           :`<p class="ov-empty">Categories you create and the activities you plan will be summarized here.</p>`}
       </div>
+    </div>
+    <div class="card ov-card">
+      <h3>Player evaluations</h3>
+      <div class="ovs">${CASES.map(c=>{ const l=playerLinks(c.id), e=W.evals[c.id]||{};
+        const pri=String(e.priority||"").trim();
+        return `<div class="ovs-card">
+          <span class="d">${esc(c.role)}</span><b>${esc(c.name)}</b>
+          <span class="m">${evalStarted(c.id)?"Evaluation started":"Not started"} · ${l.monthly.length} monthly activit${l.monthly.length===1?"y":"ies"} · ${l.daily.length} daily row${l.daily.length===1?"":"s"} linked</span>
+          ${pri?`<span class="m" style="color:var(--ink)"><b style="font-size:12px">Primary priority:</b> ${esc(pri.length>160?pri.slice(0,160)+"…":pri)}</span>`:""}
+          <div class="acts"><button class="btn sm" data-case-open="${c.id}">Open</button><button class="btn sm" data-print="eval" data-date="${c.id}">Print / PDF</button></div>
+        </div>`; }).join("")}</div>
     </div>
     <div class="card ov-card">
       <h3>Daily schedules <span>${dates.length<2?`the exercise asks for at least two`:""}</span></h3>
@@ -2427,7 +2669,7 @@ function monthPageHTML(orient){
       return `<tr class="wf"><td colspan="7"><span>Week of ${esc(fmt(wk[0],{month:"short",day:"numeric"}))}</span>${wr.focus?`<b>${esc(wr.focus)}</b>`:""}</td></tr>
       <tr>${wk.map(iso=>{ const d=W.days[iso]||{};
         return `<td class="${inPlanMonth(iso)?"":"out"}"><div class="pm-dn"><b>${dateOf(iso).getDate()}</b>${d.tag?`<em>${esc(d.tag)}</em>`:""}${W.schedules[iso]?`<i>DAILY</i>`:""}</div>
-          ${actsOn(iso).map(a=>`<div class="pm-a" style="--c:${catColor(a.catId)}">${a.time?`<small>${esc(a.time)}</small>`:""}${esc(a.title||"Untitled")}</div>`).join("")}
+          ${actsOn(iso).map(a=>`<div class="pm-a" style="--c:${catColor(a.catId)}">${a.time?`<small>${esc(a.time)}</small>`:""}${esc(a.title||"Untitled")}${a.playerId?` <small>(${esc(playerLast(a.playerId))})</small>`:""}</div>`).join("")}
           ${d.notes?`<div class="pm-dnote">${esc(d.notes.length>90?d.notes.slice(0,90)+"…":d.notes)}</div>`:""}</td>`; }).join("")}</tr>`; }).join("")}
     </tbody></table>
     ${legendHTML()}
@@ -2445,7 +2687,7 @@ function agendaPageHTML(orient){
       ${days.length?days.map(iso=>{ const d=W.days[iso]||{};
         return `<div class="pa-day"><div class="pa-dl">${esc(shortDate(iso))}${d.tag?`<em>${esc(d.tag)}</em>`:""}${W.schedules[iso]?`<i>Daily schedule built</i>`:""}</div>
           <div class="pa-dr">${d.notes?`<div class="pa-dn">${esc(d.notes)}</div>`:""}
-          ${actsOn(iso).map(a=>`<div class="pa-a" style="--c:${catColor(a.catId)}"><b>${esc(a.title||"Untitled")}</b>${a.time?`<small>${esc(a.time)}</small>`:""}${a.catId?`<small>${esc(catName(a.catId))}</small>`:""}${a.notes?`<div>${esc(a.notes)}</div>`:""}</div>`).join("")||(d.notes?"":`<span class="pa-none">—</span>`)}</div></div>`;
+          ${actsOn(iso).map(a=>`<div class="pa-a" style="--c:${catColor(a.catId)}"><b>${esc(a.title||"Untitled")}</b>${a.time?`<small>${esc(a.time)}</small>`:""}${a.catId?`<small>${esc(catName(a.catId))}</small>`:""}${a.playerId?`<small>Player: ${esc(caseById(a.playerId).name)}</small>`:""}${a.notes?`<div>${esc(a.notes)}</div>`:""}</div>`).join("")||(d.notes?"":`<span class="pa-none">—</span>`)}</div></div>`;
       }).join(""):`<div class="pa-day"><div class="pa-dl">—</div><div class="pa-dr"><span class="pa-none">Nothing planned this week.</span></div></div>`}
     </div>`;
   }).join("");
@@ -2473,7 +2715,7 @@ function printBlockHTML(s){
   return tab+who+(live.length?`<table class="p-tbl"><colgroup><col style="width:${tW}%"><col style="width:${aW}%">${showLoc?`<col style="width:20%">`:""}${showStaff?`<col style="width:17%">`:""}</colgroup>
     <thead><tr><th>${esc(H.time)}</th><th>${esc(H.activity)}</th>${showLoc?`<th>${esc(H.location)}</th>`:""}${showStaff?`<th>${esc(H.staff)}</th>`:""}</tr></thead>
     <tbody>${live.map(r=>{ const c=r.catId&&findCat(r.catId);
-      return `<tr><td class="t">${esc(timeText(r))}</td><td class="a${c?" cat":""}" ${c?`style="--c:${c.color}"`:""}>${esc(r.activity)}${r.detail?`<span class="d">${esc(r.detail)}</span>`:""}</td>${showLoc?`<td>${esc(r.location)}</td>`:""}${showStaff?`<td>${esc(r.staff)}</td>`:""}</tr>`; }).join("")}</tbody></table>`:`<div class="p-empty">No rows</div>`);
+      return `<tr><td class="t">${esc(timeText(r))}</td><td class="a${c?" cat":""}" ${c?`style="--c:${c.color}"`:""}>${esc(r.activity)}${r.playerId&&caseById(r.playerId)?` <span style="font-weight:600;color:#002D62">(${esc(playerLast(r.playerId))})</span>`:""}${r.detail?`<span class="d">${esc(r.detail)}</span>`:""}</td>${showLoc?`<td>${esc(r.location)}</td>`:""}${showStaff?`<td>${esc(r.staff)}</td>`:""}</tr>`; }).join("")}</tbody></table>`:`<div class="p-empty">No rows</div>`);
 }
 function dailyPageHTML(S,orient){
   const acts=actsOn(S.date);
@@ -2485,6 +2727,27 @@ function dailyPageHTML(S,orient){
     <div class="p-body">${packSections(S.sections).map(row=>{ const free=rowFree(row);
       return `<div class="p-row">${row.map(s=>`<div class="p-blk" style="flex:${s.width||1}">${printBlockHTML(s)}</div>`).join("")}${free>.02?`<div class="p-blk gap" style="flex:${free}"></div>`:""}</div>`; }).join("")}</div>
     ${used.size?`<div class="p-legend">${[...used].map(id=>`<span><i style="--c:${catColor(id)}"></i>${esc(catName(id))}</span>`).join("")}</div>`:""}
+  </div></div>`;
+}
+
+function evalPageHTML(c){
+  const e=W.evals[c.id]||{}, {monthly,daily}=playerLinks(c.id);
+  const ans=([k,label])=>`<div class="pe-a"><h3>${esc(label)}</h3><div class="${String(e[k]||"").trim()?"":"blank"}">${String(e[k]||"").trim()?esc(e[k]):"Left blank"}</div></div>`;
+  return `<div class="pg portrait"><div class="fit" style="--base:9pt">
+    ${pageHead("Player Evaluation",`${c.role} · ${c.name}`,c.pos)}
+    <div class="pe-top">
+      <div><div class="pe-cap">Background</div><table class="pe-kv">${c.facts.map(([k,v])=>`<tr><td>${esc(k)}</td><td>${esc(v)}</td></tr>`).join("")}</table></div>
+      <div><div class="pe-cap">${esc(c.statsLabel)}</div><table class="pe-kv">${c.stats.map(([k,v])=>`<tr><td>${esc(k)}</td><td>${esc(v)}</td></tr>`).join("")}</table></div>
+    </div>
+    <div class="pe-box"><div class="pe-cap">Scouting &amp; staff observations</div><ul>${c.scouting.map(([w,t])=>`<li><b>${esc(w)}:</b> “${esc(t)}”</li>`).join("")}</ul></div>
+    <div class="pe-box"><div class="pe-cap">Development context</div><p>${esc(c.context)}</p><p class="pe-quote">“${esc(c.quote)}”</p></div>
+    <div class="pe-sec"><h2>Candidate's evaluation</h2>${EVAL_FIELDS.map(ans).join("")}</div>
+    <div class="pe-sec"><h2>Development prescription</h2>${RX_FIELDS.map(ans).join("")}</div>
+    <div class="pe-sec"><h2>Scheduled work</h2>${monthly.length||daily.length
+      ? monthly.map(a=>`<div class="pe-l" style="--c:${catColor(a.catId)}"><small>${esc(shortDate(a.date))} · Monthly plan</small>${esc(a.title||"Untitled")}${a.time?` — ${esc(a.time)}`:""}</div>`).join("")
+        + daily.map(x=>`<div class="pe-l" style="--c:${catColor(x.row.catId)}"><small>${esc(shortDate(x.date))} · Daily schedule</small>${esc(x.row.activity||"Untitled")}${x.row.time?` — ${esc(timeText(x.row))}`:""}${x.sec.name?` (${esc(x.sec.name)})`:""}</div>`).join("")
+      : `<p style="color:#9CA3AF;font-style:italic;margin:0">No activities linked to this player.</p>`}</div>
+    <div class="pe-fict">Fictional player and data, created for this exercise.</div>
   </div></div>`;
 }
 function coverPageHTML(){
@@ -2500,6 +2763,7 @@ function coverPageHTML(){
       ${al.list.map(r=>`<tr><td><i style="--c:${r.id?catColor(r.id):NOCAT}"></i>${esc(r.id?catName(r.id):"Uncategorized")}</td><td>${r.entries}</td><td>${r.days.size}</td><td>${pct(r.entries,totE)}</td><td>${fmtDur(r.minutes)}</td><td>${pct(r.minutes,totM)}</td></tr>`).join("")}
       </tbody></table><p style="font-size:.8em;color:#6B7280;margin-top:.4em">Daily-schedule time counts rows with a start and end time, by the category chosen on each row.</p>`:`<p><i style="color:#888">No categories created.</i></p>`}</div>
     <div class="pc-sec"><h2>Contents</h2><table class="pc-tbl"><tbody>
+      ${CASES.map(c=>`<tr><td>Player evaluation</td><td>${esc(c.role)} — ${esc(c.name)}${evalStarted(c.id)?"":" (left blank)"}</td></tr>`).join("")}
       <tr><td>Monthly calendar</td><td>${esc(monthName(W.plan.year,W.plan.month))}</td></tr>
       <tr><td>Monthly plan — details</td><td>Week by week, with all notes</td></tr>
       ${dates.map(d=>`<tr><td>Daily schedule</td><td>${esc(longDate(d))}${W.schedules[d].title?" — "+esc(W.schedules[d].title):""}</td></tr>`).join("")}
@@ -2514,12 +2778,17 @@ function buildPrint(kind,date){
   if(kind==="month"){
     html=monthPageHTML("landscape")+agendaPageHTML("landscape");
     pageCss="@page{size:letter landscape;margin:.4in}";
+  }else if(kind==="evals"||kind==="eval"){
+    const list=kind==="eval"?[caseById(date)].filter(Boolean):CASES;
+    if(!list.length) return false;
+    html=list.map(evalPageHTML).join("");
+    pageCss="@page{size:letter portrait;margin:.4in}";
   }else if(kind==="daily"){
     const S=W.schedules[date]; if(!S) return false;
     html=dailyPageHTML(S,"portrait");
     pageCss="@page{size:letter portrait;margin:.4in}";
   }else{
-    html=coverPageHTML()+monthPageHTML("portrait")+agendaPageHTML("portrait")+
+    html=coverPageHTML()+CASES.map(evalPageHTML).join("")+monthPageHTML("portrait")+agendaPageHTML("portrait")+
       Object.keys(W.schedules).sort().map(d=>dailyPageHTML(W.schedules[d],"portrait")).join("");
     pageCss="@page{size:letter portrait;margin:.4in}";
   }
@@ -2569,6 +2838,7 @@ function printDoc(kind,date){
 window.addEventListener("beforeprint",()=>{
   if(printPrepared) return;
   if(UI.view==="daily"&&UI.sched) buildPrint("daily",UI.sched);
+  else if(UI.view==="players") buildPrint("eval",UI.player);
   else if(UI.view==="overview") buildPrint("package");
   else buildPrint("month");
 });
@@ -2577,6 +2847,7 @@ function printMenu(anchor){
   const dates=Object.keys(W.schedules).sort();
   showMenu(anchor,[
     {head:"Print or save as PDF"},
+    {label:"Player evaluations (all four)",fn:()=>printDoc("evals")},
     {label:"Monthly plan",fn:()=>printDoc("month")},
     ...dates.map(d=>({label:`Daily schedule — ${shortDate(d)}`,fn:()=>printDoc("daily",d)})),
     {label:"Review package (everything)",fn:()=>printDoc("package")},
@@ -2627,7 +2898,7 @@ function newExercise(){
     extra:{label:"Export current first",fn:exportJSON},
     onOk:()=>{
       if(hasContent()) Store.setRecovery(W);
-      W=blankWorkspace(); undoStack=[]; redoStack=[]; UI.sched=null; UI.drawer=null; UI.activeCat=null; UI.view="month"; closePop();
+      W=blankWorkspace(); undoStack=[]; redoStack=[]; UI.sched=null; UI.drawer=null; UI.activeCat=null; UI.view="players"; UI.player=CASES[0].id; closePop();
       Store.saveNow(); render(); showIntro();
     }});
 }
@@ -2646,6 +2917,7 @@ function fileMenu(anchor){
     {label:"Export plan (.json)",fn:exportJSON},
     {label:"Import a saved plan (.json)…",fn:()=>$("#filePick").click()},
     {sep:1},
+    {label:"Print / PDF — player evaluations",fn:()=>printDoc("evals")},
     {label:"Print / PDF — monthly plan",fn:()=>printDoc("month")},
     {label:"Print / PDF — a daily schedule…",disabled:!Object.keys(W.schedules).length,fn:()=>printMenu(anchor)},
     {label:"Print / PDF — review package",fn:()=>printDoc("package")},
@@ -2813,6 +3085,11 @@ document.addEventListener("click",e=>{
   }
   if((b=hit(e,"[data-secmenu]"))) return sectionMenu(b,b.dataset.secmenu);
   if((b=hit(e,"[data-rowmenu]"))) return rowMenu(b,b.dataset.sec,b.dataset.rowmenu);
+  if((b=hit(e,"[data-rowpl]"))){
+    const r=findRow(b.dataset.sec,b.dataset.rowpl);
+    return playerMenu(b,r.playerId,id=>mutate(()=>{ r.playerId=id; }));
+  }
+  if((b=hit(e,"[data-case-open]"))){ UI.player=b.dataset.caseOpen; Store.saveUI(); if(UI.view!=="players") return go("players"); return render(); }
   if((b=hit(e,"[data-rowcat]"))){
     const r=findRow(b.dataset.sec,b.dataset.rowcat);
     return catMenu(b,r.catId,id=>mutate(()=>{ r.catId=id; }));
@@ -2845,7 +3122,7 @@ function addPlannedRow(actId){
   const a=findAct(actId), S=curSched(); if(!a||!S) return;
   let s=(UI.targetSec&&S.sections.find(x=>x.id===UI.targetSec&&x.kind==="table"))||S.sections.find(x=>x.kind==="table");
   const t=String(a.time||"").split(RANGE_SPLIT);
-  const seed={activity:a.title,catId:a.catId,src:a.id,time:parseT(t[0])!=null?normalizeTime(t[0]):"",timeEnd:parseT(t[1])!=null?normalizeTime(t[1]):""};
+  const seed={activity:a.title,catId:a.catId,playerId:a.playerId||null,src:a.id,time:parseT(t[0])!=null?normalizeTime(t[0]):"",timeEnd:parseT(t[1])!=null?normalizeTime(t[1]):""};
   if(!s){
     const ns=blankSection(1); ns.rows=[R(seed)];
     mutate(()=>S.sections.push(ns));
@@ -2865,6 +3142,10 @@ function onPopClick(e){
     const id=b.dataset.apcat||null;
     mutate(()=>applyToActivity(a,"catId",id)); return drawActPop();
   }
+  if((b=hit(e,"[data-applayer]"))){
+    const id=b.dataset.applayer||null;
+    mutate(()=>applyToActivity(a,"playerId",id)); return drawActPop();
+  }
   if(hit(e,"[data-apnewcat]")){ POP.newCat=true; drawActPop(); const i=$("[data-apnewcatname]"); if(i) i.focus(); return; }
   if(hit(e,"[data-apnewcatgo]")) return popNewCat();
   if(hit(e,"[data-aprepeat]")){ POP.rep={mode:"weekly",days:[dateOf(a.date).getDay()],until:monthEnd(W.plan.year,W.plan.month)>a.date?monthEnd(W.plan.year,W.plan.month):addDays(a.date,28)}; return drawActPop(); }
@@ -2879,7 +3160,7 @@ function onPopClick(e){
     mutate(()=>{
       a.seriesId=a.seriesId||uid();
       dates.forEach(d=>{ if(actsOn(d).some(x=>x.seriesId===a.seriesId)) return;
-        W.activities.push({id:uid(),date:d,title:a.title,catId:a.catId,time:a.time,notes:a.notes,seriesId:a.seriesId,order:nextOrder(d)}); });
+        W.activities.push({id:uid(),date:d,title:a.title,catId:a.catId,playerId:a.playerId||null,time:a.time,notes:a.notes,seriesId:a.seriesId,order:nextOrder(d)}); });
     });
     POP.rep=null; drawActPop();
     return toast(`Repeated on ${dates.length} more date${dates.length===1?"":"s"}`,{label:"Undo",fn:undo});
@@ -2923,6 +3204,7 @@ document.addEventListener("input",e=>{
   else if(d.weeknotes){ weekRec(d.weeknotes).notes=t.value; }
   else if(d.catname){ const c=findCat(d.catname); if(c) c.name=t.value; if(UI.mmode==="week") renderCalBody(); }
   else if(d.pri!==undefined){ W.priorities=t.value; }
+  else if(d.evf&&caseById(d.case)){ evalRec(d.case)[d.evf]=t.value; }
   else if(d.dayf&&UI.drawer){ dayRec(UI.drawer)[d.dayf]=t.value; renderCalBody(); }
   else if(d.actf&&d.actid){ const a=findAct(d.actid); if(a) a[d.actf]=t.value; renderCalBody(); }
   else if(d.ap&&POP){
@@ -2992,6 +3274,7 @@ document.addEventListener("change",e=>{
   commitEdit();
   if(d.rf==="activity"&&UI.view==="daily"){ captureFocus(); const pl=$(".planned"); if(pl){ const tmp=document.createElement("div"); tmp.innerHTML=dayCardHTML(curSched()); const np=tmp.querySelector(".planned"); if(np) pl.replaceWith(np); } restoreFocus(); }
   if(d.catname||d.pri!==undefined){ if(UI.view==="month"){ renderSide(); renderCalBody(); } }
+  if(d.evf&&UI.view==="players"){ const st=$(`[data-case-open="${d.case}"] .ev-st`); if(st){ const l=playerLinks(d.case), n=l.monthly.length+l.daily.length; st.innerHTML=`${evalStarted(d.case)?"✎ Started":""}${n?`<br>${n} scheduled`:""}`; } }
   if(d.weekfocus&&UI.view==="month"&&UI.mmode==="week") { /* both views read the same record */ }
 });
 function renderDurBadge(input,r){
@@ -3007,7 +3290,7 @@ document.addEventListener("keydown",e=>{
   const inField=t.matches&&t.matches("input,textarea,select");
 
   if(meta&&e.key.toLowerCase()==="s"){ e.preventDefault(); Store.saveNow(); return toast(Store.ok?"Saved in this browser — use Export to keep a copy":"Not saved — export your plan"); }
-  if(meta&&e.key.toLowerCase()==="p"){ e.preventDefault(); return printDoc(UI.view==="daily"&&UI.sched?"daily":UI.view==="overview"?"package":"month",UI.sched); }
+  if(meta&&e.key.toLowerCase()==="p"){ e.preventDefault(); return UI.view==="players"?printDoc("eval",UI.player):printDoc(UI.view==="daily"&&UI.sched?"daily":UI.view==="overview"?"package":"month",UI.sched); }
   if(meta&&!e.shiftKey&&e.key.toLowerCase()==="z"&&!inField){ e.preventDefault(); return undo(); }
   if(meta&&((e.shiftKey&&e.key.toLowerCase()==="z")||e.key.toLowerCase()==="y")&&!inField){ e.preventDefault(); return redo(); }
   if(e.key==="Escape"){
@@ -3201,13 +3484,15 @@ document.addEventListener("visibilitychange",()=>{ if(document.visibilityState==
     if(q.get("label")) W.candidate.label=q.get("label").slice(0,160);
   }
   const ui=Store.ui();
-  if(["month","daily","overview"].includes(ui.view)) UI.view=ui.view;
+  if(["players","month","daily","overview"].includes(ui.view)) UI.view=ui.view;
+  else if(!W.started) UI.view="players";
+  if(caseById(ui.player)) UI.player=ui.player;
   if(ui.mmode==="week") UI.mmode="week";
   if(ui.sched&&W.schedules[ui.sched]) UI.sched=ui.sched;
   UI.noteDismissed=!!ui.note;
   render();
   if(!W.started) showIntro();
-  window.MIS={ get W(){ return W; }, buildPrint:(k,d)=>{ const ok=buildPrint(k,d); printPrepared=ok; return ok; }, normalize, parseT, normalizeTime, rowMinutes, Store, UI };
+  window.MIS={ get W(){ return W; }, CASES, buildPrint:(k,d)=>{ const ok=buildPrint(k,d); printPrepared=ok; return ok; }, normalize, parseT, normalizeTime, rowMinutes, Store, UI };
 })();
 </script>
 </body>
