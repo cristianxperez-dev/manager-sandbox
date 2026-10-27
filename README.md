@@ -1,8 +1,10 @@
-# Manager Interview Sandbox
+# Manager Interview Hub
 
-A workspace for minor league manager interviews. Candidates evaluate four fictional Double-A players and write a development prescription for each. They then build a monthly plan and turn at least two dates from it into detailed daily practice schedules. Reviewers get a one-page overview and a printable review package.
+A planning tool for the Double-A manager interview exercise. Candidates build a month of baseball activities, turn two days of it into detailed practice schedules, and export the result for review.
 
-The tool is deliberately open-ended. It has no preset categories, sample schedule, required fields, rating scales or scoring. Candidates evaluate, prescribe and organize the month their own way.
+**Monthly calendar → two daily practice schedules → export**
+
+The calendar starts blank. The tool offers optional baseball activity suggestions but never fills anything in, requires a method, or scores the work.
 
 It is a single static HTML file. It needs no backend, login, build step or external services.
 
@@ -11,9 +13,9 @@ It is a single static HTML file. It needs no backend, login, build step or exter
 ```
 index.html                  The application (HTML, CSS and JS in one file)
 .nojekyll                   Tells GitHub Pages to serve files as-is
-docs/DEVELOPMENT_SUMMARY.md What was reused, changed, added and left out
+docs/DEVELOPMENT_SUMMARY.md What changed in each version, and why
 tests/e2e.js                End-to-end candidate workflow test (Playwright)
-tests/fixtures/             A saved V1 exercise, used to test that old files still load
+tests/fixtures/             Saved V1 and V2 exercises, used to test that old files still open
 package.json                `npm test` runs the workflow test
 ```
 
@@ -25,37 +27,39 @@ Open `index.html` in a browser. You can also serve the folder:
 python3 -m http.server 8000     # then visit http://localhost:8000/
 ```
 
-## The candidate workflow
+## How a candidate uses it
 
-The navigation has three sections — **Player Evaluations | Monthly Planner | Daily Schedules** — plus a **Review & Export** page. Candidates can move between them freely; nothing is locked or sequenced.
+1. **Welcome page** (first visit only): the objective, the three-part assignment and a few notes. The candidate enters a name and the planning month, then clicks **Start Planning**. Returning candidates go straight back to their work.
+2. **Monthly Planner.**
+   - Click any day (or **＋ Add activity**), pick a suggestion or type a custom name, and add an optional time, colour or note.
+   - Suggestions are grouped as Team Defense, Offense, Individual / Position Work and Other. Typing filters them, and a suggestion can be renamed before it's added.
+   - Click an activity to edit, duplicate, repeat or delete it. Drag it to move it; hold Alt/Option while dragging to copy.
+   - Month priorities and a weekly focus are typed into bands on the calendar.
+   - Click a date number to open the day: a label, notes, its activities, and **Build daily schedule**.
+3. **Daily Schedule.** This is the V1 builder:
+   - rows with time, activity, location and staff (only the activity name matters)
+   - an optional details line and colour on each row
+   - full, half and one-third width sections for groups or fields
+   - stations / rotation grids
+   - reordering by drag or keyboard, and "push the rows below" when a time changes
+   - the same activity suggestions as the planner
 
-1. **Intro.** The candidate enters their name, an optional exercise label and the planning month.
-2. **Player Evaluations.** Four fictional cases: an infielder, an outfielder, a catcher and a baserunner. Each has background, performance figures, scouting and staff observations (which don't always agree), development context, and a quote from the player. Beside each case are seven open text areas:
-   - *Evaluation:* strengths, development opportunities, additional observations
-   - *Development prescription:* primary priority, intervention or training approach, implementation and frequency, how progress will be evaluated
+   That day's monthly activities appear at the top; clicking one adds it as a row. **☆ Add to submission** marks the days to submit. The first two schedules are marked automatically.
+4. **Export** (one button in the header):
+   - **Complete Interview Submission** — one PDF: a cover, the monthly calendar, a week-by-week details page, and the daily schedules checked in the dialog
+   - **Monthly Calendar** — PDF
+   - **Daily Schedule** — PDF of the chosen day
+   - **JSON Backup** — the whole exercise as a file. Import it from the Export dialog or the welcome page.
 
-   Under the text areas, each case lists any scheduled work linked to that player.
-3. **Monthly Planner.** This is a month view (with a week view) where the candidate can:
-   - create their own categories and colours
-   - add activities with ＋
-   - drag activities to move them (hold Alt/Option to copy)
-   - click an activity to edit its time, notes, category and **linked player** (optional), duplicate it, or repeat it
-   - type a weekly focus above each week
-   - open any day to add a day label, notes and an ordered list of activities
-4. **Daily Schedules.** From a day, choose *Build daily schedule*. This uses the Schedule Hub builder: time blocks, activities, details, locations, staff, side-by-side sections, stations/rotation grids, a category on each row, an optional linked player on each row (from its ⋯ menu), and keyboard shortcuts. The activities planned for that date appear at the top for reference; adding one keeps its player link.
-5. **Review & Export.** One page shows priorities, each player's evaluation status, primary priority and linked work, categories, monthly plan entries next to scheduled minutes in the daily schedules, the daily schedules themselves, and the month week by week.
+The **?** button in the header opens the instructions from either workspace.
 
-## Saving, exporting and printing
+## Saving and safeguards
 
-- **Autosave.** Every change saves to the browser's `localStorage` automatically. Browser saving does **not** sync between devices or browsers, and the app says so in the intro and in a banner.
-- **Export / Import.** *Save & Export → Export plan (.json)* downloads the whole exercise as one file. *Import* restores it on any machine for further editing.
-- **Print / PDF.** You can print the player evaluations (one player or all four — each with the case, the candidate's writing and the linked work), the monthly plan (landscape calendar plus a week-by-week details page), any single daily schedule (fitted to one page), or the full **review package**: cover, four player evaluations, calendar, details and every daily schedule.
-- **V1 files.** Exercises saved or exported before player evaluations existed load unchanged; they simply start with blank evaluations. To make a PDF, choose "Save as PDF" in the print dialog.
-- **Safeguards:**
-  - undo/redo (Ctrl/⌘ Z)
-  - a one-step backup when an exercise is replaced (*Restore previous exercise*)
-  - a warning banner if browser storage is blocked or full
-  - saving pauses in a tab when the same exercise is edited in another tab
+- **Autosave.** Every change saves to the browser's `localStorage`. This does **not** sync between devices or browsers, which the welcome page and the help both say.
+- **Undo/redo.** Ctrl/⌘ Z undoes any change; Ctrl/⌘ Shift Z (or Ctrl/⌘ Y) redoes it.
+- **Recovery.** A one-step backup is kept when an exercise is replaced (*Export → Restore previous*).
+- **Warnings.** A banner appears if browser storage is blocked or full. Saving pauses in a tab if the same exercise is edited in another tab.
+- **Shared computers.** Use *Export → Start a new exercise* between candidates. It offers to download a backup first.
 
 ## Preparing a link for candidates
 
@@ -65,27 +69,19 @@ A fresh workspace can be preset from the URL:
 https://cristianxperez-dev.github.io/manager-sandbox/?month=2027-06&label=Double-A%20Manager%20Interview
 ```
 
-These parameters only apply to a blank workspace. They never overwrite a candidate's work in progress.
+These parameters only apply to a blank workspace. They never overwrite work in progress.
 
-**Shared computers:** to reset an interview laptop between candidates, use *Save & Export → Start a new exercise*. It offers to export the current plan first.
+## GitHub Pages
 
-## Publishing with GitHub Pages
+The site is published from `main` at **https://cristianxperez-dev.github.io/manager-sandbox/**. Pages serves whatever is on `main`, so merging a change into `main` updates the live site within a minute or two. Work on a branch first and merge only when you want candidates to see it.
 
-> Nothing has been published. These are the steps to take once you're ready to deploy.
-
-The repository was empty before this work, so there is no existing site or entry point to preserve. `index.html` sits at the root and every reference is relative or inline, so the app works at a project-site subpath.
-
-1. Merge the `claude/sleepy-albattani-k56op0` branch into `main`. You can also publish straight from the branch.
-2. On GitHub, open **cristianxperez-dev/manager-sandbox → Settings → Pages**.
-3. Under **Build and deployment**, set **Source** to **Deploy from a branch**.
-4. Set **Branch** to `main` and the folder to `/ (root)`, then click **Save**.
-5. After a minute or two the site is live at **https://cristianxperez-dev.github.io/manager-sandbox/**. Open it in a private window to confirm you see the intro screen.
+To set Pages up from scratch: **Settings → Pages → Build and deployment → Deploy from a branch → `main` / `(root)` → Save**.
 
 Notes:
 
-- **Visibility.** If the repository is private, Pages needs a GitHub plan that supports Pages for private repositories, and the published site is still publicly reachable. `index.html` includes `noindex, nofollow` so search engines are asked not to list it.
-- **Storage scope.** All GitHub Pages project sites under one account share an origin (`cristianxperez-dev.github.io`). The app namespaces its storage keys (`mis:v1:*`) so it doesn't collide with other tools later hosted there.
-- **Adding more tools later.** Put each new tool in its own folder (for example `/pitching-plan/index.html`). The sandbox URL stays the same. To add a hub landing page later, move the sandbox into `/interview-sandbox/` and replace the root `index.html` with a launcher. Its saved data keeps working because storage is per-origin, not per-path.
+- **Indexing.** `index.html` includes `noindex, nofollow`, so search engines are asked not to list it.
+- **Storage keys.** All Pages project sites under one account share an origin (`cristianxperez-dev.github.io`). Storage keys are namespaced (`mis:v1:*`) to avoid collisions with other tools hosted there.
+- **Other tools.** Further tools can live in their own folders without changing this URL.
 
 ## Testing
 
@@ -96,26 +92,25 @@ npm install --no-save playwright && npx playwright install chromium   # first ti
 npm test                     # or: SHOTS=1 node tests/e2e.js  (also saves screenshots)
 ```
 
-It serves the repository at a Pages-like subpath (`/manager-sandbox/`) and drives a full candidate exercise:
+It serves the repository at a Pages-like subpath and drives the whole exercise:
 
-- intro, and starting on Player Evaluations
-- all four player cases, a full evaluation and prescription, linking monthly activities and daily rows to players, and the linked-work list on each case
-- categories
-- quick-add, edit, repeat and duplicate activities
-- drag to move and Alt-drag to copy
-- the day drawer
-- two daily schedules, with keyboard entry, time-shift, sections, a rotation grid and row drag
-- the overview
+- welcome page → Start Planning
+- adding activities from suggestions and as custom entries, filtering, renaming
+- editing, repeating, duplicating, deleting, undoing, moving and Alt-copying activities
+- the day panel
+- three daily schedules (keyboard entry, suggestions, planned-activity strip, time-shift, sections, rotation grid, row drag) and choosing two for submission
+- the help modal
 - reload persistence
-- printing (it checks PDF page counts for evaluations, the month, a daily schedule and the package)
-- JSON export → new exercise → import
-- rejection of bad or malicious files
+- the four exports, including PDF page counts
+- JSON backup → new exercise → import
+- rejecting bad or malicious files
+- opening real V1 and V2 saves
 - the two-tab warning
-- a sweep that clicks every visible button
-- importing a real V1 export, checking nothing changed, then adding evaluation work to it
+- a click-every-button sweep
+- tablet width
 
-It fails on any page error or any external network request. PDFs and screenshots go to `tests/output/`, which is git-ignored.
+It also confirms the removed evaluation interface is gone. It fails on any page error or external network request. Output goes to the git-ignored `tests/output/`.
 
 ## Confidentiality
 
-This build contains no real player names, staff names, internal schedules, organization-specific data or credentials. The four player cases, their names and their figures are fictional and written for this exercise. It makes no network requests. Everything a candidate enters stays in their own browser until they export it.
+This build contains no player names, staff names, internal schedules, organization-specific data or credentials. It makes no network requests. Everything a candidate enters stays in their own browser until they export it.

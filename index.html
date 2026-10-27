@@ -4,12 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<meta name="description" content="Manager Interview Sandbox — a monthly planning and daily practice scheduling workspace.">
-<title>Manager Interview Sandbox</title>
+<meta name="description" content="Manager Interview Hub — a monthly planning and daily practice scheduling workspace.">
+<title>Manager Interview Hub</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='5' fill='%23002D62'/%3E%3Crect x='6' y='9' width='20' height='17' rx='2' fill='none' stroke='%23EB6E1F' stroke-width='2.4'/%3E%3Cpath d='M6 14h20M11 6v5M21 6v5' stroke='%23EB6E1F' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E">
 <style>
 /* ==========================================================================
-   Manager Interview Sandbox
+   Manager Interview Hub
    Adapted from the Schedule Hub: same tokens, app bar, day card, section
    blocks, row grid, combobox, shift pill, toast, menus, modals and printed
    sheet language. Everything that was specific to rosters, affiliates,
@@ -133,12 +133,6 @@ nav.seg::-webkit-scrollbar{display:none}
 .btn[disabled]{opacity:.45;pointer-events:none}
 
 /* ============================================================ LOCAL SAVE NOTICE */
-.localnote{
-  display:flex;align-items:center;gap:10px;justify-content:center;flex-wrap:wrap;
-  background:#FFF8EF;border-bottom:1px solid #F3DCC4;color:#7A4A1E;font-size:12.5px;padding:7px 16px;text-align:center;
-}
-.localnote b{color:#5E3511}
-.localnote .x{margin-left:0;font-size:16px;padding:0 6px}
 .banner{
   display:flex;align-items:center;gap:12px;justify-content:center;padding:9px 16px;font-size:13px;font-weight:600;
   background:#FDECEE;color:#8A1023;border-bottom:1px solid #F3C9CF;
@@ -160,37 +154,8 @@ nav.seg::-webkit-scrollbar{display:none}
 kbd{font-family:var(--f-ui);font-size:10px;background:#EEF1F6;border-radius:3px;padding:1px 4px;color:var(--muted)}
 
 /* ============================================================ PLANNER */
-.planner{display:grid;grid-template-columns:262px minmax(0,1fr);gap:16px;align-items:start}
+.planner{display:block}
 body.drawer-open .wrap{padding-right:calc(var(--drawer) + 18px)}
-.side{display:flex;flex-direction:column;gap:12px;position:sticky;top:110px;max-height:calc(100vh - 124px);overflow:auto;padding-bottom:4px}
-.side-card{background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--shadow-1);padding:12px 12px 13px}
-.side-h{display:flex;align-items:baseline;gap:8px;margin-bottom:8px}
-.side-h b{font-size:10.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--navy)}
-.side-hint{font-size:11px;color:var(--faint);margin-left:auto}
-.cat-list{display:flex;flex-direction:column;gap:3px}
-.cat-row{
-  display:flex;align-items:center;gap:6px;border-radius:8px;padding:3px 4px 3px 5px;border:1px solid transparent;cursor:pointer;
-}
-.cat-row:hover{background:#F6F8FB}
-.cat-row.on{background:var(--orange-100);border-color:#F7CDAE}
-.cat-sw{width:18px;height:18px;border-radius:4px;border:0;background:var(--c);flex:none;box-shadow:inset 0 0 0 1px rgba(0,0,0,.15)}
-.cat-sw:hover{box-shadow:0 0 0 2px var(--orange)}
-.cat-name{flex:1;min-width:0;border:0;background:transparent;font-size:13px;font-weight:600;padding:4px 5px;border-radius:5px;color:var(--ink)}
-.cat-name:focus{outline:none;background:#fff;box-shadow:inset 0 0 0 1.5px var(--orange)}
-.cat-n{font-size:11px;color:var(--faint);min-width:16px;text-align:right}
-.cat-more{border:0;background:transparent;color:#B6BDC9;border-radius:5px;padding:2px 6px;font-size:14px;line-height:1}
-.cat-more:hover{background:#EEF1F6;color:var(--ink)}
-.cat-add{display:flex;gap:6px;margin-top:8px}
-.cat-add input{flex:1;min-width:0;border:1px solid var(--line-2);border-radius:7px;padding:6px 9px;font-size:13px}
-.cat-add input:focus{outline:none;border-color:var(--orange);box-shadow:0 0 0 3px var(--orange-100)}
-.side-note{font-size:11.5px;color:var(--muted);margin:9px 2px 0;line-height:1.45}
-.side textarea{
-  width:100%;min-height:96px;resize:vertical;border:1px solid var(--line-2);border-radius:8px;padding:8px 10px;
-  font-size:13px;line-height:1.45;color:var(--ink);
-}
-.side textarea:focus{outline:none;border-color:var(--orange);box-shadow:0 0 0 3px var(--orange-100)}
-.side-help ul{margin:0;padding-left:16px;font-size:12px;color:var(--muted);line-height:1.6}
-.side-help b{color:var(--ink);font-weight:600}
 
 .cal-head{
   display:flex;align-items:center;gap:12px;flex-wrap:wrap;background:var(--card);border:1px solid var(--line);
@@ -210,8 +175,6 @@ body.drawer-open .wrap{padding-right:calc(var(--drawer) + 18px)}
 .cal-tools{margin-left:auto;display:flex;gap:8px;align-items:center}
 .cal-tools label{font-size:12px;color:var(--muted);display:flex;align-items:center;gap:6px}
 .cal-tools select{border:1px solid var(--line-2);border-radius:7px;padding:4px 6px;font-size:12px;background:#fff}
-.hintline{font-size:12px;color:var(--faint);margin:10px 2px 0}
-.hintline b{color:var(--muted);font-weight:600}
 
 /* month grid */
 .mgrid{background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:var(--shadow-1);display:flex;flex-direction:column;gap:1px}
@@ -256,16 +219,11 @@ body.drawer-open .wrap{padding-right:calc(var(--drawer) + 18px)}
   transition:opacity .12s,box-shadow .12s;
 }
 .ac:hover{box-shadow:0 0 0 1px color-mix(in srgb, var(--c) 55%, #fff)}
-.ac.dim{opacity:.28}
 .ac.dragging{opacity:.35}
 .ac.dropbefore{box-shadow:0 -2px 0 var(--orange)}
 .ac-t{font-size:10px;color:var(--muted);font-weight:700;flex:none}
 .ac-l{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
 .ac-i{font-size:9.5px;color:var(--muted);flex:none;margin-left:auto}
-.qa{
-  width:100%;border:1.5px solid var(--orange);border-radius:5px;padding:3px 6px;font-size:11.5px;background:#fff;
-}
-.qa:focus{outline:none;box-shadow:0 0 0 3px var(--orange-100)}
 .dc-sched{
   margin-top:auto;align-self:flex-start;border:1px solid #BFD0E6;background:var(--navy-100);color:var(--navy);
   border-radius:4px;font-size:10px;font-weight:800;letter-spacing:.04em;padding:2px 6px;text-transform:uppercase;
@@ -297,12 +255,10 @@ body.drawer-open .wrap{padding-right:calc(var(--drawer) + 18px)}
   cursor:grab;font-size:12px;min-width:0;
 }
 .wc:hover{border-color:color-mix(in srgb, var(--c) 45%, #fff)}
-.wc.dim{opacity:.28}
 .wc.dragging{opacity:.35}
 .wc.dropbefore{box-shadow:0 -2px 0 var(--orange)}
 .wc-t{font-size:10.5px;font-weight:700;color:var(--muted)}
 .wc-l{font-weight:700;color:var(--ink);overflow-wrap:anywhere}
-.wc-c{font-size:10.5px;color:var(--muted);margin-top:1px}
 .wc-n{font-size:11.5px;color:var(--body);margin-top:4px;white-space:pre-wrap;overflow-wrap:anywhere}
 .wv-foot{padding:0 8px 8px}
 .wv-foot .dc-sched{margin:0}
@@ -354,7 +310,7 @@ body.drawer-open .wrap{padding-right:calc(var(--drawer) + 18px)}
 
 /* ============================================================ POPOVER (activity editor) */
 .pop{
-  position:absolute;z-index:240;width:360px;max-width:calc(100vw - 20px);background:#fff;border:1px solid var(--line-2);
+  position:absolute;z-index:260;width:392px;max-width:calc(100vw - 20px);background:#fff;border:1px solid var(--line-2);
   border-radius:12px;box-shadow:var(--shadow-3);padding:12px 14px 12px;display:none;
 }
 .pop.on{display:block;animation:pop .14s ease-out}
@@ -370,17 +326,6 @@ body.drawer-open .wrap{padding-right:calc(var(--drawer) + 18px)}
 .pop-f textarea{resize:vertical;min-height:60px;line-height:1.45}
 .pop input:focus,.pop textarea:focus,.pop select:focus{outline:none;border-color:var(--orange);box-shadow:0 0 0 3px var(--orange-100)}
 .pop-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.pop-cats{display:flex;flex-wrap:wrap;gap:5px}
-.pc{
-  display:inline-flex;align-items:center;gap:5px;border:1px solid var(--line-2);background:#fff;border-radius:20px;padding:3px 10px 3px 7px;
-  font-size:12px;font-weight:600;color:var(--body);
-}
-.pc i{width:10px;height:10px;border-radius:50%;background:var(--c);flex:none}
-.pc:hover{border-color:var(--navy-600)}
-.pc.on{background:var(--navy-100);border-color:var(--navy);color:var(--navy)}
-.pc.add{border-style:dashed;color:var(--muted)}
-.pc-new{display:flex;gap:5px;width:100%}
-.pc-new input{flex:1;border:1px solid var(--orange);border-radius:20px;padding:3px 10px;font-size:12px}
 .pop-chk{display:flex;align-items:center;gap:7px;font-size:12.5px;color:var(--body);margin:0 0 10px}
 .pop-foot{display:flex;gap:6px;flex-wrap:wrap;align-items:center;border-top:1px solid var(--line);padding-top:10px;margin-top:2px}
 .rep{border:1px solid var(--line);background:#FAFBFD;border-radius:9px;padding:9px 10px;margin-bottom:10px}
@@ -592,126 +537,58 @@ body.drawer-open .wrap{padding-right:calc(var(--drawer) + 18px)}
 .dp-legend{display:flex;gap:14px;font-size:11.5px;color:var(--muted);margin-top:8px;flex-wrap:wrap}
 
 /* ============================================================ OVERVIEW */
-.ov{max-width:1260px;margin:0 auto;display:flex;flex-direction:column;gap:14px}
-.ov-head{
-  padding:18px 20px;display:flex;align-items:center;gap:18px;flex-wrap:wrap;color:#fff;border:0;
-  background:radial-gradient(120% 180% at 100% 0%, rgba(235,110,31,.22) 0%, rgba(235,110,31,0) 55%),linear-gradient(180deg,var(--navy),var(--navy-800));
-}
-.ov-k{font-size:10.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#9FB6D4}
-.ov-head h1{margin:3px 0 2px;font-family:var(--f-display);font-size:28px;font-weight:600;letter-spacing:.04em;text-transform:uppercase}
-.ov-sub{font-size:13px;color:#C9D7EA}
-.ov-acts{margin-left:auto;display:flex;gap:8px;flex-wrap:wrap}
-.ov-acts .btn:not(.primary){background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.24);color:#fff}
-.ov-acts .btn:not(.primary):hover{background:rgba(255,255,255,.2)}
-.ov-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);gap:14px}
-.ov-card{padding:16px 18px}
-.ov-card h3{margin:0 0 10px;font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--navy);display:flex;align-items:center;gap:8px}
-.ov-card h3 span{font-weight:600;letter-spacing:0;text-transform:none;color:var(--faint);font-size:12px}
-.ov-card textarea{width:100%;min-height:150px;border:1px solid var(--line-2);border-radius:9px;padding:10px 12px;font-size:13.5px;line-height:1.5;resize:vertical}
-.ov-card textarea:focus{outline:none;border-color:var(--orange);box-shadow:0 0 0 3px var(--orange-100)}
-.ov-stats{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:12px}
-.ov-stat{background:var(--paper);border-radius:9px;padding:8px 12px;min-width:100px}
-.ov-stat b{display:block;font-size:20px;color:var(--navy);font-family:var(--f-display)}
-.ov-stat span{font-size:11px;color:var(--muted)}
-.alloc{width:100%;border-collapse:collapse;font-size:12.5px}
-.alloc th{font-size:10px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);text-align:left;padding:4px 6px;border-bottom:1px solid var(--line)}
-.alloc td{padding:6px;border-bottom:1px solid #F1F3F7;vertical-align:middle}
-.alloc td.c{font-weight:700;color:var(--ink);white-space:nowrap}
-.alloc .sw{display:inline-block;width:10px;height:10px;border-radius:3px;background:var(--c);margin-right:6px;vertical-align:-1px}
-.bar{display:flex;align-items:center;gap:7px}
-.bar i{display:block;height:8px;border-radius:4px;background:var(--c);min-width:2px}
-.bar span{font-size:11.5px;color:var(--muted);white-space:nowrap}
-.ov-empty{font-size:13px;color:var(--faint);padding:6px 0}
-.ovs{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
-.ovs-card{border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:6px}
-.ovs-card .d{font-size:10.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--orange)}
-.ovs-card b{font-size:15px;color:var(--navy)}
-.ovs-card .m{font-size:12px;color:var(--muted)}
-.ovs-card .chips{display:flex;flex-wrap:wrap;gap:4px}
-.ovs-card .pchip{font-size:11px;padding:1px 8px 1px 6px}
-.ovs-card .pchip .box{width:12px;height:12px;font-size:8px}
-.ovs-card .acts{display:flex;gap:6px;margin-top:auto;padding-top:4px}
-.ovw{display:flex;flex-direction:column;gap:10px}
-.ovw-wk{border:1px solid var(--line);border-radius:11px;overflow:hidden}
-.ovw-h{display:flex;align-items:baseline;gap:10px;padding:7px 12px;background:#F7F9FC;border-bottom:1px solid var(--line)}
-.ovw-h span{font-size:10.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);white-space:nowrap}
-.ovw-h b{font-size:13.5px;color:var(--navy)}
-.ovw-h i{font-style:normal;font-size:12px;color:var(--muted)}
-.ovw-days{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:1px;background:var(--line)}
-.ovw-d{background:#fff;padding:6px 7px;min-height:56px;display:flex;flex-direction:column;gap:3px;min-width:0}
-.ovw-d.out{background:#FAFBFC}
-.ovw-dn{display:flex;align-items:center;gap:5px;font-size:11px;font-weight:700;color:var(--body)}
-.ovw-dn button{border:0;background:transparent;padding:0 3px;border-radius:4px;font-size:11px;font-weight:700;color:var(--body)}
-.ovw-dn button:hover{background:var(--navy-100)}
-.ovw-dn em{font-style:normal;color:var(--orange);font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
-.ovw-dn .s{margin-left:auto;font-size:9px;font-weight:800;color:var(--navy);background:var(--navy-100);border-radius:3px;padding:0 4px}
-.ovw-a{font-size:10.5px;line-height:1.3;border-left:3px solid var(--c);padding-left:4px;color:var(--ink);overflow-wrap:anywhere}
 
-/* ============================================================ PLAYER EVALUATIONS */
-.ev{max-width:1320px;margin:0 auto}
-.ev-cases{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-bottom:14px}
-.ev-case{
-  border:1px solid var(--line-2);background:#fff;border-radius:12px;padding:10px 12px;text-align:left;display:flex;gap:10px;align-items:center;
-  box-shadow:var(--shadow-1);min-width:0;
+/* ============================================================ V3: ADD ACTIVITY · COLORS · HELP · EXPORT */
+.help-btn{
+  width:30px;height:30px;border-radius:50%;border:1.5px solid rgba(255,255,255,.55);background:rgba(255,255,255,.1);color:#fff;
+  font-weight:800;font-size:15px;line-height:1;display:grid;place-items:center;flex:none;padding:0;
 }
-.ev-case:hover{border-color:var(--navy-600)}
-.ev-case.on{background:var(--navy);border-color:var(--navy);color:#fff}
-.ev-num{width:34px;height:34px;border-radius:8px;background:var(--navy-100);color:var(--navy);display:grid;place-items:center;font-family:var(--f-display);font-weight:700;font-size:15px;flex:none}
-.ev-case.on .ev-num{background:var(--orange);color:#fff}
-.ev-cn{min-width:0}
-.ev-cn span{display:block;font-size:10.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
-.ev-cn b{display:block;font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.ev-case.on .ev-cn span{color:#B9CCE6}
-.ev-st{margin-left:auto;font-style:normal;font-size:10.5px;color:var(--faint);white-space:nowrap;text-align:right;line-height:1.35}
-.ev-case.on .ev-st{color:#C9D7EA}
-.ev-body{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:14px;align-items:start}
-.ev-prof{position:sticky;top:110px;max-height:calc(100vh - 124px);overflow:auto}
-.ev-ph{
-  padding:14px 18px 13px;color:#fff;border-bottom:3px solid var(--orange);
-  background:radial-gradient(120% 180% at 100% 0%, rgba(235,110,31,.20) 0%, rgba(235,110,31,0) 55%),linear-gradient(180deg,var(--navy) 0%,var(--navy-800) 100%);
+.help-btn:hover{background:#fff;color:var(--navy);border-color:#fff}
+.pop-date{border:1px solid var(--line-2);border-radius:6px;padding:3px 6px;font-size:12px;margin-left:auto}
+.pop-h .pop-date + .x{margin-left:4px}
+.al{max-height:236px;overflow:auto;border:1px solid var(--line);border-radius:9px;padding:6px 8px 8px;margin-bottom:10px;background:#FAFBFD}
+.al-g + .al-g{margin-top:6px}
+.al-h{font-size:9.5px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;color:var(--faint);margin:2px 0 4px}
+.al-cs{display:flex;flex-wrap:wrap;gap:4px}
+.al-c{
+  border:1px solid var(--line-2);border-left:3px solid var(--c,var(--line-2));background:#fff;border-radius:6px;padding:3px 8px;
+  font-size:12px;font-weight:600;color:var(--ink);
 }
-.ev-ph .k{font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#9FB6D4}
-.ev-ph h2{margin:3px 0 1px;font-family:var(--f-display);font-size:24px;font-weight:600;letter-spacing:.04em;text-transform:uppercase}
-.ev-ph .m{font-size:12.5px;color:#C9D7EA}
-.ev-sec{padding:12px 18px;border-top:1px solid var(--line)}
-.ev-sec:first-of-type{border-top:0}
-.ev-sec h3,.ev-card h3{margin:0 0 8px;font-size:10.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--navy);display:flex;align-items:baseline;gap:8px}
-.ev-sec h3 span,.ev-card h3 span{font-weight:600;letter-spacing:0;text-transform:none;color:var(--faint);font-size:11.5px}
-.ev-kv{width:100%;border-collapse:collapse;font-size:13px}
-.ev-kv td{padding:4px 0;border-bottom:1px solid #F1F3F7;vertical-align:top}
-.ev-kv td:first-child{color:var(--muted);width:44%;padding-right:10px}
-.ev-kv td:last-child{color:var(--ink);font-weight:600}
-.ev-sec ul{margin:0;padding-left:17px;font-size:13px;line-height:1.5;color:var(--body)}
-.ev-sec li + li{margin-top:5px}
-.ev-sec li b{color:var(--ink)}
-.ev-sec p{margin:0;font-size:13px;line-height:1.55;color:var(--body)}
-.ev-quote{margin-top:8px !important;font-style:italic;color:var(--navy) !important;border-left:3px solid var(--orange);padding-left:10px}
-.ev-fict{font-size:11px;color:var(--faint);padding:9px 18px 12px;border-top:1px solid var(--line)}
-.ev-work{display:flex;flex-direction:column;gap:14px;min-width:0}
-.ev-card{padding:14px 18px 6px}
-.ev-f{display:flex;flex-direction:column;gap:5px;margin-bottom:12px}
-.ev-f > span{font-size:12.5px;font-weight:700;color:var(--ink)}
-.ev-f textarea{
-  width:100%;min-height:104px;resize:vertical;border:1px solid var(--line-2);border-radius:9px;padding:9px 11px;font-size:13.5px;line-height:1.5;color:var(--ink);
-}
-.ev-f textarea:focus{outline:none;border-color:var(--orange);box-shadow:0 0 0 3px var(--orange-100)}
-.ev-links{display:flex;flex-direction:column;gap:5px;margin-bottom:12px}
-.ev-link{display:flex;align-items:center;gap:9px;border:1px solid var(--line);border-left:4px solid var(--c);border-radius:8px;padding:6px 10px;background:#fff;text-align:left;font-size:13px}
-.ev-link:hover{border-color:var(--navy-600);border-left-color:var(--c)}
-.ev-link .d{font-size:11px;font-weight:700;color:var(--muted);white-space:nowrap;min-width:92px}
-.ev-link b{color:var(--ink);font-weight:700;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.ev-link i{margin-left:auto;font-style:normal;font-size:10.5px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:var(--faint);white-space:nowrap}
-.ev-tools{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end;margin-top:-4px}
-/* player link markers on activities and rows */
-.ac-p{font-size:9px;font-weight:800;letter-spacing:.02em;background:var(--navy);color:#fff;border-radius:3px;padding:0 3px;flex:none;line-height:1.5}
-.wc-p{display:inline-block;font-size:10px;font-weight:800;background:var(--navy-100);color:var(--navy);border-radius:3px;padding:0 5px;margin-top:3px}
-.rowpl{
-  position:absolute;right:4px;top:50%;transform:translateY(-50%);border:0;background:var(--navy-100);color:var(--navy);border-radius:10px;
-  font-size:10.5px;font-weight:800;padding:2px 8px;max-width:45%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
-}
-.rowpl:hover{background:var(--navy);color:#fff}
-.inp.has-pl{padding-right:84px}
-.seg button.seg-review{border-left:1px solid rgba(255,255,255,.14);margin-left:4px}
+.al-c:hover{border-color:var(--navy-600);border-left-color:var(--c,var(--navy-600))}
+.al-c.on{background:var(--navy);border-color:var(--navy);color:#fff}
+.al-c.custom{border-style:dashed;border-left-width:1px;color:var(--muted)}
+.al-empty{font-size:12px;color:var(--muted);padding:4px 2px}
+.sw-row{display:flex;gap:5px;flex-wrap:wrap;align-items:center;min-height:30px}
+.sw{width:20px;height:20px;border-radius:50%;border:0;background:var(--c);box-shadow:inset 0 0 0 1px rgba(0,0,0,.15);padding:0}
+.sw:hover,.sw.on{box-shadow:0 0 0 2px #fff,0 0 0 4px var(--orange)}
+.sw.none{background:#fff;box-shadow:inset 0 0 0 1.5px var(--line-2);position:relative}
+.sw.none::after{content:"";position:absolute;left:3px;right:3px;top:50%;height:1.5px;background:var(--faint);transform:rotate(-45deg)}
+.sw.none.on,.sw.none:hover{box-shadow:inset 0 0 0 1.5px var(--line-2),0 0 0 2px #fff,0 0 0 4px var(--orange)}
+.mo-pri{border-bottom:1px solid var(--line)}
+.mo-pri .wk-lbl{color:var(--orange)}
+.dc-hint{margin-top:auto;font-size:11px;font-weight:700;color:transparent}
+.dc:hover .dc-hint{color:var(--faint)}
+.sub-tog.on{background:var(--orange);border-color:var(--orange)}
+.dtab .star{color:var(--orange);margin-left:4px}
+.dtab.on .star{color:#FFC79A}
+.xo{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 14px;align-items:center;border:1px solid var(--line);border-radius:11px;padding:12px 14px;margin-bottom:10px}
+.xo.main{border-color:var(--orange);background:#FFFBF7}
+.xo-t b{display:block;font-size:14px;color:var(--navy)}
+.xo-t span{display:block;font-size:12.5px;color:var(--muted);margin-top:1px}
+.xo-act{display:flex;gap:8px;align-items:center}
+.xo-act select{border:1px solid var(--line-2);border-radius:7px;padding:6px 8px;font-size:13px;max-width:220px}
+.xo-sub{grid-column:1 / -1;display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center;border-top:1px dashed #F1DCC9;padding-top:9px}
+.xo-chk{display:flex;align-items:center;gap:6px;font-size:13px;color:var(--ink)}
+.xo-sub .note{flex-basis:100%;margin:0}
+.help h3{font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--navy);margin:16px 0 6px}
+.help h3:first-child{margin-top:0}
+.help p,.help li{font-size:13.5px;line-height:1.55;color:var(--body)}
+.help p{margin:0}
+.help ul{margin:0;padding-left:18px}
+.help li + li{margin-top:4px}
+.intro-sub{font-size:13px !important;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--orange) !important;margin:-6px 0 16px !important}
+.intro h3{font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--navy);margin:0 0 6px}
+.intro-notes{margin:0 0 18px;padding-left:18px;font-size:13.5px;line-height:1.6;color:var(--body)}
 
 /* ============================================================ INTRO */
 .intro{
@@ -726,13 +603,13 @@ body.drawer-open .wrap{padding-right:calc(var(--drawer) + 18px)}
 .intro-brand b em{font-style:normal;color:var(--orange)}
 .intro h1{font-family:var(--f-display);font-size:32px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--navy);margin:0 0 12px;line-height:1.1}
 .intro p{font-size:15px;line-height:1.6;color:var(--body);margin:0 0 10px}
-.intro-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border-bottom:1px solid var(--line)}
+.intro-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border-bottom:1px solid var(--line)}
 .intro-steps div{background:#FAFBFD;padding:12px 16px}
 .intro-steps b{display:flex;align-items:center;gap:7px;font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--navy)}
 .intro-steps b i{font-style:normal;width:20px;height:20px;border-radius:50%;background:var(--orange);color:#fff;display:grid;place-items:center;font-size:11px}
 .intro-steps span{display:block;font-size:12px;color:var(--muted);margin-top:3px;line-height:1.4}
 .intro-form{padding:20px 32px 24px}
-.intro-fields{display:grid;grid-template-columns:1fr 1fr;gap:12px 16px;margin-bottom:18px}
+.intro-fields{display:grid;grid-template-columns:1.2fr 1fr;gap:12px 16px;margin-bottom:18px}
 .intro-fields label{display:flex;flex-direction:column;gap:5px;font-size:10.5px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;color:var(--faint)}
 .intro-fields label i{font-style:normal;font-weight:600;letter-spacing:0;text-transform:none}
 .intro-fields input,.intro-fields select{border:1px solid var(--line-2);border-radius:8px;padding:9px 11px;font-size:14px;font-weight:500;color:var(--ink);background:#fff;letter-spacing:0;text-transform:none}
@@ -825,13 +702,7 @@ body.drawer-open .wrap{padding-right:calc(var(--drawer) + 18px)}
 }
 @media (max-width:1100px){
   .planner{grid-template-columns:1fr}
-  .side{position:static;max-height:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
-  .side-help{display:none}
   .wv-cols{grid-template-columns:repeat(4,minmax(0,1fr))}
-  .ov-grid{grid-template-columns:1fr}
-  .ev-body{grid-template-columns:1fr}
-  .ev-prof{position:static;max-height:none}
-  .ev-cases{grid-template-columns:repeat(2,minmax(0,1fr))}
   .dempty{grid-template-columns:1fr}
 }
 @media (max-width:1000px){
@@ -950,27 +821,6 @@ body.drawer-open .wrap{padding-right:calc(var(--drawer) + 18px)}
 .pc-tbl .bar i{height:.6em;margin:0}
 .pc-foot{font-size:.85em;color:#6B7280;margin-top:1.4em}
 
-/* player evaluation pages */
-.pe-top{display:grid;grid-template-columns:1fr 1fr;gap:1em;margin-top:.8em}
-.pe-kv{width:100%;border-collapse:collapse;font-size:.95em}
-.pe-kv td{border:.07em solid #C4CCD8;padding:.28em .45em;vertical-align:top}
-.pe-kv td:first-child{background:#F4F6FA;color:#4B5563;width:44%}
-.pe-kv td:last-child{font-weight:700}
-.pe-cap{font-size:.78em;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#002D62;margin:0 0 .3em}
-.pe-box{margin-top:.9em}
-.pe-box ul{margin:0;padding-left:1.3em;font-size:.95em;line-height:1.45}
-.pe-box p{margin:0;font-size:.95em;line-height:1.5}
-.pe-quote{margin-top:.4em !important;font-style:italic;border-left:.3em solid #EB6E1F;padding-left:.6em;color:#002D62}
-.pe-sec{margin-top:1.1em;break-inside:auto}
-.pe-sec h2{font-family:var(--f-display);font-size:1.35em;letter-spacing:.05em;text-transform:uppercase;color:#002D62;border-bottom:.15em solid #EB6E1F;margin:0 0 .4em;padding-bottom:.1em}
-.pe-a{border:.07em solid #C4CCD8;margin-bottom:.5em;break-inside:avoid}
-.pe-a h3{margin:0;background:#EDF1F7;color:#002D62;font-size:.8em;letter-spacing:.08em;text-transform:uppercase;padding:.3em .55em}
-.pe-a div{padding:.4em .6em;white-space:pre-wrap;line-height:1.5;font-size:1em;min-height:2.2em}
-.pe-a div.blank{color:#9CA3AF;font-style:italic}
-.pe-l{border-left:.32em solid var(--c);padding:.1em .5em;margin:.2em 0;font-size:.95em}
-.pe-l small{color:#6B7280;margin-right:.5em;font-weight:700}
-.pe-fict{margin-top:1em;font-size:.78em;color:#6B7280}
-
 @page{size:letter portrait;margin:.4in}
 @media print{
   html,body{background:#fff !important}
@@ -991,103 +841,86 @@ body.drawer-open .wrap{padding-right:calc(var(--drawer) + 18px)}
     <div class="intro-top">
       <div class="intro-brand">
         <span class="mark">MI</span>
-        <span><span class="kick" data-org></span><b>Manager <em>Interview Sandbox</em></b></span>
+        <span><span class="kick" data-org></span><b>Manager <em>Interview Hub</em></b></span>
       </div>
-      <h1 id="introTitle">Manager Interview Sandbox</h1>
-      <p>Use this workspace to show how you would evaluate players, plan their development, and organize the baseball activities of a Double-A club.</p>
-      <p>Review four player cases and write an evaluation and a development prescription for each. Then build a monthly plan that reflects your priorities, and select two dates to construct detailed daily practice schedules.</p>
-      <p>There is no prescribed method or format, and you can move between sections and revise at any time. We are interested in your priorities, your organizational approach, and how you translate your philosophy into practical work.</p>
+      <h1 id="introTitle">Manager Interview Hub</h1>
+      <p class="intro-sub">Double-A Manager Interview Exercise</p>
+      <h3>Objective</h3>
+      <p>Demonstrate how you would organize and execute baseball activities throughout a typical month at the Double-A level.</p>
     </div>
     <div class="intro-steps">
-      <div><b><i>1</i>Evaluate</b><span>Four fictional Double-A player cases.</span></div>
-      <div><b><i>2</i>Prescribe</b><span>An individualized development plan for each player.</span></div>
-      <div><b><i>3</i>Plan the month</b><span>Organize a month of activities however you think about it.</span></div>
-      <div><b><i>4</i>Build two days</b><span>Detailed practice schedules for two dates.</span></div>
+      <div><b><i>1</i>Build a Monthly Plan</b><span>Use the Monthly Planner to organize the baseball activities, team priorities, and developmental work you believe should occur throughout a month.</span></div>
+      <div><b><i>2</i>Create Two Daily Schedules</b><span>Select any two days from your monthly calendar and construct detailed daily practice schedules.</span></div>
+      <div><b><i>3</i>Save and Submit</b><span>Export your completed exercise so it can be reviewed during the interview process.</span></div>
     </div>
     <div class="intro-form">
+      <h3>A few notes</h3>
+      <ul class="intro-notes">
+        <li>There is no prescribed planning methodology.</li>
+        <li>You may use suggested baseball activities or create your own.</li>
+        <li>You have complete flexibility in how you organize your month and daily schedules.</li>
+        <li>Your work saves automatically in your browser, but you should export a backup before leaving or switching devices.</li>
+      </ul>
       <div class="intro-resume" id="inResume" hidden></div>
       <div class="intro-fields">
         <label>Your name<input id="inName" autocomplete="name" placeholder="First and last name"></label>
-        <label><span>Exercise label <i>(optional)</i></span><input id="inLabel" placeholder="e.g. Double-A Manager Interview"></label>
         <label>Planning month
           <span class="inmonth"><select id="inMonth" aria-label="Month"></select><input id="inYear" type="number" min="2000" max="2100" aria-label="Year"></span>
         </label>
       </div>
       <div class="intro-actions">
-        <button class="btn primary lg" id="inStart">Start planning</button>
-        <button class="btn" id="inImport">Import a saved plan (.json)</button>
+        <button class="btn primary lg" id="inStart">Start Planning</button>
+        <button class="btn" id="inImport">Import a saved backup (.json)</button>
         <button class="btn quiet danger" id="inNew" hidden>Start a new exercise instead</button>
       </div>
-      <p class="intro-note"><b>Saved in this browser only.</b> Your work saves automatically on this device and in this browser. It does not sync to other devices or browsers — use <b>Save &amp; Export</b> to download a copy you can keep, share, or re-open later.</p>
     </div>
   </div>
 </div>
 
 <header class="appbar">
   <div class="bar-top">
-    <button class="brand" id="brandBtn" title="About this exercise">
+    <span class="brand">
       <span class="mark">MI</span>
-      <span><span class="brand-kicker" data-org></span><b>Manager <em>Interview Sandbox</em></b></span>
-    </button>
+      <span><span class="brand-kicker" data-org></span><b>Manager <em>Interview Hub</em></b></span>
+    </span>
     <span class="bar-desc" id="barDesc"></span>
     <div class="bar-actions">
-      <span class="save-state" id="saveState" title="Your work saves automatically in this browser"><span class="dot"></span><span class="lbl">Saved</span></span>
+      <span class="save-state" id="saveState" title="Your work saves automatically in this browser only — export a backup to keep a copy"><span class="dot"></span><span class="lbl">Saved</span></span>
       <button class="btn" id="btnUndo" title="Undo (Ctrl/⌘ Z)">↶<span class="lbl"> Undo</span></button>
-      <button class="btn" id="btnAbout">About<span class="lbl"> the exercise</span></button>
-      <button class="btn primary" id="btnFile">Save &amp; Export ▾</button>
+      <button class="btn primary" id="btnExport">Export</button>
+      <button class="help-btn" id="btnHelp" title="How this works" aria-label="Help and instructions">?</button>
     </div>
   </div>
   <nav class="seg" role="tablist" aria-label="Views">
-    <button role="tab" data-view="players" aria-selected="false"><span class="step">1</span>
-      <svg class="t-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9.5" cy="8.5" r="3.1"/><path d="M4 20c.6-3.3 2.9-5.1 5.5-5.1S14.4 16.7 15 20"/><path d="M15.5 6.5h5M15.5 10h5M17 13.5h3.5"/></svg>Player Evaluations</button>
-    <button role="tab" data-view="month" aria-selected="true"><span class="step">2</span>
+    <button role="tab" data-view="month" aria-selected="true">
       <svg class="t-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15.5" rx="2"/><path d="M3.5 9.5h17M8 3v4M16 3v4M7.5 13h3M13.5 13h3M7.5 16.8h3M13.5 16.8h3"/></svg>Monthly Planner</button>
-    <button role="tab" data-view="daily" aria-selected="false"><span class="step">3</span>
-      <svg class="t-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15.5" rx="2"/><path d="M3.5 9.5h17M8 3v4M16 3v4"/><path d="M7.5 13.5h9M7.5 17h6"/></svg>Daily Schedules <span class="n" id="navN">0</span></button>
-    <span class="seg-sp"></span>
-    <span class="seg-note" id="segNote"></span>
-    <button role="tab" class="seg-review" data-view="overview" aria-selected="false" title="Everything on one page, plus print and export">
-      <svg class="t-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 3h7l4.5 4.5V21h-11.5z"/><path d="M13.5 3v4.5H18M9.5 12h5M9.5 16h5"/></svg>Review &amp; Export</button>
+    <button role="tab" data-view="daily" aria-selected="false">
+      <svg class="t-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15.5" rx="2"/><path d="M3.5 9.5h17M8 3v4M16 3v4"/><path d="M7.5 13.5h9M7.5 17h6"/></svg>Daily Schedule <span class="n" id="navN">0</span></button>
   </nav>
 </header>
 <div class="banner" id="banner" hidden></div>
-<div class="localnote" id="localNote" hidden>
-  <span><b>Saved automatically in this browser only</b> — it won't sync to other devices or browsers. Use <b>Save &amp; Export → Export plan</b> to keep a copy.</span>
-  <button class="x" id="localNoteX" aria-label="Dismiss">×</button>
-</div>
 
 <main class="wrap" id="wrap">
-  <section class="view" id="viewPlayers"><div class="ev" id="players"></div></section>
-
   <section class="view on" id="viewMonth">
     <div class="planner">
-      <aside class="side" id="side"></aside>
-      <div class="pmain">
-        <div class="cal-head">
-          <div class="cal-nav">
-            <button class="btn sm" id="calPrev" aria-label="Previous">‹</button>
-            <button class="cal-title" id="calTitle" title="Change the planning month"></button>
-            <button class="btn sm" id="calNext" aria-label="Next">›</button>
-          </div>
-          <div class="modeseg" role="group" aria-label="Calendar view">
-            <button data-mmode="month" aria-pressed="true">Month</button>
-            <button data-mmode="week" aria-pressed="false">Week</button>
-          </div>
-          <span class="cal-count" id="calCount"></span>
-          <div class="cal-tools">
-            <label>Weeks start
-              <select id="weekStartSel"><option value="1">Monday</option><option value="0">Sunday</option></select>
-            </label>
-          </div>
+      <div class="cal-head">
+        <div class="cal-nav">
+          <button class="btn sm" id="calPrev" aria-label="Previous">‹</button>
+          <button class="cal-title" id="calTitle" title="Change the planning month"></button>
+          <button class="btn sm" id="calNext" aria-label="Next">›</button>
         </div>
-        <div id="calBody"></div>
-        <p class="hintline"><b>Click a day</b> to open it · <b>＋</b> to add quickly · <b>drag</b> an activity to move it (hold <kbd>Alt</kbd>/<kbd>Option</kbd> to copy) · <b>click an activity</b> to edit, add notes, duplicate or repeat it</p>
+        <div class="modeseg" role="group" aria-label="Calendar view">
+          <button data-mmode="month" aria-pressed="true">Month</button>
+          <button data-mmode="week" aria-pressed="false">Week</button>
+        </div>
+        <span class="cal-count" id="calCount"></span>
+        <div class="cal-tools"><button class="btn primary" id="btnAddAct">＋ Add activity</button></div>
       </div>
+      <div id="calBody"></div>
     </div>
   </section>
 
   <section class="view" id="viewDaily"><div class="daily" id="daily"></div></section>
-  <section class="view" id="viewOverview"><div class="ov" id="overview"></div></section>
 </main>
 
 <aside class="drawer" id="drawer" aria-label="Day details"></aside>
@@ -1102,14 +935,14 @@ body.drawer-open .wrap{padding-right:calc(var(--drawer) + 18px)}
 
 <script>
 /* ==========================================================================
-   Manager Interview Sandbox — single file app
-   Workspace (W) -> planner / daily builder / overview -> printed sheets.
+   Manager Interview Hub — single file app
+   Workspace (W) -> monthly planner / daily schedules -> printed sheets.
    No backend, no build step, no external requests.
    ========================================================================== */
 "use strict";
 
 const APP_ID="manager-interview-sandbox";
-const SCHEMA=2;          // 2 adds player evaluations and player links; schema-1 files load unchanged
+const SCHEMA=3;   // 3: activity/row colours + submission flags; 1–2 files load (V2 evaluation data is kept, unused)
 /* Every GitHub Pages project site on an account shares one origin, so every
    key is namespaced to this tool. */
 const KEY="mis:v1:workspace", RECOVERY_KEY="mis:v1:recovery", UI_KEY="mis:v1:ui";
@@ -1231,77 +1064,21 @@ function ink(hex){
 }
 const NOCAT="#9CA3AF";
 
-
-/* ==========================================================================
-   PLAYER CASES — fictional Double-A players for the evaluation exercise.
-   Deliberately mixed signals: strengths, concerns, and sources that do not
-   agree. Nothing here states a diagnosis or a recommended plan.
-   ========================================================================== */
-const CASES=[
-  { id:"inf", role:"Infielder", name:"Rafael Ibarra", pos:"Shortstop / second base",
-    facts:[["Age","22"],["Bats / Throws","R / R"],["Acquired","International signing, age 17"],["Pro experience","5th season · first full season in Double-A"],["Position history","2B through High-A; moved to SS full-time this spring"]],
-    statsLabel:"Double-A, season to date (81 games)",
-    stats:[["AVG / OBP / SLG",".262 / .318 / .371"],["HR · 2B","6 · 17"],["K% · BB%","21.4% · 6.9%"],["Chase rate","34% (league ~29%)"],["Errors at SS","18 — 13 throwing, 5 fielding"],["Errors, last 30 games","3 (2 throwing)"],["Range / first step (internal)","Above average"],["Throw velocity across the diamond","88–91 mph"]],
-    scouting:[
-      ["Pro scout","Soft hands, quick first step, real feel for the position. Throws are erratic on balls he has time on and accurate on the run."],
-      ["Infield coordinator","His feet stop on routine plays. He catches it flat-footed and has to make the throw with his arm alone."],
-      ["Hitting coach","Handles velocity well. Expands against breaking balls down and away, mostly when he falls behind in the count."],
-      ["Video review","Arm slot varies noticeably from throw to throw. Several of his errors came in the first two innings."],
-      ["Strength staff","One of the hardest workers on the club; has added nine pounds since spring training."]],
-    context:"Ten of his throwing errors came in April and May. They have dropped since, but over the same stretch his time at shortstop was cut back to share starts with two other infielders. Spanish is his first language; he is conversational in English and has told staff he learns best by watching. The front office sees him as a potential everyday middle infielder and wants him to stay at shortstop.",
-    quote:"When I have a lot of time, I think too much. On the hard plays I just play." },
-  { id:"of", role:"Outfielder", name:"Cole Whitaker", pos:"Center field",
-    facts:[["Age","24"],["Bats / Throws","L / L"],["Acquired","Third round, college draft"],["Pro experience","3rd season · promoted to Double-A last June"],["Lineup role","Leadoff against right-handers; sits against some lefties"]],
-    statsLabel:"Double-A, season to date (74 games)",
-    stats:[["AVG / OBP / SLG",".241 / .352 / .398"],["HR · SB-CS","11 · 9-3"],["K% · BB%","31.2% · 14.0%"],["vs. LHP (96 PA)",".188 / .290 / .270"],["Avg. / 90th pct. exit velocity","90.8 / 107.1 mph"],["Ground-ball rate","51%"],["First-pitch fastballs in the zone taken","44%"],["Route efficiency (internal)","Average"],["Arm (outfield assists)","Below average (1)"]],
-    scouting:[
-      ["Pro scout","Strength and bat speed that project for 20-plus homers. The swing gets long, and he lets hittable strikes go early in counts."],
-      ["Hitting coordinator","We lowered his hands at mid-season. His first two weeks after the change were his best of the year; then the strikeouts climbed and he drifted back."],
-      ["Outfield coach","Good first step on balls in front of him. He has been tentative going back toward the wall since a collision in May."],
-      ["Analytics report","Chase rate is among the lowest in the league. Swing decisions grade well; contact on pitches in the zone grades below average."],
-      ["Athletic trainer","Managed hamstring tightness in May. Full go now; staff has limited his back-to-back day starts."]],
-    context:"The organization is split on his future: the analytics group values his on-base skills and patience, while the scouting department doubts the strikeout rate will hold up at higher levels. There is also an open question about whether he stays in center field or moves to a corner. He is quiet and analytical, keeps his own at-bat notes, and regularly asks staff for data.",
-    quote:"I know what pitches I want. I just don't want to give away at-bats chasing." },
-  { id:"c", role:"Catcher", name:"Sam Kowalczyk", pos:"Catcher",
-    facts:[["Age","25"],["Bats / Throws","R / R"],["Acquired","Seventh round, college draft"],["Pro experience","4th season · second year in Double-A"],["Workload","52 starts behind the plate in 69 games"]],
-    statsLabel:"Double-A, season to date (69 games)",
-    stats:[["AVG / OBP / SLG",".228 / .301 / .402"],["HR · K% · BB%","14 · 27.0% · 8.1%"],["Caught stealing","19% (11 of 58)"],["Pop time, avg. (range)","2.04 s (1.94–2.21)"],["Passed balls","9"],["Wild pitches while catching","41 (most on the staff)"],["Framing, strike gain (internal)","Above average"],["Staff ERA: with him / others","3.71 / 4.40"]],
-    scouting:[
-      ["Pitching coordinator","The best game-caller we have at this level. Our pitchers trust him."],
-      ["Catching coordinator","Receiving is advanced. Blocking breaks down to his glove side; he reaches for the ball instead of moving to it."],
-      ["Opposing manager","We run on him late in games."],
-      ["Video review","Pop times rise above 2.10 from the seventh inning on, and in day games after night games."],
-      ["Strength staff","Lower-half mobility is limited; tight hips noted in his spring screen."]],
-    context:"He caught four or more straight games several times in June after the backup catcher was injured. The bullpen includes two hard-throwing relievers whose splitters account for a large share of the wild pitches. The organization considers him a potential major league backup within two years and puts a premium on catcher defense. He is a vocal clubhouse leader and sometimes skips his own work to help pitchers prepare.",
-    quote:"If our guys trust what I'm putting down, I'll take a few balls off the shin guard." },
-  { id:"br", role:"Baserunner", name:"Darnell Pryor", pos:"Center field / second base (utility)",
-    facts:[["Age","23"],["Bats / Throws","S / R"],["Acquired","Undrafted free agent"],["Pro experience","4th season · Double-A since Opening Day"],["Playing time","About four starts a week; frequent pinch-runner"]],
-    statsLabel:"Double-A, season to date (77 games)",
-    stats:[["AVG / OBP / SLG",".255 / .330 / .320"],["Stolen bases · caught","21 · 12 (64%)"],["Picked off","5"],["Other outs on the bases","7 (3 at third base)"],["First to third on a single","38% (21 chances)"],["Scored from second on a single","61% (18 chances)"],["Sprint speed","Top 5% of the league"],["Steal attempts vs. LHP","4 of 9 successful"]],
-    scouting:[
-      ["Pro scout","A top-of-the-scale runner; speed is his carrying tool. His stolen-base results don't match it."],
-      ["Baserunning coordinator","His lead changes from pitch to pitch. He isn't sure how far he can get."],
-      ["First-base coach","He goes on first movement a lot. He's guessing."],
-      ["Video review","Average time to second base on attempts is 3.25 s, which is elite. His jumps vary by about three-tenths of a second."],
-      ["Previous manager","We told him to be aggressive and run whenever he wanted."]],
-    context:"The organization has a club-wide stolen-base emphasis. His most likely path to the major leagues is as a pinch runner, defensive replacement and utility player. Teammates say he spends less time studying pitchers than most of the club. He is energetic and very coachable, and he sometimes plays faster than the situation calls for.",
-    quote:"I'd rather get thrown out being aggressive than get yelled at for being passive." }
+/* ---------- suggested baseball activities: optional shortcuts, never preloaded ---------- */
+const PRESETS=[
+  {group:"Team Defense",color:"#002D62",items:["First & Third Defense","Bunt Defense","Cutoffs & Relays","Rundowns","Pop-Ups / Communication","Defensive Situations","PFP"]},
+  {group:"Offense",color:"#EB6E1F",items:["Bunt Offense","Situational Hitting","Team Offensive Execution","Baserunning","Hitting Groups"]},
+  {group:"Individual / Position Work",color:"#1D6FD0",items:["Infield Defense","Outfield Defense","Catching","Individual Defensive Work","Pitching Development"]},
+  {group:"Other",color:"#5A6779",items:["Staff Meeting","Team Meeting","Player Development Work"]}
 ];
-const EVAL_FIELDS=[["strengths","Strengths"],["opportunities","Development opportunities"],["observations","Additional observations"]];
-const RX_FIELDS=[["priority","Primary development priority"],["intervention","Proposed intervention or training approach"],["implementation","Implementation and frequency"],["measurement","How progress will be evaluated"]];
-const caseById = id => CASES.find(c=>c.id===id)||null;
-const playerLast = id => { const c=caseById(id); return c?c.name.split(" ").slice(-1)[0]:""; };
-const playerInit = id => { const c=caseById(id); return c?c.name.split(" ").map(x=>x[0]).join(""):""; };
-const blankEval = () => Object.fromEntries(EVAL_FIELDS.concat(RX_FIELDS).map(([k])=>[k,""]));
-const evalRec = id => W.evals[id]||(W.evals[id]=blankEval());
-const evalStarted = id => { const e=W.evals[id]; return !!e&&Object.values(e).some(v=>String(v||"").trim()); };
-/** every scheduled item linked to a player — monthly entries and daily-schedule rows */
-function playerLinks(id){
-  const monthly=W.activities.filter(a=>a.playerId===id).sort((a,b)=>a.date.localeCompare(b.date)||a.order-b.order);
-  const daily=[];
-  Object.keys(W.schedules).sort().forEach(d=>W.schedules[d].sections.forEach(s=>s.kind==="table"&&s.rows.forEach(r=>{ if(r.playerId===id) daily.push({date:d,row:r,sec:s}); })));
-  return {monthly,daily};
+const ACT_COLORS=["#002D62","#EB6E1F","#1D6FD0","#1E8A5A","#7A4BC4","#C8102E","#D89B0B","#5A6779"];
+const PRESET_NAMES=new Set(PRESETS.flatMap(g=>g.items.map(n=>n.toLowerCase())));
+function presetColor(name){
+  const n=String(name||"").trim().toLowerCase();
+  const g=PRESETS.find(g=>g.items.some(i=>i.toLowerCase()===n));
+  return g?g.color:null;
 }
+const actColor = a => (a&&a.color)||NOCAT;
 
 /* ==========================================================================
    WORKSPACE — one candidate's whole exercise; exactly what export writes
@@ -1318,12 +1095,11 @@ function blankWorkspace(){
     activities:[],          // {id,date,title,catId,time,notes,seriesId,order}
     weeks:{},               // weekStartIso -> {focus,notes}
     days:{},                // iso -> {tag,notes}
-    schedules:{},           // iso -> {id,date,title,context,location,notes,sections[]}
-    evals:{}                // caseId -> {strengths,opportunities,observations,priority,intervention,implementation,measurement}
+    schedules:{}            // iso -> {id,date,title,context,location,notes,sections[]}
   };
 }
 const str=(v,max=4000)=>v==null?"":String(v).slice(0,max);
-function R(seed){ return Object.assign({id:uid(),time:"",timeEnd:"",activity:"",detail:"",location:"",staff:"",catId:null,playerId:null,src:null,showDetail:false},seed||{}); }
+function R(seed){ return Object.assign({id:uid(),time:"",timeEnd:"",activity:"",detail:"",location:"",staff:"",color:null,catId:null,src:null,showDetail:false},seed||{}); }
 function blankSection(width){ return {id:uid(),kind:"table",name:"",who:"",color:"#002D62",width:width||1,collapsed:false,hideLoc:false,hideStaff:false,headers:{},rows:[R()]}; }
 
 /** defensive load: anything imported is coerced into the expected shape */
@@ -1349,12 +1125,21 @@ function normalize(raw){
     return {id,name:str(x.name,80),color:normHex(x.color)||NOCAT};
   });
   const cat=v=>catIds.has(v)?v:null;
-  w.activities=(Array.isArray(raw.activities)?raw.activities:[]).filter(a=>a&&ISO_RE.test(a.date)).map((a,i)=>({
-    id:str(a.id,40)||uid(), date:a.date, title:str(a.title,200), catId:cat(a.catId), playerId:caseById(a.playerId)?a.playerId:null,
-    time:str(a.time,40), notes:str(a.notes,8000), seriesId:a.seriesId?str(a.seriesId,40):null, order:Number.isFinite(+a.order)?+a.order:i
-  }));
-  for(const [id,e] of Object.entries(raw.evals&&typeof raw.evals==="object"?raw.evals:{})){
-    if(caseById(id)&&e&&typeof e==="object"){ const o=blankEval(); for(const k in o) o[k]=str(e[k],20000); w.evals[id]=o; }
+  /* colour now lives on the activity; older files carried it on a category */
+  const catHex=id=>{ const c=w.categories.find(x=>x.id===id); return c?c.color:null; };
+  const colorOf=x=>normHex(x.color)||(cat(x.catId)?catHex(x.catId):null);
+  w.activities=(Array.isArray(raw.activities)?raw.activities:[]).filter(a=>a&&ISO_RE.test(a.date)).map((a,i)=>{
+    const o={id:str(a.id,40)||uid(), date:a.date, title:str(a.title,200), color:colorOf(a), time:str(a.time,40),
+      notes:str(a.notes,8000), seriesId:a.seriesId?str(a.seriesId,40):null, order:Number.isFinite(+a.order)?+a.order:i};
+    if(cat(a.catId)) o.catId=a.catId;                         // kept so nothing in an older file is lost
+    if(a.playerId) o.playerId=str(a.playerId,40);
+    return o;
+  });
+  /* V2 player-evaluation text is no longer shown, but it is carried through untouched */
+  if(raw.evals&&typeof raw.evals==="object"){
+    w.evals={};
+    for(const [k,v] of Object.entries(raw.evals)) if(v&&typeof v==="object")
+      w.evals[str(k,40)]=Object.fromEntries(Object.entries(v).map(([f,t])=>[str(f,40),str(t,20000)]));
   }
   for(const [k,v] of Object.entries(raw.weeks||{})) if(ISO_RE.test(k)&&v) w.weeks[k]={focus:str(v.focus,300),notes:str(v.notes,8000)};
   for(const [k,v] of Object.entries(raw.days||{})) if(ISO_RE.test(k)&&v) w.days[k]={tag:str(v.tag,120),notes:str(v.notes,8000)};
@@ -1362,7 +1147,7 @@ function normalize(raw){
     if(!ISO_RE.test(k)||!s||typeof s!=="object") continue;
     w.schedules[k]={
       id:str(s.id,40)||uid(), date:k, title:str(s.title,160), context:str(s.context,300), location:str(s.location,160),
-      notes:str(s.notes,8000),
+      notes:str(s.notes,8000), submit:typeof s.submit==="boolean"?s.submit:null,
       sections:(Array.isArray(s.sections)?s.sections:[]).filter(x=>x&&typeof x==="object").map(sec=>{
         const kind=sec.kind==="grid"?"grid":"table";
         const width=[1,.5,1/3].reduce((b,o)=>Math.abs(o-(+sec.width||1))<Math.abs(b-(+sec.width||1))?o:b,1);
@@ -1380,14 +1165,17 @@ function normalize(raw){
         }else{
           out.rows=(Array.isArray(sec.rows)?sec.rows:[]).filter(r=>r&&typeof r==="object").map(r=>R({
             id:str(r.id,40)||uid(),time:str(r.time,40),timeEnd:str(r.timeEnd,40),activity:str(r.activity,300),
-            detail:str(r.detail,2000),location:str(r.location,160),staff:str(r.staff,160),catId:cat(r.catId),playerId:caseById(r.playerId)?r.playerId:null,
-            src:r.src?str(r.src,40):null,showDetail:!!r.showDetail
+            detail:str(r.detail,2000),location:str(r.location,160),staff:str(r.staff,160),color:colorOf(r),catId:cat(r.catId),
+            src:r.src?str(r.src,40):null,showDetail:!!r.showDetail,...(r.playerId?{playerId:str(r.playerId,40)}:{})
           }));
         }
         return out;
       })
     };
   }
+  /* files from before submission flags: the first two schedules are selected */
+  const keys=Object.keys(w.schedules).sort();
+  if(keys.some(k=>w.schedules[k].submit===null)) keys.forEach((k,i)=>{ if(w.schedules[k].submit===null) w.schedules[k].submit=i<2; });
   return w;
 }
 
@@ -1421,14 +1209,14 @@ const Store={
   recovery(){ try{ const r=this.read(RECOVERY_KEY); return r?JSON.parse(r):null; }catch(e){ return null; } },
   setRecovery(w){ try{ this.write(RECOVERY_KEY,JSON.stringify({savedAt:new Date().toISOString(),workspace:w})); }catch(e){} },
   ui(){ try{ return JSON.parse(this.read(UI_KEY)||"{}")||{}; }catch(e){ return {}; } },
-  saveUI(){ try{ this.write(UI_KEY,JSON.stringify({view:UI.view,player:UI.player,mmode:UI.mmode,sched:UI.sched,note:UI.noteDismissed})); }catch(e){} }
+  saveUI(){ try{ this.write(UI_KEY,JSON.stringify({view:UI.view,mmode:UI.mmode,sched:UI.sched})); }catch(e){} }
 };
 
 /* ==========================================================================
    STATE, UNDO
    ========================================================================== */
 let W=blankWorkspace();
-const UI={view:"month",player:"inf",mmode:"month",weekOf:null,activeCat:null,sched:null,drawer:null,quickAdd:null,noteDismissed:false,targetSec:null};
+const UI={view:"month",mmode:"month",weekOf:null,sched:null,drawer:null,targetSec:null};
 let undoStack=[], redoStack=[], editSnap=null;
 
 function snap(){ undoStack.push(JSON.stringify(W)); if(undoStack.length>100) undoStack.shift(); redoStack=[]; }
@@ -1437,7 +1225,6 @@ function mutate(fn,{render:doRender=true}={}){ snap(); fn(); touch(); if(doRende
 function restoreState(raw){
   W=JSON.parse(raw); touch();
   if(UI.drawer&&!ISO_RE.test(UI.drawer)) UI.drawer=null;
-  W.evals=W.evals||{};
   if(POP&&!findAct(POP.id)) closePop();
   render(); if(POP) drawActPop();
 }
@@ -1451,9 +1238,6 @@ function redo(){
 }
 
 /* ---------- lookups ---------- */
-const findCat = id => W.categories.find(c=>c.id===id)||null;
-const catColor = id => { const c=findCat(id); return c?c.color:NOCAT; };
-const catName = id => { const c=findCat(id); return c?(c.name||"Untitled category"):""; };
 const findAct = id => W.activities.find(a=>a.id===id)||null;
 const actsOn = iso => W.activities.filter(a=>a.date===iso).sort((a,b)=>a.order-b.order);
 const nextOrder = iso => { const l=actsOn(iso); return l.length?l[l.length-1].order+1:0; };
@@ -1466,14 +1250,6 @@ const rowIndex = (secId,rowId) => { const s=findSec(secId); return s?s.rows.find
 const dayRec = iso => W.days[iso]||(W.days[iso]={tag:"",notes:""});
 const weekRec = iso => W.weeks[iso]||(W.weeks[iso]={focus:"",notes:""});
 const norm = t => String(t||"").toLowerCase().replace(/[^a-z0-9]+/g," ").trim();
-function nextColor(){
-  const used=new Set(W.categories.map(c=>c.color));
-  return PALETTE.find(h=>!used.has(h))||PALETTE[W.categories.length%PALETTE.length];
-}
-function addCategory(name,color){
-  const c={id:uid(),name:String(name||"").trim().slice(0,80),color:normHex(color)||nextColor()};
-  W.categories.push(c); return c;
-}
 function hasContent(){
   return !!(W.activities.length||Object.keys(W.schedules).length||W.categories.length||W.priorities.trim()||
     Object.values(W.weeks).some(v=>v.focus||v.notes)||Object.values(W.days).some(v=>v.tag||v.notes));
@@ -1578,10 +1354,7 @@ function restoreFocus(){
 function render(){
   captureFocus();
   renderChrome();
-  if(UI.view==="month") renderPlanner();
-  else if(UI.view==="players") renderPlayers();
-  else if(UI.view==="daily") renderDaily();
-  else renderOverview();
+  if(UI.view==="daily") renderDaily(); else renderPlanner();
   renderDrawer();
   restoreFocus();
 }
@@ -1593,14 +1366,12 @@ function go(view){
 
 function renderChrome(){
   $$(".view").forEach(v=>v.classList.remove("on"));
-  $({players:"#viewPlayers",month:"#viewMonth",daily:"#viewDaily",overview:"#viewOverview"}[UI.view]).classList.add("on");
+  $(UI.view==="daily"?"#viewDaily":"#viewMonth").classList.add("on");
   $$("nav.seg [data-view]").forEach(b=>b.setAttribute("aria-selected",String(b.dataset.view===UI.view)));
   const n=Object.keys(W.schedules).length;
   $("#navN").textContent=n;
   const who=W.candidate.name.trim();
-  $("#barDesc").innerHTML=[who?`<b>${esc(who)}</b>`:"",esc(W.candidate.label),esc(monthName(W.plan.year,W.plan.month))].filter(Boolean).join(" · ");
-  $("#segNote").textContent=n<2?`Daily schedules: ${n} of 2 requested`:`${n} daily schedules`;
-  $("#localNote").hidden=UI.noteDismissed;
+  $("#barDesc").innerHTML=[who?`<b>${esc(who)}</b>`:"",esc(monthName(W.plan.year,W.plan.month))].filter(Boolean).join(" · ");
   $("#btnUndo").disabled=!undoStack.length;
   renderStatus();
 }
@@ -1616,7 +1387,7 @@ function renderStatus(){
   }else if(!Store.ok){
     el.classList.add("err"); lbl.textContent="Not saved";
     ban.className="banner"; ban.hidden=false;
-    ban.innerHTML=`${Store.error==="full"?"Browser storage is full":"This browser is blocking local saving"} — your work is <u>not</u> being saved. Export your plan now to keep it. <button class="btn sm" id="banExport">Export plan</button>`;
+    ban.innerHTML=`${Store.error==="full"?"Browser storage is full":"This browser is blocking local saving"} — your work is <u>not</u> being saved. Download a backup now to keep it. <button class="btn sm" id="banExport">Download JSON backup</button>`;
   }else{
     ban.hidden=true;
     if(Store.saving){ el.classList.add("saving"); lbl.textContent="Saving…"; }
@@ -1625,60 +1396,10 @@ function renderStatus(){
   const b=$("#btnUndo"); if(b) b.disabled=!undoStack.length;
 }
 
-
-/* ==========================================================================
-   PLAYER EVALUATIONS — read the case, write freely, see what's scheduled
-   ========================================================================== */
-function caseProfileHTML(c){
-  return `<div class="ev-ph"><div class="k">${esc(c.role)} · Double-A</div><h2>${esc(c.name)}</h2><div class="m">${esc(c.pos)}</div></div>
-    <div class="ev-sec"><h3>Background</h3><table class="ev-kv">${c.facts.map(([k,v])=>`<tr><td>${esc(k)}</td><td>${esc(v)}</td></tr>`).join("")}</table></div>
-    <div class="ev-sec"><h3>Performance <span>${esc(c.statsLabel)}</span></h3><table class="ev-kv">${c.stats.map(([k,v])=>`<tr><td>${esc(k)}</td><td>${esc(v)}</td></tr>`).join("")}</table></div>
-    <div class="ev-sec"><h3>Scouting &amp; staff observations</h3><ul>${c.scouting.map(([who,t])=>`<li><b>${esc(who)}:</b> “${esc(t)}”</li>`).join("")}</ul></div>
-    <div class="ev-sec"><h3>Development context</h3><p>${esc(c.context)}</p><p class="ev-quote">“${esc(c.quote)}” — ${esc(c.name.split(" ")[0])}</p></div>
-    <div class="ev-fict">Fictional player and data, created for this exercise.</div>`;
-}
-function playerLinksHTML(c){
-  const {monthly,daily}=playerLinks(c.id);
-  if(!monthly.length&&!daily.length)
-    return `<p class="note" style="margin:0 0 12px">Nothing is linked to ${esc(c.name.split(" ")[0])} yet. Any monthly activity or daily-schedule row can optionally be linked to a player — open the activity (or a row's ⋯ menu) and choose a player.</p>`;
-  return `<div class="ev-links">
-    ${monthly.map(a=>`<button class="ev-link" data-tomonth="${a.date}" style="--c:${catColor(a.catId)}"><span class="d">${esc(shortDate(a.date))}</span><b>${esc(a.title||"Untitled")}</b>${a.time?`<span class="note">${esc(a.time)}</span>`:""}<i>Monthly plan</i></button>`).join("")}
-    ${daily.map(x=>`<button class="ev-link" data-schedopen="${x.date}" style="--c:${catColor(x.row.catId)}"><span class="d">${esc(shortDate(x.date))}</span><b>${esc(x.row.activity||"Untitled")}</b>${x.row.time?`<span class="note">${esc(timeText(x.row))}</span>`:""}<i>Daily schedule</i></button>`).join("")}
-  </div>`;
-}
-function renderPlayers(){
-  const c=caseById(UI.player)||CASES[0]; UI.player=c.id;
-  const e=W.evals[c.id]||{};
-  const field=([k,label])=>`<label class="ev-f"><span>${esc(label)}</span><textarea data-evf="${k}" data-case="${c.id}" data-nav="ev|${c.id}|${k}" aria-label="${esc(label)}">${esc(e[k]||"")}</textarea></label>`;
-  $("#players").innerHTML=`
-    <div class="ev-cases" role="tablist" aria-label="Player cases">${CASES.map((x,i)=>{
-      const l=playerLinks(x.id), n=l.monthly.length+l.daily.length;
-      return `<button class="ev-case${x.id===c.id?" on":""}" role="tab" aria-selected="${x.id===c.id}" data-case-open="${x.id}">
-        <span class="ev-num">${i+1}</span><span class="ev-cn"><span>${esc(x.role)}</span><b>${esc(x.name)}</b></span>
-        <i class="ev-st">${evalStarted(x.id)?"✎ Started":""}${n?`<br>${n} scheduled`:""}</i></button>`; }).join("")}</div>
-    <div class="ev-body">
-      <div class="card ev-prof">${caseProfileHTML(c)}</div>
-      <div class="ev-work">
-        <div class="card ev-card"><h3>Evaluation <span>freeform — write as much or as little as you find useful</span></h3>${EVAL_FIELDS.map(field).join("")}</div>
-        <div class="card ev-card"><h3>Development prescription</h3>${RX_FIELDS.map(field).join("")}</div>
-        <div class="card ev-card"><h3>Scheduled work for ${esc(c.name)}</h3>${playerLinksHTML(c)}</div>
-        <div class="ev-tools"><button class="btn sm" data-print="eval" data-date="${c.id}">Print / PDF this player</button><button class="btn sm" data-print="evals">Print all four evaluations</button></div>
-      </div>
-    </div>`;
-}
-function playerMenu(anchor,current,apply){
-  showMenu(anchor,[
-    {head:"Linked player (optional)"},
-    {label:"No player",on:!current,fn:()=>apply(null)},
-    ...CASES.map(c=>({label:`${c.name} — ${c.role}`,on:current===c.id,fn:()=>apply(c.id)}))
-  ]);
-}
-
 /* ==========================================================================
    MONTHLY PLANNER
    ========================================================================== */
 function renderPlanner(){
-  renderSide();
   const {year,month}=W.plan;
   if(UI.mmode==="week"){
     const weeks=weeksOfMonth(year,month,W.plan.weekStart).map(w=>w[0]);
@@ -1697,85 +1418,49 @@ function renderPlanner(){
     $("#calPrev").setAttribute("aria-label","Previous month"); $("#calNext").setAttribute("aria-label","Next month");
   }
   $$("[data-mmode]").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.mmode===UI.mmode)));
-  $("#weekStartSel").value=String(W.plan.weekStart);
   const acts=planActs(), days=new Set(acts.map(a=>a.date));
   $("#calCount").textContent=acts.length
     ? `${acts.length} activit${acts.length===1?"y":"ies"} on ${days.size} day${days.size===1?"":"s"}`
-    : "A blank month — start anywhere";
+    : "Click any day to add an activity";
   renderCalBody();
 }
 function renderCalBody(){
   captureFocus();
   $("#calBody").innerHTML=UI.mmode==="week"?weekViewHTML():monthGridHTML();
   restoreFocus();
-  const qa=$("#calBody .qa"); if(qa&&document.activeElement!==qa) qa.focus({preventScroll:true});
-}
-
-function renderSide(){
-  const counts={}; planActs().forEach(a=>{ const k=a.catId||""; counts[k]=(counts[k]||0)+1; });
-  const cats=W.categories;
-  $("#side").innerHTML=`
-    <div class="side-card">
-      <div class="side-h"><b>Categories</b><span class="side-hint">optional · yours to define</span></div>
-      <div class="cat-list">
-        ${cats.map(c=>`<div class="cat-row${UI.activeCat===c.id?" on":""}" data-catrow="${c.id}" title="Select to highlight on the calendar and use for new activities">
-          <button class="cat-sw" data-catcolor="${c.id}" style="--c:${c.color}" aria-label="Change colour of ${esc(c.name||"category")}"></button>
-          <input class="cat-name" data-catname="${c.id}" data-nav="cat|${c.id}" value="${esc(c.name)}" placeholder="Untitled category" aria-label="Category name">
-          <span class="cat-n" title="Activities this month">${counts[c.id]||0}</span>
-          <button class="cat-more" data-catmenu="${c.id}" aria-label="Category options">⋯</button>
-        </div>`).join("")}
-      </div>
-      <div class="cat-add"><input id="catNew" data-nav="catnew" placeholder="${cats.length?"Add another category…":"Add a category…"}" aria-label="New category name"><button class="btn sm" id="catAddBtn">Add</button></div>
-      <p class="side-note">${cats.length
-        ? (UI.activeCat?`<b>${esc(catName(UI.activeCat))}</b> is selected — new activities use it and the calendar highlights it. Click it again to clear.`:"Click a category to highlight it on the calendar and use it for new activities.")
-        : "Create your own categories and colours to organize your month however you think about it. Entirely optional."}</p>
-    </div>
-    <div class="side-card">
-      <div class="side-h"><b>Month priorities</b><span class="side-hint">optional</span></div>
-      <textarea id="sidePri" data-nav="pri" data-pri placeholder="Overarching priorities, themes or notes for the month…">${esc(W.priorities)}</textarea>
-    </div>
-    <div class="side-card side-help">
-      <div class="side-h"><b>Working tips</b></div>
-      <ul>
-        <li>Type a <b>weekly focus</b> in the band above each week.</li>
-        <li>Open a day to add a <b>label</b> (e.g. home game, off day) and notes.</li>
-        <li>Open a day, then <b>Build daily schedule</b> for step 2.</li>
-        <li><kbd>Ctrl</kbd>/<kbd>⌘</kbd>+<kbd>Z</kbd> undoes any change.</li>
-      </ul>
-    </div>`;
 }
 
 function chipHTML(a){
-  const dim=UI.activeCat&&a.catId!==UI.activeCat?" dim":"";
-  const tip=[a.title||"Untitled",a.time,catName(a.catId),a.playerId?"Player: "+caseById(a.playerId).name:"",a.notes].filter(Boolean).join(" · ");
-  return `<div class="ac${dim}" draggable="true" tabindex="0" role="button" data-act="${a.id}" style="--c:${catColor(a.catId)}" title="${esc(tip)}">
-    ${a.time?`<span class="ac-t">${esc(a.time)}</span>`:""}<span class="ac-l">${esc(a.title||"Untitled")}</span>${a.playerId?`<span class="ac-p">${esc(playerInit(a.playerId))}</span>`:""}${a.notes||a.seriesId?`<span class="ac-i">${a.notes?"✎":""}${a.seriesId?"↻":""}</span>`:""}
+  const tip=[a.title||"Untitled",a.time,a.notes].filter(Boolean).join(" · ");
+  return `<div class="ac" draggable="true" tabindex="0" role="button" data-act="${a.id}" style="--c:${actColor(a)}" title="${esc(tip)}">
+    ${a.time?`<span class="ac-t">${esc(a.time)}</span>`:""}<span class="ac-l">${esc(a.title||"Untitled")}</span>${a.notes||a.seriesId?`<span class="ac-i">${a.notes?"✎":""}${a.seriesId?"↻":""}</span>`:""}
   </div>`;
 }
-const qaHTML = iso => `<input class="qa" data-qa-input="${iso}" data-nav="qa|${iso}" placeholder="Activity — Enter to add" aria-label="New activity">`;
 
 function monthGridHTML(){
   const {year,month,weekStart}=W.plan, today=todayIso();
   const weeks=weeksOfMonth(year,month,weekStart);
   return `<div class="mgrid">
+    <div class="wk-focus mo-pri"><span class="wk-lbl">Month priorities</span>
+      <input class="wk-in" data-pri data-nav="pri" value="${esc(W.priorities)}" placeholder="Overarching priorities for the month (optional)" aria-label="Month priorities"></div>
     <div class="mg-dow">${[0,1,2,3,4,5,6].map(i=>`<div>${DOW[(weekStart+i)%7]}</div>`).join("")}</div>
     ${weeks.map(wk=>{
       const k=wk[0], wf=(W.weeks[k]||{}).focus||"";
       return `<div class="wk">
         <div class="wk-focus"><span class="wk-lbl">Week of ${esc(fmt(k,{month:"short",day:"numeric"}))}</span>
-          <input class="wk-in" data-weekfocus="${k}" data-nav="wf|${k}" value="${esc(wf)}" placeholder="Weekly focus or theme (optional)" aria-label="Weekly focus, week of ${esc(fmt(k,{month:"long",day:"numeric"}))}"></div>
+          <input class="wk-in" data-weekfocus="${k}" data-nav="wf|${k}" value="${esc(wf)}" placeholder="Weekly focus (optional)" aria-label="Weekly focus, week of ${esc(fmt(k,{month:"long",day:"numeric"}))}"></div>
         <div class="wk-days">${wk.map(iso=>{
           const acts=actsOn(iso), d=W.days[iso]||{}, sch=W.schedules[iso];
           const cls=["dc",inPlanMonth(iso)?"":"out",iso===today?"today":"",UI.drawer===iso?"sel":""].filter(Boolean).join(" ");
-          return `<div class="${cls}" data-dropday="${iso}" data-dayopen="${iso}">
+          return `<div class="${cls}" data-dropday="${iso}" data-addday="${iso}">
             <div class="dc-top">
-              <button class="dc-n" data-dayopen="${iso}" aria-label="Open ${esc(longDate(iso))}">${dateOf(iso).getDate()}</button>
+              <button class="dc-n" data-dayopen="${iso}" title="Open this day — label, notes, daily schedule" aria-label="Open ${esc(longDate(iso))}">${dateOf(iso).getDate()}</button>
               ${d.tag?`<span class="dc-tag" title="${esc(d.tag)}">${esc(d.tag)}</span>`:""}
               ${d.notes?`<span class="dc-note" title="${esc(d.notes)}">✎</span>`:""}
-              <button class="dc-qa" data-qa="${iso}" aria-label="Add an activity on ${esc(shortDate(iso))}" title="Add activity">＋</button>
+              <button class="dc-qa" data-addday="${iso}" aria-label="Add an activity on ${esc(shortDate(iso))}" title="Add activity">＋</button>
             </div>
-            <div class="dc-acts">${acts.map(chipHTML).join("")}${UI.quickAdd===iso?qaHTML(iso):""}</div>
-            ${sch?`<button class="dc-sched" data-schedopen="${iso}" title="Open this day's practice schedule">▤ Daily schedule</button>`:""}
+            <div class="dc-acts">${acts.map(chipHTML).join("")}</div>
+            ${sch?`<button class="dc-sched" data-schedopen="${iso}" title="Open this day's practice schedule">▤ Daily schedule</button>`:acts.length?"":`<span class="dc-hint">＋ Add activity</span>`}
           </div>`;
         }).join("")}</div>
       </div>`;
@@ -1790,23 +1475,21 @@ function weekViewHTML(){
       <span class="wk-lbl">Weekly focus</span>
       <input class="wk-in" data-weekfocus="${k}" data-nav="wf|${k}" value="${esc(wr.focus||"")}" placeholder="Theme or priority for this week (optional)">
       <span class="wk-lbl" style="align-self:start;margin-top:8px">Notes</span>
-      <textarea data-weeknotes="${k}" data-nav="wn|${k}" placeholder="Anything else about this week — staff plans, emphasis, reminders (optional)">${esc(wr.notes||"")}</textarea>
+      <textarea data-weeknotes="${k}" data-nav="wn|${k}" placeholder="Anything else about this week (optional)">${esc(wr.notes||"")}</textarea>
     </div>
     <div class="wv-cols">${days.map(iso=>{
       const acts=actsOn(iso), d=W.days[iso]||{}, sch=W.schedules[iso];
       return `<div class="wv-col${inPlanMonth(iso)?"":" out"}${iso===today?" today":""}" data-dropday="${iso}">
         <div class="wv-h">
           <button class="wv-day" data-dayopen="${iso}" aria-label="Open ${esc(longDate(iso))}"><span>${DOW[dateOf(iso).getDay()]}</span><b>${dateOf(iso).getDate()}</b></button>
-          <button class="dc-qa" data-qa="${iso}" aria-label="Add an activity on ${esc(shortDate(iso))}" title="Add activity">＋</button>
+          <button class="dc-qa" data-addday="${iso}" aria-label="Add an activity on ${esc(shortDate(iso))}" title="Add activity">＋</button>
         </div>
         ${d.tag?`<div class="wv-tag">${esc(d.tag)}</div>`:""}
-        <div class="wv-list">${acts.map(a=>`<div class="wc${UI.activeCat&&a.catId!==UI.activeCat?" dim":""}" draggable="true" tabindex="0" role="button" data-act="${a.id}" style="--c:${catColor(a.catId)}">
+        <div class="wv-list" data-addday="${iso}">${acts.map(a=>`<div class="wc" draggable="true" tabindex="0" role="button" data-act="${a.id}" style="--c:${actColor(a)}">
             ${a.time?`<div class="wc-t">${esc(a.time)}</div>`:""}
             <div class="wc-l">${esc(a.title||"Untitled")}${a.seriesId?` <span title="Repeats">↻</span>`:""}</div>
-            ${a.catId?`<div class="wc-c">${esc(catName(a.catId))}</div>`:""}
-            ${a.playerId?`<div class="wc-p">${esc(caseById(a.playerId).name)}</div>`:""}
             ${a.notes?`<div class="wc-n">${esc(a.notes)}</div>`:""}
-          </div>`).join("")}${UI.quickAdd===iso?qaHTML(iso):""}</div>
+          </div>`).join("")}</div>
         <div class="wv-foot">${sch
           ?`<button class="dc-sched" data-schedopen="${iso}">▤ Daily schedule</button>`
           :`<button class="wv-mk" data-schedmake="${iso}">＋ Daily schedule</button>`}</div>
@@ -1815,9 +1498,9 @@ function weekViewHTML(){
 }
 
 /* ---------- planner actions ---------- */
-function addActivity(iso,title,extra){
-  const a=Object.assign({id:uid(),date:iso,title:String(title||"").trim().slice(0,200),catId:UI.activeCat&&findCat(UI.activeCat)?UI.activeCat:null,
-    playerId:null,time:"",notes:"",seriesId:null,order:nextOrder(iso)},extra||{});
+function addActivity(iso,f){
+  const a={id:uid(),date:iso,title:String(f.title||"").trim().slice(0,200),color:normHex(f.color)||null,
+    time:String(f.time||"").trim().slice(0,40),notes:String(f.notes||"").slice(0,8000),seriesId:null,order:nextOrder(iso)};
   W.activities.push(a); return a;
 }
 function moveActivity(id,to,beforeId,copy){
@@ -1858,13 +1541,14 @@ function monthPicker(anchor){
     };
   }},{info:"Activities stay on their dates — changing the month only changes what you're looking at and exporting."}]);
 }
-function setWeekStart(ws){
-  if(ws===W.plan.weekStart) return;
-  mutate(()=>{
-    const shift=ws===0?-1:1, out={};
-    for(const [k,v] of Object.entries(W.weeks)) out[addDays(k,shift)]=v;
-    W.weeks=out; W.plan.weekStart=ws; UI.weekOf=null;
-  });
+/** a colour picker in the shared menu: a row of swatches plus "no colour" */
+function swatchRowHTML(cur,key){
+  return `<div class="sw-row"><button class="sw none${!cur?" on":""}" data-sw="" data-swk="${key}" title="No color" aria-label="No color"></button>${ACT_COLORS.map(h=>`<button class="sw${cur===h?" on":""}" data-sw="${h}" data-swk="${key}" style="--c:${h}" aria-label="Color ${h}"></button>`).join("")}</div>`;
+}
+function colorPickMenu(anchor,current,apply){
+  showMenu(anchor,[{head:"Color"},{html:`<div style="padding:4px 10px 8px">${swatchRowHTML(current,"menu")}</div>`,mount(m){
+    $$("[data-swk=menu]",m).forEach(b=>b.onclick=()=>{ hideMenu(); apply(b.dataset.sw||null); });
+  }}]);
 }
 
 /* ---------- day drawer ---------- */
@@ -1887,19 +1571,19 @@ function renderDrawer(){
       <label class="dr-f"><span>Day label <i style="font-style:normal;text-transform:none;letter-spacing:0;font-weight:600">(optional)</i></span>
         <input data-dayf="tag" data-nav="dd|tag" value="${esc(rec.tag||"")}" placeholder="e.g. Home game, Road game, Off day, Travel"></label>
       <div class="dr-sh">Activities <span>${acts.length}</span></div>
-      <div class="dr-list">${acts.map((a,i)=>`<div class="dr-item" style="--c:${catColor(a.catId)}">
+      <div class="dr-list">${acts.map((a,i)=>`<div class="dr-item" style="--c:${actColor(a)}">
           <div class="dr-line">
-            <button class="dr-dot" data-dritemcat="${a.id}" title="Category: ${esc(catName(a.catId)||"none")}" aria-label="Category"></button>
+            <button class="dr-dot" data-dritemcolor="${a.id}" title="Color" aria-label="Color"></button>
             <input class="dr-title" data-actf="title" data-actid="${a.id}" data-nav="da|${a.id}|title" value="${esc(a.title)}" placeholder="Activity" aria-label="Activity name">
             <input class="dr-time" data-actf="time" data-actid="${a.id}" data-nav="da|${a.id}|time" value="${esc(a.time)}" placeholder="Time" aria-label="Time (optional)">
             <button class="dr-ib" data-actmove="${a.id}" data-dir="-1" ${i===0?"disabled":""} aria-label="Move up">↑</button>
             <button class="dr-ib" data-actmove="${a.id}" data-dir="1" ${i===acts.length-1?"disabled":""} aria-label="Move down">↓</button>
-            <button class="dr-ib" data-actedit="${a.id}" aria-label="More options" title="Category, repeat, duplicate, delete…">⋯</button>
+            <button class="dr-ib" data-actedit="${a.id}" aria-label="More options" title="Date, color, repeat, duplicate, delete…">⋯</button>
           </div>
           <textarea class="dr-notes" rows="1" data-actf="notes" data-actid="${a.id}" data-nav="da|${a.id}|notes" placeholder="Notes (optional)" aria-label="Notes">${esc(a.notes)}</textarea>
-          ${a.catId||a.seriesId||a.playerId?`<div class="dr-meta">${esc([catName(a.catId),a.playerId?"Player: "+caseById(a.playerId).name:"",a.seriesId?"repeating":""].filter(Boolean).join(" · "))}</div>`:""}
+          ${a.seriesId?`<div class="dr-meta">repeating</div>`:""}
         </div>`).join("")}</div>
-      <div class="dr-add"><input id="drAdd" data-nav="dd|add" placeholder="Add an activity and press Enter" aria-label="Add an activity"></div>
+      <button class="btn sm" data-addday="${iso}" style="width:100%;justify-content:center">＋ Add activity</button>
       <label class="dr-f" style="margin-top:14px"><span>Notes for the day</span>
         <textarea data-dayf="notes" data-nav="dd|notes" placeholder="Optional — purpose of the day, staff plans, contingencies…">${esc(rec.notes||"")}</textarea></label>
     </div>
@@ -1938,12 +1622,9 @@ function copyDayModal(iso){
   });
 }
 
-/* ---------- activity editor (popover) ---------- */
-let POP=null;
-function openActPop(id,anchor){
-  closeCombo(); hideMenu();
-  POP={id,all:false,rep:null,newCat:false,anchor:null};
-  drawActPop();
+/* ---------- add-activity popover: suggestions, or anything you type ---------- */
+let POP=null, ADD=null;
+function placePop(anchor){
   const p=$("#pop"); p.classList.add("on");
   const r=anchor.getBoundingClientRect(), w=p.offsetWidth, h=p.offsetHeight;
   let left=r.right+window.scrollX+8;
@@ -1953,9 +1634,59 @@ function openActPop(id,anchor){
   const maxTop=window.scrollY+window.innerHeight-h-10;
   if(top>maxTop) top=Math.max(window.scrollY+8,maxTop);
   p.style.left=left+"px"; p.style.top=top+"px";
-  setTimeout(()=>{ const t=$("#pop .pop-title"); if(t&&!t.value){ t.focus(); } },20);
 }
-function closePop(){ POP=null; const p=$("#pop"); if(p){ p.classList.remove("on"); p.innerHTML=""; } }
+function closePop(){ POP=null; ADD=null; const p=$("#pop"); if(p){ p.classList.remove("on"); p.innerHTML=""; } }
+/** names the candidate has used that aren't presets, with the colour they last used */
+function usedActivities(){
+  const m=new Map();
+  W.activities.forEach(a=>{ const t=String(a.title||"").trim(); if(t&&!PRESET_NAMES.has(t.toLowerCase())) m.set(t.toLowerCase(),[t,a.color||NOCAT]); });
+  return [...m.values()].sort((a,b)=>a[0].localeCompare(b[0]));
+}
+function openAddPop(iso,anchor){
+  closePop(); closeCombo(); hideMenu();
+  ADD={date:ISO_RE.test(iso)?iso:todayIso(),name:"",color:null,colorSet:false,time:"",notes:""};
+  const used=usedActivities();
+  const groups=(used.length?[{group:"Your activities",items:used}]:[]).concat(PRESETS.map(g=>({group:g.group,items:g.items.map(n=>[n,g.color])})));
+  $("#pop").innerHTML=`
+    <div class="pop-h"><span class="pop-k">Add activity</span><input type="date" class="pop-date" data-addf="date" value="${ADD.date}" aria-label="Date"><button class="x" data-popclose aria-label="Close">×</button></div>
+    <input class="pop-title" data-addf="name" data-nav="add|name" placeholder="Pick a suggestion or type your own" aria-label="Activity name" autocomplete="off">
+    <div class="al">${groups.map(g=>`<div class="al-g"><div class="al-h">${esc(g.group)}</div><div class="al-cs">
+        ${g.items.map(([n,c])=>`<button class="al-c" data-preset="${esc(n)}" data-pc="${c}" style="--c:${c}">${esc(n)}</button>`).join("")}
+        ${g.group==="Other"?`<button class="al-c custom" data-presetcustom>✎ Custom activity</button>`:""}
+      </div></div>`).join("")}</div>
+    <div class="pop-row">
+      <label class="pop-f"><span>Time <i>optional</i></span><input data-addf="time" data-nav="add|time" placeholder="e.g. 3:30"></label>
+      <div class="pop-f"><span>Color <i>optional</i></span>${swatchRowHTML(null,"add")}</div>
+    </div>
+    <label class="pop-f"><span>Note <i>optional</i></span><textarea data-addf="notes" data-nav="add|notes" rows="2" placeholder="Purpose, details, who's involved…"></textarea></label>
+    <div class="pop-foot"><button class="btn sm" data-popclose>Cancel</button><button class="btn sm primary" data-addgo style="margin-left:auto">Add activity</button></div>`;
+  placePop(anchor);
+  setTimeout(()=>{ const i=$('#pop [data-addf="name"]'); if(i) i.focus(); },20);
+}
+function filterAddList(){
+  const q=norm(ADD?ADD.name:"");
+  $$("#pop .al-c[data-preset]").forEach(b=>{ b.hidden=!!q&&!norm(b.dataset.preset).includes(q); b.classList.remove("on"); });
+  $$("#pop .al-g").forEach(g=>{ g.hidden=!g.querySelector(".al-c:not([hidden])"); });
+}
+function paintSwatches(key,cur){ $$(`#pop [data-swk="${key}"]`).forEach(b=>b.classList.toggle("on",(b.dataset.sw||null)===(cur||null))); }
+function addGo(){
+  if(!ADD) return;
+  const t=String(ADD.name||"").trim();
+  if(!t){ toast("Choose a suggestion or type an activity name"); const i=$('#pop [data-addf="name"]'); if(i) i.focus(); return; }
+  if(!ISO_RE.test(ADD.date)) return toast("Pick a date");
+  const f={title:t,color:ADD.color,time:ADD.time,notes:ADD.notes}, iso=ADD.date;
+  closePop();
+  mutate(()=>addActivity(iso,f));
+  toast(`Added “${t}” on ${shortDate(iso)}`,{label:"Undo",fn:undo});
+}
+
+/* ---------- activity editor (popover) ---------- */
+function openActPop(id,anchor){
+  closePop(); closeCombo(); hideMenu();
+  POP={id,all:false,rep:null};
+  drawActPop();
+  placePop(anchor);
+}
 function seriesOf(a){ return a&&a.seriesId?W.activities.filter(x=>x.seriesId===a.seriesId):[]; }
 function drawActPop(){
   if(!POP) return;
@@ -1965,26 +1696,14 @@ function drawActPop(){
   const rep=POP.rep;
   $("#pop").innerHTML=`
     <div class="pop-h"><span class="pop-k">${esc(longDate(a.date))}</span><button class="x" data-popclose aria-label="Close">×</button></div>
-    <input class="pop-title" data-ap="title" data-nav="ap|title" value="${esc(a.title)}" placeholder="Activity name" aria-label="Activity name">
-    <div class="pop-f"><span>Category</span>
-      <div class="pop-cats">
-        <button class="pc${!a.catId?" on":""}" data-apcat="" style="--c:${NOCAT}">None</button>
-        ${W.categories.map(c=>`<button class="pc${a.catId===c.id?" on":""}" data-apcat="${c.id}" style="--c:${c.color}"><i></i>${esc(c.name||"Untitled")}</button>`).join("")}
-        ${POP.newCat
-          ?`<span class="pc-new"><input data-apnewcatname data-nav="ap|newcat" placeholder="Category name — Enter" aria-label="New category name"><button class="btn sm" data-apnewcatgo>Add</button></span>`
-          :`<button class="pc add" data-apnewcat>＋ New category</button>`}
-      </div></div>
-    <div class="pop-f"><span>Player <i>optional</i></span>
-      <div class="pop-cats">
-        <button class="pc${!a.playerId?" on":""}" data-applayer="" style="--c:${NOCAT}">None</button>
-        ${CASES.map(c=>`<button class="pc${a.playerId===c.id?" on":""}" data-applayer="${c.id}" title="${esc(c.role)}">${esc(c.name)}</button>`).join("")}
-      </div></div>
+    <input class="pop-title" data-ap="title" data-nav="ap|title" data-sugg="activity" value="${esc(a.title)}" placeholder="Activity name" aria-label="Activity name" autocomplete="off">
     <div class="pop-row">
       <label class="pop-f"><span>Date</span><input type="date" data-ap="date" value="${a.date}"></label>
       <label class="pop-f"><span>Time <i>optional</i></span><input data-ap="time" data-nav="ap|time" value="${esc(a.time)}" placeholder="e.g. 3:30 or Pregame"></label>
     </div>
+    <div class="pop-f"><span>Color</span>${swatchRowHTML(a.color,"ap")}</div>
     <label class="pop-f"><span>Notes <i>optional</i></span><textarea data-ap="notes" data-nav="ap|notes" rows="3" placeholder="Purpose, details, who's involved…">${esc(a.notes)}</textarea></label>
-    ${series.length>1?`<label class="pop-chk"><input type="checkbox" data-apall ${POP.all?"checked":""}> Apply name, category, player, time &amp; notes changes to all ${series.length} in this repeating series</label>`:""}
+    ${series.length>1?`<label class="pop-chk"><input type="checkbox" data-apall ${POP.all?"checked":""}> Apply name, color, time &amp; notes changes to all ${series.length} in this repeating series</label>`:""}
     ${rep?repeatPanelHTML(a,rep):""}
     <div class="pop-foot">
       ${rep?"":`<button class="btn sm" data-aprepeat>↻ Repeat…</button>`}
@@ -2029,7 +1748,8 @@ function applyToActivity(a,field,value){
    ========================================================================== */
 function createSchedule(iso,from){
   if(W.schedules[iso]) return W.schedules[iso];
-  const S={id:uid(),date:iso,title:"",context:(W.days[iso]||{}).tag||"",location:"",notes:"",sections:[blankSection(1)]};
+  const S={id:uid(),date:iso,title:"",context:(W.days[iso]||{}).tag||"",location:"",notes:"",
+    submit:Object.values(W.schedules).filter(x=>x.submit).length<2, sections:[blankSection(1)]};
   if(from) S.sections=copySections(from.sections,true);
   W.schedules[iso]=S; return S;
 }
@@ -2062,17 +1782,15 @@ function renderDaily(){
   if(UI.sched&&!W.schedules[UI.sched]) UI.sched=null;
   if(!UI.sched&&dates.length) UI.sched=dates[0];
   const tabs=`<div class="dtabs">
-    ${dates.map(iso=>`<button class="dtab${iso===UI.sched?" on":""}" data-dtab="${iso}"><b>${esc(shortDate(iso))}</b><span>${esc(W.schedules[iso].title||W.schedules[iso].context||"Practice schedule")}</span></button>`).join("")}
+    ${dates.map(iso=>`<button class="dtab${iso===UI.sched?" on":""}" data-dtab="${iso}" title="${W.schedules[iso].submit?"Included in your submission":""}"><b>${esc(shortDate(iso))}${W.schedules[iso].submit?`<span class="star" aria-label="in submission">★</span>`:""}</b><span>${esc(W.schedules[iso].title||W.schedules[iso].context||"Practice schedule")}</span></button>`).join("")}
     <button class="dtab add" id="dNew">＋ New daily schedule</button>
-    <span class="dtabs-note">${dates.length<2?`The exercise asks for at least two daily schedules${dates.length?` — ${dates.length} so far`:""}.`:`${dates.length} daily schedules — build as many as you like.`}</span>
   </div>`;
   if(!UI.sched){
     host.innerHTML=tabs+`<div class="card dempty">
       <div>
         <h2>Build a daily practice schedule</h2>
-        <p>Choose a date from your month to turn its plan into an actual practice schedule — time blocks, groups, locations, staff, stations and notes, in as much or as little detail as you like.</p>
-        <p>Whatever you planned for that date appears at the top as a reference you can pull from. Nothing is required, and nothing is added for you.</p>
-        <p class="note">Dates with a dot have activities in your monthly plan. You can build a schedule for any date.</p>
+        <p>Pick a date to build its practice schedule — times, activities, groups, locations, staff and notes, in as much or as little detail as you like.</p>
+        <p class="note">Dots mark days with activities in your monthly plan. The exercise asks for two daily schedules; you can build more.</p>
       </div>
       <div>${datePickerHTML()}</div>
     </div>`;
@@ -2091,7 +1809,7 @@ function datePickerHTML(){
       return `<button class="dp-d${inPlanMonth(iso)?"":" out"}${s?" has-s":""}" data-pickdate="${iso}" aria-label="${esc(longDate(iso))}${s?" — has a daily schedule":""}">
         <b>${dateOf(iso).getDate()}</b>
         ${tag?`<span class="dp-tag">${esc(tag)}</span>`:""}
-        <span class="dp-dots">${acts.slice(0,8).map(a=>`<i style="--c:${catColor(a.catId)}"></i>`).join("")}</span>
+        <span class="dp-dots">${acts.slice(0,8).map(a=>`<i style="--c:${actColor(a)}"></i>`).join("")}</span>
         ${s?`<span class="dp-s">▤ Open</span>`:""}
       </button>`;
     }).join("")}</div>
@@ -2120,7 +1838,8 @@ function dayCardHTML(S){
         <input class="title" data-sf="title" data-nav="sf|title" value="${esc(S.title)}" placeholder="Schedule title (optional)" aria-label="Schedule title">
         <div class="sub" id="bandSub">${bandSubHTML(S)}</div>
       </div>
-      <button class="band-link" data-tomonth="${S.date}" title="See this date in the monthly planner">‹ Monthly plan for this day</button>
+      <button class="band-link sub-tog${S.submit?" on":""}" data-submit="${S.date}" aria-pressed="${!!S.submit}" title="Choose which daily schedules go into your Complete Interview Submission">${S.submit?"★ In submission":"☆ Add to submission"}</button>
+      <button class="band-link" data-tomonth="${S.date}" title="See this date in the monthly planner">‹ Month view</button>
     </div>
     <div class="top">
       <div class="fld"><label for="fDate">Date</label><input id="fDate" type="date" data-sfdate value="${S.date}"></div>
@@ -2130,8 +1849,8 @@ function dayCardHTML(S){
     <div class="planned">
       <span class="tag">From your monthly plan</span>
       ${acts.length
-        ? acts.map(a=>`<button class="pchip${covered(a)?" done":""}" data-plannedadd="${a.id}" style="--c:${catColor(a.catId)}" title="${covered(a)?"Already on this schedule — click to add another row":"Add as a row"}${a.playerId?" · Player: "+esc(caseById(a.playerId).name):""}${a.notes?" · "+esc(a.notes):""}"><span class="box">✓</span>${esc(a.title||"Untitled")}${a.playerId?` <small style="color:var(--navy);font-weight:800">${esc(playerInit(a.playerId))}</small>`:""}${a.time?` <small style="color:var(--muted)">${esc(a.time)}</small>`:""}</button>`).join("")
-          +`<span class="more">${done}/${acts.length} on this schedule · click to add as a row</span>`
+        ? acts.map(a=>`<button class="pchip${covered(a)?" done":""}" data-plannedadd="${a.id}" style="--c:${actColor(a)}" title="${covered(a)?"Already on this schedule — click to add another row":"Add as a row"}${a.notes?" · "+esc(a.notes):""}"><span class="box">✓</span>${esc(a.title||"Untitled")}${a.time?` <small style="color:var(--muted)">${esc(a.time)}</small>`:""}</button>`).join("")
+          +`<span class="more">${done}/${acts.length} on this schedule · click one to add it</span>`
         : `<span class="empty">Nothing planned on this date in your monthly plan. Build freely here, or <button class="linkish" data-tomonth="${S.date}">add to the month</button>.</span>`}
     </div>
     <div class="strip"><span class="tag">Notes</span>
@@ -2201,8 +1920,7 @@ function sectionHTML(s){
         <div class="hrow"><div></div>${hdr("time")}${hdr("activity")}${!narrow&&showLoc?hdr("location"):""}${!narrow&&showStaff?hdr("staff"):""}<div></div><div></div></div>
         ${rows||`<div class="row"><div class="emptyrow">No rows yet — press <b>Add row</b>, or paste rows straight from a spreadsheet.</div></div>`}
       </div>
-      <div class="sec-foot"><button class="addrow" data-addrow="${s.id}">＋ Add row</button>
-        <span class="hint"><kbd>Enter</kbd> new row · <kbd>⌘/Ctrl D</kbd> duplicate · <kbd>⌥/Alt ↑↓</kbd> move · type <kbd>815-845</kbd></span></div>
+      <div class="sec-foot"><button class="addrow" data-addrow="${s.id}">＋ Add row</button></div>
     </div>
   </div>`;
 }
@@ -2210,17 +1928,16 @@ function rowHTML(s,r,i,showLoc,showStaff){
   const prev=s.rows[i-1];
   const tied=prev&&r.time&&prev.time===r.time&&(prev.timeEnd||"")===(r.timeEnd||"");
   const dur=rowMinutes(r);
-  const cat=r.catId&&findCat(r.catId);
-  const pl=r.playerId&&caseById(r.playerId);
-  const cell=(f,cls,ph,sugg)=>`<div class="cell c-${f}"><input class="inp ${cls}${f==="activity"&&pl?" has-pl":""}" value="${esc(f==="time"?timeText(r):r[f])}" data-rf="${f}" data-sec="${s.id}" data-row="${r.id}" data-nav="${s.id}|${r.id}|${f}" ${sugg?`data-sugg="${sugg}"`:""} placeholder="${ph}" aria-label="${f}">${f==="time"&&dur?`<span class="dur">${fmtDur(dur)}</span>`:""}${f==="activity"&&pl?`<button class="rowpl" data-rowpl="${r.id}" data-sec="${s.id}" title="Linked to ${esc(pl.name)} (${esc(pl.role)}) — click to change">${esc(playerLast(pl.id))}</button>`:""}</div>`;
+  const col=normHex(r.color);
+  const cell=(f,cls,ph,sugg)=>`<div class="cell c-${f}"><input class="inp ${cls}" value="${esc(f==="time"?timeText(r):r[f])}" data-rf="${f}" data-sec="${s.id}" data-row="${r.id}" data-nav="${s.id}|${r.id}|${f}" ${sugg?`data-sugg="${sugg}"`:""} placeholder="${ph}" aria-label="${f}">${f==="time"&&dur?`<span class="dur">${fmtDur(dur)}</span>`:""}</div>`;
   const detail=(r.detail||r.showDetail)?`<div class="sub"><input class="inp" value="${esc(r.detail)}" data-rf="detail" data-sec="${s.id}" data-row="${r.id}" data-nav="${s.id}|${r.id}|detail" placeholder="Details — players, groups, coaching points, notes" aria-label="Details"></div>`:"";
-  return `<div class="row${tied?" tied":""}${cat?" has-cat":""}" data-sec="${s.id}" data-row="${r.id}" ${cat?`style="--rc:${cat.color}"`:""}>
+  return `<div class="row${tied?" tied":""}${col?" has-cat":""}" data-sec="${s.id}" data-row="${r.id}" ${col?`style="--rc:${col}"`:""}>
     <button class="rgrip" draggable="true" data-rowgrip="${r.id}" data-sec="${s.id}" aria-label="Drag row">⠿</button>
     ${cell("time","time","0:00")}
     ${cell("activity","act","Activity","activity")}
     ${showLoc?cell("location","dim","Location","location"):""}
     ${showStaff?cell("staff","dim","Staff","staff"):""}
-    <button class="rowcat" data-rowcat="${r.id}" data-sec="${s.id}" title="Category: ${esc(cat?cat.name:"none")}" aria-label="Row category"><i></i></button>
+    <button class="rowcat" data-rowcolor="${r.id}" data-sec="${s.id}" title="Color" aria-label="Row color"><i></i></button>
     <button class="rowmenu" data-rowmenu="${r.id}" data-sec="${s.id}" aria-label="Row options">⋯</button>
     ${detail}
   </div>`;
@@ -2244,7 +1961,7 @@ function gridSectionHTML(s,cls){
       ${secHeadHTML(s,s.rows.length,"Grid name — e.g. Defensive stations")}
       <div class="rows" data-rowsof="${s.id}" style="--cols:${cols}">${head}${rows||`<div class="row"><div class="emptyrow">No rows yet.</div></div>`}</div>
       <div class="sec-foot"><button class="addrow" data-addrow="${s.id}">＋ Add row</button><button class="addrow" data-coladd="${s.id}">＋ Add column</button>
-        <span class="hint">${n} column${n===1?"":"s"} · rename a column by clicking its heading</span></div>
+</div>
     </div>
   </div>`;
 }
@@ -2252,17 +1969,12 @@ function addBarHTML(S){
   const others=Object.keys(W.schedules).filter(k=>k!==S.date);
   return `<div class="addsec">
       <button class="btn primary" data-addsec="1">＋ Add section</button>
-      <button class="btn sm" data-addsec="0.5">＋ Half-width section</button>
-      <button class="btn sm" data-addsec="0.3333">＋ One-third section</button>
+      <button class="btn sm" data-addsec="0.5">＋ Half-width</button>
+      <button class="btn sm" data-addsec="0.3333">＋ One-third</button>
+      <button class="btn sm" id="addRotation">＋ Stations / rotation grid…</button>
       <span class="addsec-div"></span>
-      <button class="btn sm" id="addRotation">Stations / rotation grid…</button>
-    </div>
-    <div class="schedacts">
-      <span class="schedacts-lbl">This schedule</span>
-      <button class="btn sm" id="schPrint">Print / Save PDF</button>
-      ${others.length?`<button class="btn sm" id="schCopyFrom">Copy layout from another day…</button>`:""}
-      <button class="btn sm quiet danger" id="schDelete">Delete schedule</button>
-      <span class="note">Sections sit side by side when their widths fit in one row — the printout follows the same layout.</span>
+      ${others.length?`<button class="btn sm quiet" id="schCopyFrom">Copy layout from another day…</button>`:""}
+      <button class="btn sm quiet danger" id="schDelete">Delete this schedule</button>
     </div>`;
 }
 
@@ -2384,8 +2096,7 @@ function sectionMenu(anchor,secId){
 function rowMenu(anchor,secId,rowId){
   const s=findSec(secId), r=findRow(secId,rowId), i=rowIndex(secId,rowId);
   const items=[];
-  if(s.kind==="table") items.push({label:r.detail||r.showDetail?"Remove details line":"Add details line",k:"⌥D",fn:()=>toggleDetail(secId,rowId)},
-    {label:r.playerId?`Linked player: ${playerLast(r.playerId)}…`:"Link to a player…",fn:()=>playerMenu(anchor,r.playerId,id=>mutate(()=>{ r.playerId=id; }))});
+  if(s.kind==="table") items.push({label:r.detail||r.showDetail?"Remove details line":"Add details line",k:"⌥D",fn:()=>toggleDetail(secId,rowId)});
   items.push(
     {label:"Insert row below",k:"↵",fn:()=>addRow(secId,rowId)},
     {label:"Duplicate row",k:"⌘D",fn:()=>dupRow(secId,rowId)},
@@ -2395,31 +2106,6 @@ function rowMenu(anchor,secId,rowId){
     {label:"Delete row",k:"⌘⌫",danger:true,fn:()=>delRow(secId,rowId)});
   showMenu(anchor,items);
 }
-function catMenu(anchor,current,apply){
-  showMenu(anchor,[
-    {head:"Category"},
-    {label:"No category",sw:"#fff",on:!current,fn:()=>apply(null)},
-    ...W.categories.map(c=>({label:c.name||"Untitled category",sw:c.color,on:current===c.id,fn:()=>apply(c.id)})),
-    {sep:1},
-    {label:"＋ New category…",fn:()=>newCategoryModal(id=>apply(id))}
-  ]);
-}
-function newCategoryModal(then){
-  openModal(`
-    <div class="mhead"><div><h2>New category</h2><p>Name it however you organize your work.</p></div><button class="x" data-close aria-label="Close">×</button></div>
-    <div class="mbody"><div class="field"><label for="ncName">Name</label><input type="text" id="ncName" autofocus></div>
-      <div class="field"><label>Colour</label><div class="swgrid" style="padding:0;max-width:320px" id="ncSw">${PALETTE.map((h,i)=>`<button data-c="${h}" style="--c:${h}" class="${h===nextColor()?"on":""}" aria-label="${h}"></button>`).join("")}</div></div></div>
-    <div class="mfoot"><button class="btn" data-close>Cancel</button><button class="btn primary" id="ncGo">Add category</button></div>`,
-  ()=>{
-    let col=nextColor();
-    $("#ncSw").onclick=e=>{ const b=e.target.closest("[data-c]"); if(!b) return; col=b.dataset.c; $$("#ncSw button").forEach(x=>x.classList.toggle("on",x===b)); };
-    const go=()=>{ const n=$("#ncName").value.trim(); if(!n) return toast("Give the category a name");
-      let id; mutate(()=>{ id=addCategory(n,col).id; },{render:false}); closeModal(); then(id); };
-    $("#ncGo").onclick=go;
-    $("#ncName").addEventListener("keydown",e=>{ if(e.key==="Enter"){ e.preventDefault(); go(); } });
-  });
-}
-
 /* ---------- stations / rotation grid ---------- */
 function rotationModal(){
   openModal(`
@@ -2494,7 +2180,7 @@ function copyLayoutModal(){
   });
 }
 
-/* ---------- suggestions: only what this candidate has already typed ---------- */
+/* ---------- suggestions: what this candidate typed, plus the optional baseball presets ---------- */
 const combo={open:false,input:null,items:[],hi:-1};
 function suggestions(kind){
   const seen=new Map();
@@ -2508,20 +2194,26 @@ function suggestions(kind){
 }
 function paintCombo(){
   const el=$("#combo"), inp=combo.input; if(!inp) return;
-  const q=inp.value.trim().toLowerCase();
-  const all=suggestions(inp.dataset.sugg).filter(v=>v.toLowerCase()!==q);
-  const list=(q?all.filter(v=>v.toLowerCase().includes(q)):all)
-    .sort((a,b)=>(q?(a.toLowerCase().startsWith(q)?0:1)-(b.toLowerCase().startsWith(q)?0:1):0)||a.localeCompare(b)).slice(0,8);
-  combo.items=list;
-  if(!list.length){ el.classList.remove("on"); combo.open=false; return; }
+  const q=inp.value.trim().toLowerCase(), kind=inp.dataset.sugg;
+  const match=v=>v.toLowerCase()!==q&&(!q||v.toLowerCase().includes(q));
+  const order=(a,b)=>(q?(a.toLowerCase().startsWith(q)?0:1)-(b.toLowerCase().startsWith(q)?0:1):0)||a.localeCompare(b);
+  let used=suggestions(kind);
+  if(kind==="activity") used=used.filter(v=>!PRESET_NAMES.has(v.toLowerCase()));
+  const groups=[["Used before",used.filter(match).sort(order).slice(0,8)]];
+  if(kind==="activity") PRESETS.forEach(g=>groups.push([g.group,g.items.filter(match)]));
+  combo.items=[]; let html="";
+  groups.forEach(([h,list])=>{ if(!list.length) return;
+    html+=`<div class="head">${esc(h)}</div>`+list.map(v=>{ const i=combo.items.push(v)-1; return `<div class="opt${i===combo.hi?" hi":""}" data-opt="${i}">${esc(v)}</div>`; }).join(""); });
+  if(!combo.items.length){ el.classList.remove("on"); combo.open=false; return; }
   combo.open=true;
-  el.innerHTML=`<div class="head">Used before</div>`+list.map((v,i)=>`<div class="opt${i===combo.hi?" hi":""}" data-opt="${i}">${esc(v)}</div>`).join("");
+  el.innerHTML=`<div style="max-height:280px;overflow:auto">${html}</div>`;
   const r=inp.getBoundingClientRect();
-  el.style.minWidth=Math.max(180,r.width)+"px";
+  el.style.minWidth=Math.max(200,r.width)+"px";
   el.style.left=Math.min(r.left+window.scrollX,window.scrollX+window.innerWidth-300)+"px";
   el.classList.add("on");
   const h=el.offsetHeight;
   el.style.top=(window.innerHeight-r.bottom<h+16&&r.top>h+16?r.top+window.scrollY-h-4:r.bottom+window.scrollY+4)+"px";
+  const hi=$(".opt.hi",el); if(hi) hi.scrollIntoView({block:"nearest"});
 }
 function openCombo(inp){ combo.input=inp; combo.hi=-1; paintCombo(); }
 function closeCombo(){ combo.open=false; combo.input=null; $("#combo").classList.remove("on"); }
@@ -2533,130 +2225,11 @@ function comboPick(v){
 $("#combo").addEventListener("mousedown",e=>{ const o=e.target.closest("[data-opt]"); if(o){ e.preventDefault(); comboPick(combo.items[+o.dataset.opt]); } });
 
 /* ==========================================================================
-   PLAN OVERVIEW
-   ========================================================================== */
-function allocation(){
-  const rows=new Map();
-  const get=id=>{ const k=id&&findCat(id)?id:""; if(!rows.has(k)) rows.set(k,{id:k,entries:0,days:new Set(),minutes:0,rows:0}); return rows.get(k); };
-  W.categories.forEach(c=>get(c.id));
-  planActs().forEach(a=>{ const r=get(a.catId); r.entries++; r.days.add(a.date); });
-  let timed=0, untimed=0;
-  Object.values(W.schedules).forEach(S=>S.sections.forEach(s=>{ if(s.kind!=="table") return;
-    s.rows.forEach(r=>{ if(!String(r.activity||"").trim()&&!r.time) return; const m=rowMinutes(r); const x=get(r.catId); x.rows++; x.minutes+=m; if(m) timed+=m; else untimed++; }); }));
-  const list=[...rows.values()].filter(r=>r.id||r.entries||r.rows);
-  return {list,timed,untimed,entries:planActs().length};
-}
-function schedStats(S){
-  const starts=[], ends=[]; let rows=0, minutes=0; const byCat={};
-  S.sections.forEach(s=>s.rows.forEach(r=>{
-    const has=s.kind==="grid"?(r.time||Object.values(r.cells||{}).some(Boolean)):(r.time||String(r.activity||"").trim());
-    if(!has) return; rows++;
-    const a=parseT(r.time), b=parseT(r.timeEnd); if(a!=null) starts.push(a); if(b!=null) ends.push(b<a?b+720:b);
-    if(s.kind==="table"){ const m=rowMinutes(r); minutes+=m; if(m){ const k=r.catId&&findCat(r.catId)?r.catId:""; byCat[k]=(byCat[k]||0)+m; } }
-  }));
-  const span=starts.length?`${fmtMin(Math.min(...starts))}${ends.length||starts.length>1?" – "+fmtMin(Math.max(...ends,...starts)):""}`:"";
-  return {rows,minutes,byCat,span,sections:S.sections.length};
-}
-function renderOverview(){
-  const al=allocation(), dates=Object.keys(W.schedules).sort();
-  const maxE=Math.max(1,...al.list.map(r=>r.entries)), maxM=Math.max(1,...al.list.map(r=>r.minutes));
-  const totE=al.list.reduce((a,r)=>a+r.entries,0), totM=al.list.reduce((a,r)=>a+r.minutes,0);
-  const pct=(a,b)=>b?Math.round(a/b*100)+"%":"";
-  const {year,month,weekStart}=W.plan;
-  const daysPlanned=new Set(planActs().map(a=>a.date)).size;
-  const weeksFocused=weeksOfMonth(year,month,weekStart).filter(w=>(W.weeks[w[0]]||{}).focus).length;
-  $("#overview").innerHTML=`
-    <div class="card ov-head">
-      <div>
-        <div class="ov-k">Plan overview · ${esc(monthName(year,month))}</div>
-        <h1>${esc(W.candidate.name||"Unnamed candidate")}</h1>
-        <div class="ov-sub">${esc(W.candidate.label||"Manager Interview Sandbox")} · last saved ${esc(new Date(W.updatedAt).toLocaleString(LOCALE,{month:"short",day:"numeric",hour:"numeric",minute:"2-digit"}))}</div>
-      </div>
-      <div class="ov-acts">
-        <button class="btn primary" data-print="package">Print / PDF review package</button>
-        <button class="btn" data-print="evals">Print evaluations</button>
-        <button class="btn" data-print="month">Print monthly plan</button>
-        <button class="btn" id="ovExport">Export plan (.json)</button>
-        <button class="btn" id="ovEditName">Edit name &amp; label</button>
-      </div>
-    </div>
-    <div class="ov-grid">
-      <div class="card ov-card">
-        <h3>Priorities &amp; approach <span>in your own words — optional</span></h3>
-        <textarea data-pri data-nav="ovpri" placeholder="Anything you'd like a reviewer to understand about how you approached the month — priorities, philosophy, trade-offs…">${esc(W.priorities)}</textarea>
-      </div>
-      <div class="card ov-card">
-        <h3>The month at a glance</h3>
-        <div class="ov-stats">
-          <div class="ov-stat"><b>${al.entries}</b><span>monthly activities</span></div>
-          <div class="ov-stat"><b>${daysPlanned}</b><span>days with plans</span></div>
-          <div class="ov-stat"><b>${weeksFocused}</b><span>weeks with a focus</span></div>
-          <div class="ov-stat"><b>${dates.length}</b><span>daily schedules</span></div>
-          <div class="ov-stat"><b>${fmtDur(al.timed)}</b><span>timed in daily schedules</span></div>
-        </div>
-        ${al.list.length?`<table class="alloc"><thead><tr><th>Category</th><th>Monthly plan</th><th>Daily schedules</th></tr></thead><tbody>
-          ${al.list.map(r=>{ const c=r.id?catColor(r.id):NOCAT; return `<tr style="--c:${c}">
-            <td class="c"><span class="sw"></span>${esc(r.id?catName(r.id):"Uncategorized")}</td>
-            <td><div class="bar"><i style="width:${Math.round(r.entries/maxE*110)}px"></i><span>${r.entries} entr${r.entries===1?"y":"ies"}${r.entries?` · ${r.days.size} day${r.days.size===1?"":"s"} · ${pct(r.entries,totE)}`:""}</span></div></td>
-            <td><div class="bar"><i style="width:${Math.round(r.minutes/maxM*110)}px"></i><span>${fmtDur(r.minutes)}${r.minutes?` · ${pct(r.minutes,totM)}`:""}</span></div></td>
-          </tr>`; }).join("")}</tbody></table>
-          <p class="note" style="margin:8px 0 0">Daily-schedule time counts rows with both a start and end time, grouped by the category dot on each row. ${al.untimed?`${al.untimed} row${al.untimed===1?" has":"s have"} no end time and ${al.untimed===1?"isn't":"aren't"} counted.`:""}</p>`
-          :`<p class="ov-empty">Categories you create and the activities you plan will be summarized here.</p>`}
-      </div>
-    </div>
-    <div class="card ov-card">
-      <h3>Player evaluations</h3>
-      <div class="ovs">${CASES.map(c=>{ const l=playerLinks(c.id), e=W.evals[c.id]||{};
-        const pri=String(e.priority||"").trim();
-        return `<div class="ovs-card">
-          <span class="d">${esc(c.role)}</span><b>${esc(c.name)}</b>
-          <span class="m">${evalStarted(c.id)?"Evaluation started":"Not started"} · ${l.monthly.length} monthly activit${l.monthly.length===1?"y":"ies"} · ${l.daily.length} daily row${l.daily.length===1?"":"s"} linked</span>
-          ${pri?`<span class="m" style="color:var(--ink)"><b style="font-size:12px">Primary priority:</b> ${esc(pri.length>160?pri.slice(0,160)+"…":pri)}</span>`:""}
-          <div class="acts"><button class="btn sm" data-case-open="${c.id}">Open</button><button class="btn sm" data-print="eval" data-date="${c.id}">Print / PDF</button></div>
-        </div>`; }).join("")}</div>
-    </div>
-    <div class="card ov-card">
-      <h3>Daily schedules <span>${dates.length<2?`the exercise asks for at least two`:""}</span></h3>
-      ${dates.length?`<div class="ovs">${dates.map(iso=>{
-        const S=W.schedules[iso], st=schedStats(S), acts=actsOn(iso);
-        const covered=a=>S.sections.some(s=>s.kind==="table"&&s.rows.some(r=>r.src===a.id||(norm(r.activity)&&norm(r.activity)===norm(a.title))));
-        return `<div class="ovs-card">
-          <span class="d">${esc(longDate(iso))}</span>
-          <b>${esc(S.title||"Practice schedule")}</b>
-          ${S.context?`<span class="m">${esc(S.context)}</span>`:""}
-          <span class="m">${st.sections} section${st.sections===1?"":"s"} · ${st.rows} row${st.rows===1?"":"s"}${st.span?` · ${esc(st.span)}`:""}${st.minutes?` · ${fmtDur(st.minutes)} timed`:""}</span>
-          ${Object.keys(st.byCat).length?`<div class="bar" style="gap:1px">${Object.entries(st.byCat).sort((a,b)=>b[1]-a[1]).map(([k,m])=>`<i title="${esc(k?catName(k):"Uncategorized")}: ${fmtDur(m)}" style="--c:${k?catColor(k):NOCAT};width:${Math.max(3,Math.round(m/Math.max(1,st.minutes)*220))}px;border-radius:2px"></i>`).join("")}</div>`:""}
-          ${acts.length?`<div class="chips">${acts.map(a=>`<span class="pchip${covered(a)?" done":""}" style="--c:${catColor(a.catId)}" title="${covered(a)?"Appears on the schedule":"Planned for this date, not on the schedule"}"><span class="box">✓</span>${esc(a.title||"Untitled")}</span>`).join("")}</div>`
-            :`<span class="m" style="font-style:italic">Nothing planned for this date in the monthly plan.</span>`}
-          <div class="acts"><button class="btn sm" data-schedopen="${iso}">Open</button><button class="btn sm" data-print="daily" data-date="${iso}">Print / PDF</button></div>
-        </div>`;}).join("")}</div>`
-        :`<p class="ov-empty">No daily schedules yet. Open a day in the monthly planner and choose <b>Build daily schedule</b>, or <button class="linkish" data-goview="daily">start one here</button>.</p>`}
-    </div>
-    <div class="card ov-card">
-      <h3>Month by week</h3>
-      <div class="ovw">${weeksOfMonth(year,month,weekStart).map(wk=>{
-        const k=wk[0], wr=W.weeks[k]||{};
-        return `<div class="ovw-wk">
-          <div class="ovw-h"><span>Week of ${esc(fmt(k,{month:"short",day:"numeric"}))}</span>${wr.focus?`<b>${esc(wr.focus)}</b>`:`<i>No weekly focus</i>`}${wr.notes?`<i>· ${esc(wr.notes.length>120?wr.notes.slice(0,120)+"…":wr.notes)}</i>`:""}</div>
-          <div class="ovw-days">${wk.map(iso=>{ const d=W.days[iso]||{};
-            return `<div class="ovw-d${inPlanMonth(iso)?"":" out"}">
-              <div class="ovw-dn"><button data-tomonth="${iso}" title="Open in planner">${esc(DOW[dateOf(iso).getDay()])} ${dateOf(iso).getDate()}</button>${d.tag?`<em>${esc(d.tag)}</em>`:""}${W.schedules[iso]?`<span class="s" title="Has a daily schedule">▤</span>`:""}</div>
-              ${actsOn(iso).map(a=>`<div class="ovw-a" style="--c:${catColor(a.catId)}">${a.time?`<b>${esc(a.time)}</b> `:""}${esc(a.title||"Untitled")}</div>`).join("")}
-            </div>`; }).join("")}</div>
-        </div>`; }).join("")}</div>
-    </div>`;
-}
-
-/* ==========================================================================
    PRINT / PDF — one renderer per sheet; the review package reuses them
    ========================================================================== */
 function pageHead(title,date,sub){
-  return `<div class="ph"><div><div class="k">${esc(W.candidate.label||"Manager Interview Sandbox")}</div><h1>${esc(title)}</h1>${date?`<div class="d">${esc(date)}</div>`:""}${sub?`<div class="s">${esc(sub)}</div>`:""}</div>
+  return `<div class="ph"><div><div class="k">${esc(W.candidate.label||"Double-A Manager Interview Exercise")}</div><h1>${esc(title)}</h1>${date?`<div class="d">${esc(date)}</div>`:""}${sub?`<div class="s">${esc(sub)}</div>`:""}</div>
     <div class="r">${W.candidate.name?`<b>${esc(W.candidate.name)}</b>`:""}${esc(monthName(W.plan.year,W.plan.month))}</div></div>`;
-}
-function legendHTML(){
-  if(!W.categories.length) return "";
-  return `<div class="p-legend">${W.categories.map(c=>`<span><i style="--c:${c.color}"></i>${esc(c.name||"Untitled")}</span>`).join("")}</div>`;
 }
 function monthPageHTML(orient){
   const {year,month,weekStart}=W.plan;
@@ -2669,10 +2242,9 @@ function monthPageHTML(orient){
       return `<tr class="wf"><td colspan="7"><span>Week of ${esc(fmt(wk[0],{month:"short",day:"numeric"}))}</span>${wr.focus?`<b>${esc(wr.focus)}</b>`:""}</td></tr>
       <tr>${wk.map(iso=>{ const d=W.days[iso]||{};
         return `<td class="${inPlanMonth(iso)?"":"out"}"><div class="pm-dn"><b>${dateOf(iso).getDate()}</b>${d.tag?`<em>${esc(d.tag)}</em>`:""}${W.schedules[iso]?`<i>DAILY</i>`:""}</div>
-          ${actsOn(iso).map(a=>`<div class="pm-a" style="--c:${catColor(a.catId)}">${a.time?`<small>${esc(a.time)}</small>`:""}${esc(a.title||"Untitled")}${a.playerId?` <small>(${esc(playerLast(a.playerId))})</small>`:""}</div>`).join("")}
+          ${actsOn(iso).map(a=>`<div class="pm-a" style="--c:${actColor(a)}">${a.time?`<small>${esc(a.time)}</small>`:""}${esc(a.title||"Untitled")}</div>`).join("")}
           ${d.notes?`<div class="pm-dnote">${esc(d.notes.length>90?d.notes.slice(0,90)+"…":d.notes)}</div>`:""}</td>`; }).join("")}</tr>`; }).join("")}
     </tbody></table>
-    ${legendHTML()}
   </div></div>`;
 }
 function agendaPageHTML(orient){
@@ -2687,7 +2259,7 @@ function agendaPageHTML(orient){
       ${days.length?days.map(iso=>{ const d=W.days[iso]||{};
         return `<div class="pa-day"><div class="pa-dl">${esc(shortDate(iso))}${d.tag?`<em>${esc(d.tag)}</em>`:""}${W.schedules[iso]?`<i>Daily schedule built</i>`:""}</div>
           <div class="pa-dr">${d.notes?`<div class="pa-dn">${esc(d.notes)}</div>`:""}
-          ${actsOn(iso).map(a=>`<div class="pa-a" style="--c:${catColor(a.catId)}"><b>${esc(a.title||"Untitled")}</b>${a.time?`<small>${esc(a.time)}</small>`:""}${a.catId?`<small>${esc(catName(a.catId))}</small>`:""}${a.playerId?`<small>Player: ${esc(caseById(a.playerId).name)}</small>`:""}${a.notes?`<div>${esc(a.notes)}</div>`:""}</div>`).join("")||(d.notes?"":`<span class="pa-none">—</span>`)}</div></div>`;
+          ${actsOn(iso).map(a=>`<div class="pa-a" style="--c:${actColor(a)}"><b>${esc(a.title||"Untitled")}</b>${a.time?`<small>${esc(a.time)}</small>`:""}${a.notes?`<div>${esc(a.notes)}</div>`:""}</div>`).join("")||(d.notes?"":`<span class="pa-none">—</span>`)}</div></div>`;
       }).join(""):`<div class="pa-day"><div class="pa-dl">—</div><div class="pa-dr"><span class="pa-none">Nothing planned this week.</span></div></div>`}
     </div>`;
   }).join("");
@@ -2714,61 +2286,37 @@ function printBlockHTML(s){
   const aW=100-tW-(showLoc?20:0)-(showStaff?17:0);
   return tab+who+(live.length?`<table class="p-tbl"><colgroup><col style="width:${tW}%"><col style="width:${aW}%">${showLoc?`<col style="width:20%">`:""}${showStaff?`<col style="width:17%">`:""}</colgroup>
     <thead><tr><th>${esc(H.time)}</th><th>${esc(H.activity)}</th>${showLoc?`<th>${esc(H.location)}</th>`:""}${showStaff?`<th>${esc(H.staff)}</th>`:""}</tr></thead>
-    <tbody>${live.map(r=>{ const c=r.catId&&findCat(r.catId);
-      return `<tr><td class="t">${esc(timeText(r))}</td><td class="a${c?" cat":""}" ${c?`style="--c:${c.color}"`:""}>${esc(r.activity)}${r.playerId&&caseById(r.playerId)?` <span style="font-weight:600;color:#002D62">(${esc(playerLast(r.playerId))})</span>`:""}${r.detail?`<span class="d">${esc(r.detail)}</span>`:""}</td>${showLoc?`<td>${esc(r.location)}</td>`:""}${showStaff?`<td>${esc(r.staff)}</td>`:""}</tr>`; }).join("")}</tbody></table>`:`<div class="p-empty">No rows</div>`);
+    <tbody>${live.map(r=>{ const c=normHex(r.color);
+      return `<tr><td class="t">${esc(timeText(r))}</td><td class="a${c?" cat":""}" ${c?`style="--c:${c}"`:""}>${esc(r.activity)}${r.detail?`<span class="d">${esc(r.detail)}</span>`:""}</td>${showLoc?`<td>${esc(r.location)}</td>`:""}${showStaff?`<td>${esc(r.staff)}</td>`:""}</tr>`; }).join("")}</tbody></table>`:`<div class="p-empty">No rows</div>`);
 }
 function dailyPageHTML(S,orient){
   const acts=actsOn(S.date);
-  const used=new Set(); S.sections.forEach(s=>s.kind==="table"&&s.rows.forEach(r=>{ if(r.catId&&findCat(r.catId)) used.add(r.catId); }));
   return `<div class="pg ${orient||"portrait"}" data-fit data-grow><div class="fit" style="--base:8.6pt">
     ${pageHead(S.title||"Daily Schedule",longDate(S.date),[S.context,S.location].filter(Boolean).join(" · "))}
     ${S.notes.trim()?`<div class="p-note"><b>Notes</b>${esc(S.notes)}</div>`:""}
-    ${acts.length?`<div class="p-plan"><b>Monthly plan for this date:</b>${acts.map(a=>`<span style="--c:${catColor(a.catId)}">${esc(a.title||"Untitled")}</span>`).join("")}</div>`:""}
+    ${acts.length?`<div class="p-plan"><b>Monthly plan for this date:</b>${acts.map(a=>`<span style="--c:${actColor(a)}">${esc(a.title||"Untitled")}</span>`).join("")}</div>`:""}
     <div class="p-body">${packSections(S.sections).map(row=>{ const free=rowFree(row);
       return `<div class="p-row">${row.map(s=>`<div class="p-blk" style="flex:${s.width||1}">${printBlockHTML(s)}</div>`).join("")}${free>.02?`<div class="p-blk gap" style="flex:${free}"></div>`:""}</div>`; }).join("")}</div>
-    ${used.size?`<div class="p-legend">${[...used].map(id=>`<span><i style="--c:${catColor(id)}"></i>${esc(catName(id))}</span>`).join("")}</div>`:""}
   </div></div>`;
 }
-
-function evalPageHTML(c){
-  const e=W.evals[c.id]||{}, {monthly,daily}=playerLinks(c.id);
-  const ans=([k,label])=>`<div class="pe-a"><h3>${esc(label)}</h3><div class="${String(e[k]||"").trim()?"":"blank"}">${String(e[k]||"").trim()?esc(e[k]):"Left blank"}</div></div>`;
-  return `<div class="pg portrait"><div class="fit" style="--base:9pt">
-    ${pageHead("Player Evaluation",`${c.role} · ${c.name}`,c.pos)}
-    <div class="pe-top">
-      <div><div class="pe-cap">Background</div><table class="pe-kv">${c.facts.map(([k,v])=>`<tr><td>${esc(k)}</td><td>${esc(v)}</td></tr>`).join("")}</table></div>
-      <div><div class="pe-cap">${esc(c.statsLabel)}</div><table class="pe-kv">${c.stats.map(([k,v])=>`<tr><td>${esc(k)}</td><td>${esc(v)}</td></tr>`).join("")}</table></div>
-    </div>
-    <div class="pe-box"><div class="pe-cap">Scouting &amp; staff observations</div><ul>${c.scouting.map(([w,t])=>`<li><b>${esc(w)}:</b> “${esc(t)}”</li>`).join("")}</ul></div>
-    <div class="pe-box"><div class="pe-cap">Development context</div><p>${esc(c.context)}</p><p class="pe-quote">“${esc(c.quote)}”</p></div>
-    <div class="pe-sec"><h2>Candidate's evaluation</h2>${EVAL_FIELDS.map(ans).join("")}</div>
-    <div class="pe-sec"><h2>Development prescription</h2>${RX_FIELDS.map(ans).join("")}</div>
-    <div class="pe-sec"><h2>Scheduled work</h2>${monthly.length||daily.length
-      ? monthly.map(a=>`<div class="pe-l" style="--c:${catColor(a.catId)}"><small>${esc(shortDate(a.date))} · Monthly plan</small>${esc(a.title||"Untitled")}${a.time?` — ${esc(a.time)}`:""}</div>`).join("")
-        + daily.map(x=>`<div class="pe-l" style="--c:${catColor(x.row.catId)}"><small>${esc(shortDate(x.date))} · Daily schedule</small>${esc(x.row.activity||"Untitled")}${x.row.time?` — ${esc(timeText(x.row))}`:""}${x.sec.name?` (${esc(x.sec.name)})`:""}</div>`).join("")
-      : `<p style="color:#9CA3AF;font-style:italic;margin:0">No activities linked to this player.</p>`}</div>
-    <div class="pe-fict">Fictional player and data, created for this exercise.</div>
-  </div></div>`;
+/** the daily schedules marked for submission — every schedule when none are marked */
+function submissionDates(){
+  const all=Object.keys(W.schedules).sort(), sel=all.filter(d=>W.schedules[d].submit);
+  return sel.length?sel:all;
 }
 function coverPageHTML(){
-  const al=allocation(), dates=Object.keys(W.schedules).sort();
-  const totE=al.list.reduce((a,r)=>a+r.entries,0), totM=al.list.reduce((a,r)=>a+r.minutes,0);
-  const pct=(a,b)=>b?Math.round(a/b*100)+"%":"—";
+  const dates=submissionDates(), n=planActs().length;
   return `<div class="pg portrait"><div class="fit pc-cover" style="--base:10pt">
-    <div class="pc-title"><div class="k">${esc(W.candidate.label||"Manager Interview Sandbox")} · Planning exercise</div>
+    <div class="pc-title"><div class="k">${esc(W.candidate.label||"Double-A Manager Interview Exercise")} · Interview submission</div>
       <h1>${esc(W.candidate.name||"Unnamed candidate")}</h1>
-      <div class="m">${esc(monthName(W.plan.year,W.plan.month))} · ${al.entries} monthly activit${al.entries===1?"y":"ies"} · ${dates.length} daily schedule${dates.length===1?"":"s"}</div></div>
-    <div class="pc-sec"><h2>Priorities &amp; approach</h2><p>${W.priorities.trim()?esc(W.priorities):"<i style='color:#888'>None written.</i>"}</p></div>
-    <div class="pc-sec"><h2>Categories</h2>${al.list.length?`<table class="pc-tbl"><thead><tr><th>Category</th><th>Monthly entries</th><th>Days</th><th>Share</th><th>Daily-schedule time</th><th>Share</th></tr></thead><tbody>
-      ${al.list.map(r=>`<tr><td><i style="--c:${r.id?catColor(r.id):NOCAT}"></i>${esc(r.id?catName(r.id):"Uncategorized")}</td><td>${r.entries}</td><td>${r.days.size}</td><td>${pct(r.entries,totE)}</td><td>${fmtDur(r.minutes)}</td><td>${pct(r.minutes,totM)}</td></tr>`).join("")}
-      </tbody></table><p style="font-size:.8em;color:#6B7280;margin-top:.4em">Daily-schedule time counts rows with a start and end time, by the category chosen on each row.</p>`:`<p><i style="color:#888">No categories created.</i></p>`}</div>
+      <div class="m">${esc(monthName(W.plan.year,W.plan.month))} · ${n} monthly activit${n===1?"y":"ies"} · ${dates.length} daily schedule${dates.length===1?"":"s"}</div></div>
+    ${W.priorities.trim()?`<div class="pc-sec"><h2>Month priorities</h2><p>${esc(W.priorities)}</p></div>`:""}
     <div class="pc-sec"><h2>Contents</h2><table class="pc-tbl"><tbody>
-      ${CASES.map(c=>`<tr><td>Player evaluation</td><td>${esc(c.role)} — ${esc(c.name)}${evalStarted(c.id)?"":" (left blank)"}</td></tr>`).join("")}
       <tr><td>Monthly calendar</td><td>${esc(monthName(W.plan.year,W.plan.month))}</td></tr>
       <tr><td>Monthly plan — details</td><td>Week by week, with all notes</td></tr>
       ${dates.map(d=>`<tr><td>Daily schedule</td><td>${esc(longDate(d))}${W.schedules[d].title?" — "+esc(W.schedules[d].title):""}</td></tr>`).join("")}
     </tbody></table></div>
-    <div class="pc-foot">Generated ${esc(new Date().toLocaleString(LOCALE,{month:"long",day:"numeric",year:"numeric",hour:"numeric",minute:"2-digit"}))}. This package reproduces the candidate's own entries; nothing has been interpreted or scored.</div>
+    <div class="pc-foot">Generated ${esc(new Date().toLocaleString(LOCALE,{month:"long",day:"numeric",year:"numeric",hour:"numeric",minute:"2-digit"}))} from the candidate's own entries.</div>
   </div></div>`;
 }
 let printPrepared=false;
@@ -2778,18 +2326,13 @@ function buildPrint(kind,date){
   if(kind==="month"){
     html=monthPageHTML("landscape")+agendaPageHTML("landscape");
     pageCss="@page{size:letter landscape;margin:.4in}";
-  }else if(kind==="evals"||kind==="eval"){
-    const list=kind==="eval"?[caseById(date)].filter(Boolean):CASES;
-    if(!list.length) return false;
-    html=list.map(evalPageHTML).join("");
-    pageCss="@page{size:letter portrait;margin:.4in}";
   }else if(kind==="daily"){
     const S=W.schedules[date]; if(!S) return false;
     html=dailyPageHTML(S,"portrait");
     pageCss="@page{size:letter portrait;margin:.4in}";
   }else{
-    html=coverPageHTML()+CASES.map(evalPageHTML).join("")+monthPageHTML("portrait")+agendaPageHTML("portrait")+
-      Object.keys(W.schedules).sort().map(d=>dailyPageHTML(W.schedules[d],"portrait")).join("");
+    html=coverPageHTML()+monthPageHTML("portrait")+agendaPageHTML("portrait")+
+      submissionDates().map(d=>dailyPageHTML(W.schedules[d],"portrait")).join("");
     pageCss="@page{size:letter portrait;margin:.4in}";
   }
   root.innerHTML=html;
@@ -2838,23 +2381,9 @@ function printDoc(kind,date){
 window.addEventListener("beforeprint",()=>{
   if(printPrepared) return;
   if(UI.view==="daily"&&UI.sched) buildPrint("daily",UI.sched);
-  else if(UI.view==="players") buildPrint("eval",UI.player);
-  else if(UI.view==="overview") buildPrint("package");
   else buildPrint("month");
 });
 window.addEventListener("afterprint",()=>{ printPrepared=false; });
-function printMenu(anchor){
-  const dates=Object.keys(W.schedules).sort();
-  showMenu(anchor,[
-    {head:"Print or save as PDF"},
-    {label:"Player evaluations (all four)",fn:()=>printDoc("evals")},
-    {label:"Monthly plan",fn:()=>printDoc("month")},
-    ...dates.map(d=>({label:`Daily schedule — ${shortDate(d)}`,fn:()=>printDoc("daily",d)})),
-    {label:"Review package (everything)",fn:()=>printDoc("package")},
-    {info:"In the print dialog, choose “Save as PDF” as the destination to create a PDF."}
-  ]);
-}
-
 /* ==========================================================================
    EXPORT · IMPORT · NEW · RECOVERY
    ========================================================================== */
@@ -2876,29 +2405,29 @@ function importText(text){
   let data;
   try{ data=JSON.parse(text); }catch(e){ return toast("That file isn't valid JSON"); }
   if(!data||typeof data!=="object"||(data.app&&data.app!==APP_ID)||(!data.app&&!data.plan&&!data.activities))
-    return toast("That file isn't a Manager Interview Sandbox plan");
+    return toast("That file isn't a Manager Interview Hub backup");
   if((+data.schema||1)>SCHEMA) return toast("That plan was made with a newer version of this tool");
   const incoming=normalize(data); incoming.started=true;
   const go=()=>{
     if(hasContent()) Store.setRecovery(W);
-    W=incoming; undoStack=[]; redoStack=[]; UI.sched=null; UI.drawer=null; UI.activeCat=null; closePop();
+    W=incoming; undoStack=[]; redoStack=[]; UI.sched=null; UI.drawer=null; closePop();
     Store.saveNow(); hideIntro(); go2("month");
     toast(`Imported ${W.candidate.name?W.candidate.name+"'s":"the"} plan for ${monthName(W.plan.year,W.plan.month)}`);
   };
   if(hasContent()&&W.id!==incoming.id){
     confirmModal({title:"Replace the current exercise?",danger:true,ok:"Replace with imported plan",
-      body:`<p>Importing replaces the exercise currently in this browser${W.candidate.name?` (<b>${esc(W.candidate.name)}</b>)`:""} with <b>${esc(incoming.candidate.name||"the imported plan")}</b> — ${esc(monthName(incoming.plan.year,incoming.plan.month))}.</p><p class="note">The current exercise is kept as a one-step backup (Save &amp; Export → Restore previous exercise). Export it first if you want a permanent copy.</p>`,
-      extra:{label:"Export current first",fn:exportJSON}, onOk:go});
+      body:`<p>Importing replaces the exercise currently in this browser${W.candidate.name?` (<b>${esc(W.candidate.name)}</b>)`:""} with <b>${esc(incoming.candidate.name||"the imported plan")}</b> — ${esc(monthName(incoming.plan.year,incoming.plan.month))}.</p><p class="note">The current exercise is kept as a one-step backup (Export → Restore previous). Export it first if you want a permanent copy.</p>`,
+      extra:{label:"Download a backup first",fn:exportJSON}, onOk:go});
   }else go();
 }
 function go2(v){ UI.view=v; render(); window.scrollTo(0,0); }
 function newExercise(){
   confirmModal({title:"Start a new exercise?",danger:true,ok:"Clear and start new",
-    body:`<p>This clears the current plan from this browser so a new candidate can start with a blank month.</p><p class="note">The current exercise is kept as a one-step backup you can restore from Save &amp; Export. Export it first for a permanent copy.</p>`,
-    extra:{label:"Export current first",fn:exportJSON},
+    body:`<p>This clears the current plan from this browser so a new candidate can start with a blank month.</p><p class="note">The current exercise is kept as a one-step backup you can restore from Export → Restore previous. Download a backup first for a permanent copy.</p>`,
+    extra:{label:"Download a backup first",fn:exportJSON},
     onOk:()=>{
       if(hasContent()) Store.setRecovery(W);
-      W=blankWorkspace(); undoStack=[]; redoStack=[]; UI.sched=null; UI.drawer=null; UI.activeCat=null; UI.view="players"; UI.player=CASES[0].id; closePop();
+      W=blankWorkspace(); undoStack=[]; redoStack=[]; UI.sched=null; UI.drawer=null; UI.view="month"; closePop();
       Store.saveNow(); render(); showIntro();
     }});
 }
@@ -2909,22 +2438,84 @@ function restoreRecovery(){
     body:`<p>Swap in <b>${esc(prev.candidate.name||"the previous exercise")}</b> (${esc(monthName(prev.plan.year,prev.plan.month))}, set aside ${esc(new Date(rec.savedAt).toLocaleString(LOCALE,{month:"short",day:"numeric",hour:"numeric",minute:"2-digit"}))}). The current exercise becomes the backup.</p>`,
     onOk:()=>{ Store.setRecovery(W); W=prev; W.started=true; undoStack=[]; redoStack=[]; UI.sched=null; UI.drawer=null; Store.saveNow(); render(); toast("Previous exercise restored"); }});
 }
-function fileMenu(anchor){
-  const rec=Store.recovery();
-  showMenu(anchor,[
-    {head:Store.ok?"Saved automatically in this browser":"Not saving — export now"},
-    {info:`Last exported: ${W.lastExport?new Date(W.lastExport).toLocaleString(LOCALE,{month:"short",day:"numeric",hour:"numeric",minute:"2-digit"}):"never"}. Browser saving doesn't sync to other devices.`},
-    {label:"Export plan (.json)",fn:exportJSON},
-    {label:"Import a saved plan (.json)…",fn:()=>$("#filePick").click()},
-    {sep:1},
-    {label:"Print / PDF — player evaluations",fn:()=>printDoc("evals")},
-    {label:"Print / PDF — monthly plan",fn:()=>printDoc("month")},
-    {label:"Print / PDF — a daily schedule…",disabled:!Object.keys(W.schedules).length,fn:()=>printMenu(anchor)},
-    {label:"Print / PDF — review package",fn:()=>printDoc("package")},
-    {sep:1},
-    ...(rec&&rec.workspace?[{label:`Restore previous exercise (${rec.workspace.candidate&&rec.workspace.candidate.name||"unnamed"})…`,fn:restoreRecovery}]:[]),
-    {label:"Start a new exercise…",danger:true,fn:newExercise}
-  ]);
+function exportModal(){
+  const dates=Object.keys(W.schedules).sort(), rec=Store.recovery();
+  const last=W.lastExport?new Date(W.lastExport).toLocaleString(LOCALE,{month:"short",day:"numeric",hour:"numeric",minute:"2-digit"}):"never";
+  const subNote=()=>{ const n=dates.filter(d=>W.schedules[d].submit).length;
+    return n===2?"Two daily schedules selected.":n===0?"None selected — the submission will include every daily schedule.":`${n} selected — the exercise asks for two.`; };
+  openModal(`
+    <div class="mhead"><div><h2>Export</h2><p>Your work saves automatically in this browser. Last backup downloaded: ${esc(last)}.</p></div><button class="x" data-close aria-label="Close">×</button></div>
+    <div class="mbody">
+      <div class="xo main">
+        <div class="xo-t"><b>Complete Interview Submission</b><span>One PDF: your monthly plan plus the daily schedules checked below.</span></div>
+        <div class="xo-act"><button class="btn primary" data-xgo="submission">Create PDF</button></div>
+        <div class="xo-sub">${dates.length
+          ? dates.map(d=>`<label class="xo-chk"><input type="checkbox" data-xsub="${d}" ${W.schedules[d].submit?"checked":""}> ${esc(shortDate(d))}${W.schedules[d].title?` — ${esc(W.schedules[d].title)}`:""}</label>`).join("")+`<span class="note" id="xSubNote">${esc(subNote())}</span>`
+          : `<span class="note">No daily schedules yet — build two in Daily Schedule.</span>`}</div>
+      </div>
+      <div class="xo"><div class="xo-t"><b>Monthly Calendar</b><span>PDF of the calendar, plus a week-by-week page with every note.</span></div>
+        <div class="xo-act"><button class="btn" data-xgo="month">Create PDF</button></div></div>
+      <div class="xo"><div class="xo-t"><b>Daily Schedule</b><span>PDF of one day's practice schedule.</span></div>
+        <div class="xo-act">${dates.length?`<select id="xDay" aria-label="Which day">${dates.map(d=>`<option value="${d}" ${d===UI.sched?"selected":""}>${esc(shortDate(d))}</option>`).join("")}</select><button class="btn" data-xgo="daily">Create PDF</button>`:`<span class="note">None yet</span>`}</div></div>
+      <div class="xo"><div class="xo-t"><b>JSON Backup</b><span>Downloads your whole exercise as a file. Import it to keep working on any device.</span></div>
+        <div class="xo-act"><button class="btn" data-xgo="json">Download</button></div></div>
+      <p class="note" style="margin:4px 0 0">PDFs open your browser's print window — choose <b>Save as PDF</b> as the destination.</p>
+    </div>
+    <div class="mfoot">
+      <button class="btn quiet left" data-xgo="import">Import a backup…</button>
+      ${rec&&rec.workspace?`<button class="btn quiet" data-xgo="restore">Restore previous…</button>`:""}
+      <button class="btn quiet danger" data-xgo="new">Start a new exercise…</button>
+      <button class="btn" data-close>Close</button>
+    </div>`,
+  ()=>{
+    const m=$("#modal");
+    $$("[data-xsub]",m).forEach(cb=>cb.onchange=()=>{
+      mutate(()=>{ W.schedules[cb.dataset.xsub].submit=cb.checked; });
+      const n=$("#xSubNote",m); if(n) n.textContent=subNote();
+    });
+    $$("[data-xgo]",m).forEach(b=>b.onclick=()=>{
+      const k=b.dataset.xgo, day=$("#xDay",m)?$("#xDay",m).value:null;
+      if(k==="json") return exportJSON();
+      closeModal();
+      if(k==="submission") printDoc("submission");
+      else if(k==="month") printDoc("month");
+      else if(k==="daily") printDoc("daily",day);
+      else if(k==="import") $("#filePick").click();
+      else if(k==="restore") restoreRecovery();
+      else if(k==="new") newExercise();
+    });
+  },true);
+}
+function helpModal(){
+  openModal(`
+    <div class="mhead"><div><h2>How this works</h2><p>Monthly calendar → two daily practice schedules → export</p></div><button class="x" data-close aria-label="Close help">×</button></div>
+    <div class="mbody help">
+      <h3>What to submit</h3>
+      <p>A monthly plan and two detailed daily practice schedules. Mark the two days with <b>☆ Add to submission</b>, then use <b>Export → Complete Interview Submission</b> and save it as a PDF. Download a <b>JSON Backup</b> as well, so your work can be reopened.</p>
+      <h3>Add and edit monthly activities</h3>
+      <ul>
+        <li>Click any day — or <b>＋ Add activity</b> — then pick a suggestion or type your own. Time, color and a note are optional. Click <b>Add activity</b>.</li>
+        <li>Click an activity to rename it or change its date, time, color or notes, or to duplicate, repeat or delete it.</li>
+        <li>Drag an activity to another day to move it; hold <kbd>Alt</kbd>/<kbd>Option</kbd> while dragging to copy it.</li>
+        <li>Type month priorities and a weekly focus in the bands on the calendar. Click a date number to add a day label (e.g. home game, off day) and notes.</li>
+      </ul>
+      <h3>Suggested baseball activities</h3>
+      <p>Team Defense, Offense, Individual / Position Work and Other are optional shortcuts. Use one as-is, rename it, or type anything else. Nothing is added to your calendar for you.</p>
+      <h3>Build a daily schedule</h3>
+      <ul>
+        <li>Click a date number, then <b>Build daily schedule</b> — or go to <b>Daily Schedule → ＋ New daily schedule</b>.</li>
+        <li>Only the activity name matters; everything else is optional. Type times like <kbd>330-400</kbd> and add <kbd>p</kbd> for evening times (<kbd>7p</kbd>).</li>
+        <li>That day's monthly activities appear at the top — click one to add it as a row.</li>
+        <li>Use sections (full, half or one-third width) for groups or fields, the <b>⋯</b> menus to reorder or duplicate, and the <b>⠿</b> handles to drag. <kbd>Enter</kbd> adds a row; <kbd>Ctrl</kbd>/<kbd>⌘</kbd>+<kbd>Z</kbd> undoes.</li>
+      </ul>
+      <h3>Saving, exporting and importing</h3>
+      <ul>
+        <li>Your work saves automatically in this browser only — it does not sync to other devices.</li>
+        <li><b>Export</b> creates PDFs (the full submission, the calendar, or one day) and the JSON backup. Reopen a backup with <b>Export → Import a backup</b> or from the welcome page.</li>
+      </ul>
+    </div>
+    <div class="mfoot"><button class="btn quiet left" id="helpWelcome">Show the welcome page</button><button class="btn primary" data-close>Close</button></div>`,
+  ()=>{ $("#helpWelcome").onclick=()=>{ closeModal(); showIntro(); }; },true);
 }
 
 /* ==========================================================================
@@ -2932,12 +2523,12 @@ function fileMenu(anchor){
    ========================================================================== */
 function showIntro(){
   $("#inMonth").innerHTML=MONTHS.map((m,i)=>`<option value="${i}">${m}</option>`).join("");
-  $("#inName").value=W.candidate.name; $("#inLabel").value=W.candidate.label;
+  $("#inName").value=W.candidate.name;
   $("#inMonth").value=String(W.plan.month); $("#inYear").value=W.plan.year;
   const resume=W.started&&hasContent();
   $("#inResume").hidden=!resume;
   if(resume) $("#inResume").innerHTML=`Welcome back${W.candidate.name?`, <b>${esc(W.candidate.name)}</b>`:""} — your ${esc(monthName(W.plan.year,W.plan.month))} plan is saved in this browser (${planActs().length} activities, ${Object.keys(W.schedules).length} daily schedule${Object.keys(W.schedules).length===1?"":"s"}).`;
-  $("#inStart").textContent=W.started?"Continue planning":"Start planning";
+  $("#inStart").textContent=W.started?"Continue Planning":"Start Planning";
   $("#inNew").hidden=!(W.started&&hasContent());
   $("#intro").hidden=false;
   setTimeout(()=>{ (W.candidate.name?$("#inStart"):$("#inName")).focus(); },30);
@@ -2946,11 +2537,10 @@ function hideIntro(){ $("#intro").hidden=true; }
 $("#inStart").onclick=()=>{
   const y=parseInt($("#inYear").value,10), m=parseInt($("#inMonth").value,10);
   W.candidate.name=$("#inName").value.trim().slice(0,120);
-  W.candidate.label=$("#inLabel").value.trim().slice(0,160);
   if(y>=1990&&y<=2200) W.plan.year=y;
   if(m>=0&&m<=11) W.plan.month=m;
-  W.started=true; UI.weekOf=null;
-  touch(); Store.saveNow(); hideIntro(); render();
+  W.started=true; UI.weekOf=null; UI.view="month";
+  touch(); Store.saveNow(); hideIntro(); render(); Store.saveUI();
 };
 $("#inImport").onclick=()=>$("#filePick").click();
 $("#inNew").onclick=()=>{ hideIntro(); newExercise(); };
@@ -2970,61 +2560,31 @@ document.addEventListener("click",e=>{
   let b;
   /* chrome */
   if((b=hit(e,"nav.seg [data-view]"))) return go(b.dataset.view);
-  if(hit(e,"#brandBtn")||hit(e,"#btnAbout")) return showIntro();
-  if(hit(e,"#btnFile")) return fileMenu(hit(e,"#btnFile"));
+  if(hit(e,"#btnHelp")) return helpModal();
+  if(hit(e,"#btnExport")) return exportModal();
   if(hit(e,"#btnUndo")) return undo();
-  if(hit(e,"#localNoteX")){ UI.noteDismissed=true; Store.saveUI(); return renderChrome(); }
   if(hit(e,"#banExport")) return exportJSON();
   if(hit(e,"#banReload")) return location.reload();
-  if((b=hit(e,"[data-print]"))) return printDoc(b.dataset.print,b.dataset.date);
-  if(hit(e,"#ovExport")) return exportJSON();
-  if(hit(e,"#ovEditName")) return showIntro();
-  if((b=hit(e,"[data-goview]"))) return go(b.dataset.goview);
 
-  /* popover */
-  if(e.target.closest("#pop")) return onPopClick(e);
+  /* popovers */
+  if(e.target.closest("#pop")) return ADD?onAddClick(e):onPopClick(e);
 
   /* planner chrome */
   if(hit(e,"#calPrev")) return stepPlan(-1);
   if(hit(e,"#calNext")) return stepPlan(1);
   if(hit(e,"#calTitle")) return monthPicker(hit(e,"#calTitle"));
-  if((b=hit(e,"[data-mmode]"))){ UI.mmode=b.dataset.mmode; UI.quickAdd=null; Store.saveUI(); return render(); }
+  if((b=hit(e,"[data-mmode]"))){ UI.mmode=b.dataset.mmode; Store.saveUI(); return render(); }
+  if((b=hit(e,"#btnAddAct"))){
+    const t=todayIso(), first=isoOf(new Date(W.plan.year,W.plan.month,1,12));
+    return openAddPop(UI.drawer||(inPlanMonth(t)?t:first),b);
+  }
 
-  /* categories */
-  if((b=hit(e,"[data-catcolor]"))){
-    const c=findCat(b.dataset.catcolor); let snapped=false;
-    return colorMenu(b,c.color,(hex,live)=>{ if(!live||!snapped){ snap(); snapped=true; } c.color=normHex(hex)||c.color; touch(); render(); });
-  }
-  if((b=hit(e,"[data-catmenu]"))){
-    const id=b.dataset.catmenu, c=findCat(id);
-    return showMenu(b,[{head:c.name||"Category"},
-      {label:UI.activeCat===id?"Stop highlighting":"Highlight & use for new activities",fn:()=>{ UI.activeCat=UI.activeCat===id?null:id; render(); }},
-      {label:"Rename",fn:()=>{ const el=document.querySelector(`[data-catname="${id}"]`); if(el){ el.focus(); el.select(); } }},
-      {label:"Move up",disabled:W.categories[0]===c,fn:()=>mutate(()=>{ const i=W.categories.indexOf(c); W.categories.splice(i,1); W.categories.splice(i-1,0,c); })},
-      {label:"Move down",disabled:W.categories[W.categories.length-1]===c,fn:()=>mutate(()=>{ const i=W.categories.indexOf(c); W.categories.splice(i,1); W.categories.splice(i+1,0,c); })},
-      {sep:1},
-      {label:"Delete category",danger:true,fn:()=>{
-        mutate(()=>{
-          W.categories=W.categories.filter(x=>x.id!==id);
-          W.activities.forEach(a=>{ if(a.catId===id) a.catId=null; });
-          Object.values(W.schedules).forEach(S=>S.sections.forEach(s=>s.rows.forEach(r=>{ if(r.catId===id) r.catId=null; })));
-          if(UI.activeCat===id) UI.activeCat=null;
-        });
-        toast("Category deleted — its activities are now uncategorized",{label:"Undo",fn:undo});
-      }}]);
-  }
-  if((b=hit(e,"[data-catrow]"))&&!e.target.closest("input,button")){
-    UI.activeCat=UI.activeCat===b.dataset.catrow?null:b.dataset.catrow; return render();
-  }
-  if(hit(e,"#catAddBtn")) return addCategoryFromInput();
-
-  /* calendar */
+  /* calendar: badge, activity, date number, then anywhere else in the day = add */
   if((b=hit(e,"[data-schedopen]"))) return openSchedule(b.dataset.schedopen,false);
   if((b=hit(e,"[data-schedmake]"))) return openSchedule(b.dataset.schedmake,true);
-  if((b=hit(e,"[data-qa]"))){ UI.quickAdd=b.dataset.qa; return renderCalBody(); }
   if((b=hit(e,"[data-act]"))&&!hit(e,"#drawer")) return openActPop(b.dataset.act,b);
-  if(hit(e,".qa")) return;
-  if((b=hit(e,"[data-dayopen]"))&&!e.target.closest("input,textarea")) return openDrawer(b.dataset.dayopen);
+  if((b=hit(e,"[data-dayopen]"))) return openDrawer(b.dataset.dayopen);
+  if((b=hit(e,"[data-addday]"))&&!e.target.closest("input,textarea")) return openAddPop(b.dataset.addday,b.matches("button")?b:(b.closest(".dc,.wv-col")||b));
 
   /* drawer */
   if(hit(e,"[data-drclose]")) return closeDrawer();
@@ -3042,15 +2602,21 @@ document.addEventListener("click",e=>{
     return mutate(()=>{ list.splice(i,1); list.splice(j,0,a); list.forEach((x,k)=>x.order=k); });
   }
   if((b=hit(e,"[data-actedit]"))) return openActPop(b.dataset.actedit,b);
-  if((b=hit(e,"[data-dritemcat]"))){
-    const a=findAct(b.dataset.dritemcat);
-    return catMenu(b,a.catId,id=>mutate(()=>{ a.catId=id; }));
+  if((b=hit(e,"[data-dritemcolor]"))){
+    const a=findAct(b.dataset.dritemcolor);
+    return colorPickMenu(b,a.color,h=>mutate(()=>{ a.color=h; }));
   }
 
   /* daily */
   if((b=hit(e,"[data-dtab]"))){ UI.sched=b.dataset.dtab; UI.targetSec=null; Store.saveUI(); return render(); }
   if(hit(e,"#dNew")) return newScheduleModal();
   if((b=hit(e,"[data-pickdate]"))){ const iso=b.dataset.pickdate; closeModal(); return openSchedule(iso,true); }
+  if((b=hit(e,"[data-submit]"))){
+    const S=W.schedules[b.dataset.submit]; if(!S) return;
+    mutate(()=>{ S.submit=!S.submit; });
+    const n=Object.values(W.schedules).filter(x=>x.submit).length;
+    return toast(S.submit?`Added to your submission (${n} selected)`:`Removed from your submission (${n} selected)`);
+  }
   if((b=hit(e,"[data-tomonth]"))){
     const iso=b.dataset.tomonth, d=dateOf(iso);
     if(d.getFullYear()!==W.plan.year||d.getMonth()!==W.plan.month){ W.plan.year=d.getFullYear(); W.plan.month=d.getMonth(); touch(); }
@@ -3060,7 +2626,6 @@ document.addEventListener("click",e=>{
   if((b=hit(e,"[data-addsec]"))) return addSection(+b.dataset.addsec>.9?1:+b.dataset.addsec>.4?.5:1/3);
   if((b=hit(e,"[data-gapadd]"))){ const w=+b.dataset.gapw; return addSection(w>.9?1:w>.4?.5:1/3,b.dataset.gapadd); }
   if(hit(e,"#addRotation")) return rotationModal();
-  if(hit(e,"#schPrint")) return printDoc("daily",UI.sched);
   if(hit(e,"#schCopyFrom")) return copyLayoutModal();
   if(hit(e,"#schDelete")){
     const iso=UI.sched;
@@ -3080,19 +2645,13 @@ document.addEventListener("click",e=>{
     const apply=(hex,live)=>{ if(!live||!snapped){ snap(); snapped=true; } s.color=normHex(hex)||s.color; touch(); render(); };
     return showMenu(b,[{head:"Header colour"},
       ...SEC_COLORS.map(([n,h])=>({label:n,sw:h,on:s.color===h,fn:()=>apply(h,false)})),
-      ...(W.categories.length?[{sep:1},{head:"Match a category"},...W.categories.map(c=>({label:c.name||"Untitled",sw:c.color,on:s.color===c.color,fn:()=>apply(c.color,false)}))]:[]),
       {sep:1},{label:"Custom colour…",fn:()=>colorMenu(b,s.color,apply)}]);
   }
   if((b=hit(e,"[data-secmenu]"))) return sectionMenu(b,b.dataset.secmenu);
   if((b=hit(e,"[data-rowmenu]"))) return rowMenu(b,b.dataset.sec,b.dataset.rowmenu);
-  if((b=hit(e,"[data-rowpl]"))){
-    const r=findRow(b.dataset.sec,b.dataset.rowpl);
-    return playerMenu(b,r.playerId,id=>mutate(()=>{ r.playerId=id; }));
-  }
-  if((b=hit(e,"[data-case-open]"))){ UI.player=b.dataset.caseOpen; Store.saveUI(); if(UI.view!=="players") return go("players"); return render(); }
-  if((b=hit(e,"[data-rowcat]"))){
-    const r=findRow(b.dataset.sec,b.dataset.rowcat);
-    return catMenu(b,r.catId,id=>mutate(()=>{ r.catId=id; }));
+  if((b=hit(e,"[data-rowcolor]"))){
+    const r=findRow(b.dataset.sec,b.dataset.rowcolor);
+    return colorPickMenu(b,r.color,h=>mutate(()=>{ r.color=h; }));
   }
   if((b=hit(e,"[data-coladd]"))){
     const s=findSec(b.dataset.coladd);
@@ -3112,17 +2671,11 @@ document.addEventListener("click",e=>{
   }
 });
 
-function addCategoryFromInput(){
-  const inp=$("#catNew"), v=inp.value.trim();
-  if(!v) return inp.focus();
-  mutate(()=>{ addCategory(v); });
-  const n=$("#catNew"); if(n) n.focus();
-}
 function addPlannedRow(actId){
   const a=findAct(actId), S=curSched(); if(!a||!S) return;
   let s=(UI.targetSec&&S.sections.find(x=>x.id===UI.targetSec&&x.kind==="table"))||S.sections.find(x=>x.kind==="table");
   const t=String(a.time||"").split(RANGE_SPLIT);
-  const seed={activity:a.title,catId:a.catId,playerId:a.playerId||null,src:a.id,time:parseT(t[0])!=null?normalizeTime(t[0]):"",timeEnd:parseT(t[1])!=null?normalizeTime(t[1]):""};
+  const seed={activity:a.title,color:a.color||null,src:a.id,time:parseT(t[0])!=null?normalizeTime(t[0]):"",timeEnd:parseT(t[1])!=null?normalizeTime(t[1]):""};
   if(!s){
     const ns=blankSection(1); ns.rows=[R(seed)];
     mutate(()=>S.sections.push(ns));
@@ -3134,20 +2687,32 @@ function addPlannedRow(actId){
   toast(`Added “${a.title||"Untitled"}”${s&&s.name?` to ${s.name}`:""}`,{label:"Undo",fn:undo});
 }
 
+function onAddClick(e){
+  let b;
+  if(hit(e,"[data-popclose]")) return closePop();
+  if(hit(e,"[data-addgo]")) return addGo();
+  if((b=hit(e,"[data-preset]"))){
+    ADD.name=b.dataset.preset;
+    const i=$('#pop [data-addf="name"]'); if(i) i.value=ADD.name;
+    if(!ADD.colorSet){ ADD.color=b.dataset.pc||null; paintSwatches("add",ADD.color); }
+    $$("#pop .al-c").forEach(x=>x.classList.toggle("on",x===b));
+    const go=$("#pop [data-addgo]"); if(go) go.focus();
+    return;
+  }
+  if(hit(e,"[data-presetcustom]")){
+    ADD.name=""; const i=$('#pop [data-addf="name"]'); if(i){ i.value=""; i.focus(); }
+    filterAddList(); return;
+  }
+  if((b=hit(e,"[data-swk=add]"))){ ADD.color=b.dataset.sw||null; ADD.colorSet=true; paintSwatches("add",ADD.color); return; }
+}
 function onPopClick(e){
   const a=POP&&findAct(POP.id); if(!a) return;
   let b;
   if(hit(e,"[data-popclose]")) return closePop();
-  if((b=hit(e,"[data-apcat]"))){
-    const id=b.dataset.apcat||null;
-    mutate(()=>applyToActivity(a,"catId",id)); return drawActPop();
+  if((b=hit(e,"[data-swk=ap]"))){
+    const h=b.dataset.sw||null;
+    mutate(()=>applyToActivity(a,"color",h)); return drawActPop();
   }
-  if((b=hit(e,"[data-applayer]"))){
-    const id=b.dataset.applayer||null;
-    mutate(()=>applyToActivity(a,"playerId",id)); return drawActPop();
-  }
-  if(hit(e,"[data-apnewcat]")){ POP.newCat=true; drawActPop(); const i=$("[data-apnewcatname]"); if(i) i.focus(); return; }
-  if(hit(e,"[data-apnewcatgo]")) return popNewCat();
   if(hit(e,"[data-aprepeat]")){ POP.rep={mode:"weekly",days:[dateOf(a.date).getDay()],until:monthEnd(W.plan.year,W.plan.month)>a.date?monthEnd(W.plan.year,W.plan.month):addDays(a.date,28)}; return drawActPop(); }
   if(hit(e,"[data-repcancel]")){ POP.rep=null; return drawActPop(); }
   if((b=hit(e,"[data-repday]"))){
@@ -3160,7 +2725,7 @@ function onPopClick(e){
     mutate(()=>{
       a.seriesId=a.seriesId||uid();
       dates.forEach(d=>{ if(actsOn(d).some(x=>x.seriesId===a.seriesId)) return;
-        W.activities.push({id:uid(),date:d,title:a.title,catId:a.catId,playerId:a.playerId||null,time:a.time,notes:a.notes,seriesId:a.seriesId,order:nextOrder(d)}); });
+        W.activities.push({id:uid(),date:d,title:a.title,color:a.color||null,time:a.time,notes:a.notes,seriesId:a.seriesId,order:nextOrder(d)}); });
     });
     POP.rep=null; drawActPop();
     return toast(`Repeated on ${dates.length} more date${dates.length===1?"":"s"}`,{label:"Undo",fn:undo});
@@ -3172,13 +2737,6 @@ function onPopClick(e){
   }
   if(hit(e,"[data-apdel]")){ closePop(); mutate(()=>{ W.activities=W.activities.filter(x=>x.id!==a.id); }); return toast("Activity deleted",{label:"Undo",fn:undo}); }
   if(hit(e,"[data-apdelall]")){ const n=seriesOf(a).length; closePop(); mutate(()=>{ W.activities=W.activities.filter(x=>x.seriesId!==a.seriesId); }); return toast(`Deleted ${n} repeating activities`,{label:"Undo",fn:undo}); }
-}
-function popNewCat(){
-  const inp=$("[data-apnewcatname]"); const v=inp?inp.value.trim():"";
-  if(!v){ if(inp) inp.focus(); return; }
-  const a=findAct(POP.id);
-  mutate(()=>{ const c=addCategory(v); applyToActivity(a,"catId",c.id); });
-  POP.newCat=false; drawActPop();
 }
 
 /* ---------- typing: inputs write straight to state; structure re-renders ---------- */
@@ -3199,12 +2757,11 @@ function commitEdit(){
 document.addEventListener("input",e=>{
   const t=e.target, d=t.dataset||{};
   if(t.closest("#intro")||t.closest("#modal")) return;
+  if(d.addf&&ADD){ if(d.addf!=="date"){ ADD[d.addf]=t.value; if(d.addf==="name") filterAddList(); } if(combo.input===t) paintCombo(); return; }
   let changed=true;
   if(d.weekfocus){ weekRec(d.weekfocus).focus=t.value; }
   else if(d.weeknotes){ weekRec(d.weeknotes).notes=t.value; }
-  else if(d.catname){ const c=findCat(d.catname); if(c) c.name=t.value; if(UI.mmode==="week") renderCalBody(); }
   else if(d.pri!==undefined){ W.priorities=t.value; }
-  else if(d.evf&&caseById(d.case)){ evalRec(d.case)[d.evf]=t.value; }
   else if(d.dayf&&UI.drawer){ dayRec(UI.drawer)[d.dayf]=t.value; renderCalBody(); }
   else if(d.actf&&d.actid){ const a=findAct(d.actid); if(a) a[d.actf]=t.value; renderCalBody(); }
   else if(d.ap&&POP){
@@ -3240,7 +2797,7 @@ function renderDrawerLight(){
 document.addEventListener("change",e=>{
   const t=e.target, d=t.dataset||{};
   if(t.closest("#intro")||t.closest("#modal")) return;
-  if(t.id==="weekStartSel"){ setWeekStart(+t.value); return; }
+  if(d.addf==="date"&&ADD){ if(ISO_RE.test(t.value)) ADD.date=t.value; return; }
   if(t.name==="repm"&&POP&&POP.rep){ POP.rep.mode=t.value; if(t.value==="days"&&!POP.rep.days.length) POP.rep.days=[dateOf(findAct(POP.id).date).getDay()]; drawActPop(); return; }
   if(d.repuntil!==undefined&&POP&&POP.rep){ if(ISO_RE.test(t.value)) POP.rep.until=t.value; drawActPop(); return; }
   if(d.apall!==undefined&&POP){ POP.all=t.checked; return; }
@@ -3270,12 +2827,12 @@ document.addEventListener("change",e=>{
     if(a!=null&&b!=null&&a!==b) offerShift(t,d.sec,d.row,b-a);
     return;
   }
-  if(d.rf==="activity"||d.sf==="title"||d.sf==="context"){ /* refresh coverage chips quietly */ }
+  /* picking a suggested activity gives an uncoloured item that activity's colour */
+  if(d.ap==="title"&&POP){ const a=findAct(POP.id), pc=presetColor(t.value); if(a&&pc&&!a.color){ a.color=pc; drawActPop(); renderCalBody(); } }
+  if(d.rf==="activity"&&d.row){ const r=findRow(d.sec,d.row), pc=presetColor(t.value);
+    if(r&&pc&&!r.color){ r.color=pc; const row=t.closest(".row"); if(row){ row.classList.add("has-cat"); row.style.setProperty("--rc",pc); } } }
   commitEdit();
   if(d.rf==="activity"&&UI.view==="daily"){ captureFocus(); const pl=$(".planned"); if(pl){ const tmp=document.createElement("div"); tmp.innerHTML=dayCardHTML(curSched()); const np=tmp.querySelector(".planned"); if(np) pl.replaceWith(np); } restoreFocus(); }
-  if(d.catname||d.pri!==undefined){ if(UI.view==="month"){ renderSide(); renderCalBody(); } }
-  if(d.evf&&UI.view==="players"){ const st=$(`[data-case-open="${d.case}"] .ev-st`); if(st){ const l=playerLinks(d.case), n=l.monthly.length+l.daily.length; st.innerHTML=`${evalStarted(d.case)?"✎ Started":""}${n?`<br>${n} scheduled`:""}`; } }
-  if(d.weekfocus&&UI.view==="month"&&UI.mmode==="week") { /* both views read the same record */ }
 });
 function renderDurBadge(input,r){
   const cell=input.closest(".cell"); if(!cell) return;
@@ -3290,7 +2847,7 @@ document.addEventListener("keydown",e=>{
   const inField=t.matches&&t.matches("input,textarea,select");
 
   if(meta&&e.key.toLowerCase()==="s"){ e.preventDefault(); Store.saveNow(); return toast(Store.ok?"Saved in this browser — use Export to keep a copy":"Not saved — export your plan"); }
-  if(meta&&e.key.toLowerCase()==="p"){ e.preventDefault(); return UI.view==="players"?printDoc("eval",UI.player):printDoc(UI.view==="daily"&&UI.sched?"daily":UI.view==="overview"?"package":"month",UI.sched); }
+  if(meta&&e.key.toLowerCase()==="p"){ e.preventDefault(); return printDoc(UI.view==="daily"&&UI.sched?"daily":"month",UI.sched); }
   if(meta&&!e.shiftKey&&e.key.toLowerCase()==="z"&&!inField){ e.preventDefault(); return undo(); }
   if(meta&&((e.shiftKey&&e.key.toLowerCase()==="z")||e.key.toLowerCase()==="y")&&!inField){ e.preventDefault(); return redo(); }
   if(e.key==="Escape"){
@@ -3298,8 +2855,7 @@ document.addEventListener("keydown",e=>{
     if($("#menu").classList.contains("on")) return hideMenu();
     if($("#pill").classList.contains("on")) return hidePill();
     if($("#scrim").classList.contains("on")) return closeModal();
-    if(POP) return closePop();
-    if(UI.quickAdd){ UI.quickAdd=null; return renderCalBody(); }
+    if(POP||ADD) return closePop();
     if(UI.drawer) return closeDrawer();
     return;
   }
@@ -3316,26 +2872,9 @@ document.addEventListener("keydown",e=>{
   /* chips are focusable: Enter opens the editor */
   if(d.act&&(e.key==="Enter"||e.key===" ")){ e.preventDefault(); return openActPop(d.act,t); }
 
-  /* quick add */
-  if(d.qaInput){
-    if(e.key==="Enter"){
-      e.preventDefault(); const v=t.value.trim(); const iso=d.qaInput;
-      if(!v){ UI.quickAdd=null; return renderCalBody(); }
-      mutate(()=>addActivity(iso,v));
-      return;
-    }
-    if(e.key==="Tab"){ UI.quickAdd=null; setTimeout(renderCalBody,0); }
-    return;
-  }
-  if(t.id==="catNew"&&e.key==="Enter"){ e.preventDefault(); return addCategoryFromInput(); }
-  if(t.id==="drAdd"&&e.key==="Enter"){
-    e.preventDefault(); const v=t.value.trim(); if(!v) return;
-    mutate(()=>addActivity(UI.drawer,v));
-    const n=$("#drAdd"); if(n){ n.value=""; n.focus(); }
-    return;
-  }
-  if(d.apnewcatname!==undefined&&e.key==="Enter"){ e.preventDefault(); return popNewCat(); }
-  if((d.weekfocus||d.catname||d.ap==="title"||d.ap==="time"||(d.actf&&d.actf!=="notes")||d.dayf==="tag")&&e.key==="Enter"){ e.preventDefault(); t.blur(); return; }
+  /* add-activity popover: Enter adds */
+  if(d.addf&&(d.addf==="name"||d.addf==="time")&&e.key==="Enter"&&!(combo.open&&combo.hi>=0)){ e.preventDefault(); return addGo(); }
+  if((d.weekfocus||d.pri!==undefined||d.ap==="title"||d.ap==="time"||(d.actf&&d.actf!=="notes")||d.dayf==="tag")&&e.key==="Enter"){ e.preventDefault(); t.blur(); return; }
 
   /* row grid */
   if(d.sec&&d.row&&(d.rf||d.gc)){
@@ -3369,11 +2908,10 @@ document.addEventListener("paste",e=>{
 
 /* outside clicks close floating UI */
 document.addEventListener("mousedown",e=>{
-  if(!e.target.closest("#menu")&&!e.target.closest("[data-catcolor],[data-catmenu],[data-secmenu],[data-rowmenu],[data-rowcat],[data-secwidth],[data-seccolor],[data-dritemcat],#btnFile,#calTitle")) hideMenu();
+  if(!e.target.closest("#menu")&&!e.target.closest("[data-secmenu],[data-rowmenu],[data-rowcolor],[data-secwidth],[data-seccolor],[data-dritemcolor],#calTitle")) hideMenu();
   if(!e.target.closest("#combo")&&!(e.target.dataset&&e.target.dataset.sugg)) closeCombo();
   if(!e.target.closest("#pill")) hidePill();
-  if(POP&&!e.target.closest("#pop")&&!e.target.closest("#menu")&&!e.target.closest("#scrim")&&!e.target.closest("[data-act],[data-actedit]")) closePop();
-  if(UI.quickAdd&&!e.target.closest(".qa")&&!e.target.closest("[data-qa]")){ UI.quickAdd=null; setTimeout(()=>{ if(!UI.quickAdd) renderCalBody(); },0); }
+  if((POP||ADD)&&!e.target.closest("#pop")&&!e.target.closest("#menu")&&!e.target.closest("#combo")&&!e.target.closest("#scrim")&&!e.target.closest("[data-act],[data-actedit],[data-addday],#btnAddAct")) closePop();
 },true);
 
 /* ---------- drag & drop: month activities, rows, sections ---------- */
@@ -3484,15 +3022,12 @@ document.addEventListener("visibilitychange",()=>{ if(document.visibilityState==
     if(q.get("label")) W.candidate.label=q.get("label").slice(0,160);
   }
   const ui=Store.ui();
-  if(["players","month","daily","overview"].includes(ui.view)) UI.view=ui.view;
-  else if(!W.started) UI.view="players";
-  if(caseById(ui.player)) UI.player=ui.player;
+  if(["month","daily"].includes(ui.view)) UI.view=ui.view;
   if(ui.mmode==="week") UI.mmode="week";
   if(ui.sched&&W.schedules[ui.sched]) UI.sched=ui.sched;
-  UI.noteDismissed=!!ui.note;
   render();
   if(!W.started) showIntro();
-  window.MIS={ get W(){ return W; }, CASES, buildPrint:(k,d)=>{ const ok=buildPrint(k,d); printPrepared=ok; return ok; }, normalize, parseT, normalizeTime, rowMinutes, Store, UI };
+  window.MIS={ get W(){ return W; }, PRESETS, buildPrint:(k,d)=>{ const ok=buildPrint(k,d); printPrepared=ok; return ok; }, normalize, parseT, normalizeTime, rowMinutes, Store, UI };
 })();
 </script>
 </body>

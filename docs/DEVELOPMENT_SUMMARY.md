@@ -1,23 +1,52 @@
-# Development Summary — Manager Interview Sandbox
+# Development Summary — Manager Interview Hub
 
-## V2 — player evaluations and prescriptions
+## V3 — simplification (current)
 
-V2 builds on V1 with targeted additions; no V1 feature was removed or redesigned.
+V3 refocuses the tool on **monthly calendar → two daily practice schedules → export**. It is built from the V1 code (the commit before V2), so the evaluation module is gone completely rather than hidden.
+
+**Removed**
+- The Player Evaluations section: the four fictional cases, the evaluation and prescription fields, the player links on activities and rows, and the linked-work lists.
+- The Plan Overview / Review & Export page.
+- The planner sidebar (categories, working tips) and the category system. Activities now carry a simple optional colour.
+- The local-save banner, the in-calendar hint text, the "Weeks start" control and keyboard hints inside sections. These now live in the help or keep their saved value.
+- The *Save & Export* menu and the *About* button. Both are replaced by one **Export** button and a **?** button.
+
+**Simplified**
+- Navigation is **Monthly Planner | Daily Schedule**.
+- **Adding an activity:**
+  1. Click a day (or **＋ Add activity**).
+  2. Pick a suggestion or type a name.
+  3. Optionally set a time, colour or note.
+  4. Click **Add activity**.
+
+  Only the name is required. The date can be changed in the same popover.
+- **Clicking a day:** clicking a day's empty space adds an activity. Clicking the date number opens the day panel (label, notes, activities, *Build daily schedule*).
+- **Export** is one dialog with four choices: Complete Interview Submission, Monthly Calendar, Daily Schedule, and JSON Backup. Import, *Restore previous* and *Start a new exercise* are in its footer.
 
 **Added**
-- **Player Evaluations** section with four fictional Double-A cases (infielder, outfielder, catcher, baserunner). Each case has background, performance figures, scouting and staff observations from several sources (some of which disagree), development context and a player quote. No diagnosis or suggested answer is given.
-- **Freeform workspace** for each case: seven open text areas (three for the evaluation, four for the development prescription). There are no dropdowns, rating scales, required fields or preset options.
-- **A light player link.** Any monthly activity (activity editor → *Player*) or daily-schedule row (⋯ menu, or the badge on the row) can optionally be linked to one of the four players. Calendar chips show the player's initials; rows show a name badge. Adding a planned activity to a daily schedule keeps its link, and repeating or duplicating an activity copies it.
-- **Linked work on each case.** Each case lists the monthly activities and daily rows linked to that player, and each item opens where it lives. There is no tracking, status or progress view.
-- **Navigation:** Player Evaluations | Monthly Planner | Daily Schedules. V1's Plan Overview stays as a smaller **Review & Export** link at the right of the tab bar, because it holds the review package and export buttons. New candidates start on Player Evaluations.
-- **Intro** rewritten for the four-step exercise (evaluate, prescribe, plan the month, build two days).
-- **Printing:** a page per player (case, candidate's writing — blanks shown as "Left blank" — and linked work), available for one player or all four. The review package now runs: cover, four evaluations, calendar, details, daily schedules. The overview and cover page show each player's status and primary priority.
+- **Baseball activity suggestions**, grouped as Team Defense, Offense, Individual / Position Work and Other, each group with its own default colour, plus *Custom activity*:
+  - shown in the add popover and in the activity editor
+  - offered as you type in daily-schedule rows
+  - they can be renamed, are never preloaded, and the candidate's own earlier entries are offered for reuse
+- **Welcome page** with the objective, assignment and notes. It is shown on first use only and can be reopened from the help.
+- **Help (?)** — a modal summarizing how to add and edit activities, use the suggestions, build a daily schedule, and save, export, import and submit.
+- **Submission choice:** ☆/★ *Add to submission* on each daily schedule (and checkboxes in the Export dialog). The first two schedules are selected automatically. The submission PDF contains a cover, the calendar, the week-by-week details and the selected days.
 
-**Preserved:** everything in the V1 sections below — the monthly planner, daily builder, autosave, undo, JSON export/import, prints and safeguards.
+**Preserved:** all V1 scheduling behaviour — repeats, duplicate, drag/Alt-copy, week view, weekly focus, the day panel, the daily builder, autosave, undo/redo, JSON import/export, the multi-tab guard, recovery and the print layouts.
 
-**Compatibility:** the data format is now schema 2. It adds an `evals` record keyed by case id (`inf`, `of`, `c`, `br`) and a `playerId` on activities and rows. Schema-1 (V1) files and browser saves load unchanged with blank evaluations. The test suite imports a real V1 export and checks this. Because the cases live in the code rather than in each saved file, editing a case's text later would change how older exports display; give revised cases new ids if that matters.
+**Data compatibility:** schema 3.
+- *Colours:* activities and rows store `color`. For V1/V2 files the colour is taken from the item's old category.
+- *Submission flags:* schedules store `submit`, and older files get their first two schedules selected.
+- *V2 data:* evaluation text (`evals`) and player links (`playerId`) are no longer shown but are carried through untouched, so re-exporting a V2 file loses nothing.
+- *Tests:* the suite imports real V1 and V2 saves and checks this.
 
-**Limitations:** an activity or row links to at most one player. A player evaluation prints over one or two pages, depending on how much the candidate writes.
+**Limitations:** the activity suggestions live in the code (`PRESETS` in `index.html`), so changing the list is a one-line edit followed by a redeploy. Everything else from the V1 notes below still applies.
+
+---
+
+## V2 — player evaluations (removed in V3)
+
+V2 added four fictional player cases with evaluation and prescription fields, and optional player links on activities. V3 removed all of it at your request. Data it saved is still preserved when such files are opened.
 
 ---
 
@@ -106,7 +135,7 @@ These are excluded per the brief:
 
 ## Technical notes and limitations
 
-- **Single file.** `index.html` holds all HTML, CSS and JS (about 3,500 lines, around 230 KB in V2). There are no dependencies, fonts or network requests. Display type uses the same condensed system font stack as the Hub, with no web-font download.
+- **Single file.** `index.html` holds all HTML, CSS and JS (about 3,000 lines in V3). There are no dependencies, fonts or network requests. Display type uses the same condensed system font stack as the Hub, with no web-font download.
 - **Browser-local storage.** Work lives in one browser on one device. Clearing site data erases it. A candidate who switches machines must export and import. The app says this in three places.
 - **Time-of-day inference.** Without an AM/PM marker, hours 1–5 are read as afternoon and 6–11 as morning, the same baseball-day rule as the Hub. Evening times should be typed with `p` (`7:05p`). This only affects calculated durations and sorting. The text always displays as typed.
 - **Scheduled time** on the overview counts only rows that have both a start and an end time, grouped by each row's category dot. Untimed rows are listed as not counted.
